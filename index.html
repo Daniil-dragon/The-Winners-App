@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#131c2f"><title>字 Графемы 0.5.6 — кайшу и прописи</title><script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script><style>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#131c2f"><title>字 Графемы 0.5.7 — улучшения интерфейса</title><script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script><style>
 :root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#19243b;background:#f5f7fc;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}header{background:linear-gradient(115deg,#17243e,#344f84);color:white;padding:26px max(20px,calc((100vw - 1080px)/2)) 23px}h1{margin:0;font-size:27px;letter-spacing:-.5px}header p{margin:7px 0 0;color:#ced8eb;line-height:1.5}.wrap{max-width:1080px;margin:auto;padding:19px 18px 80px}.tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px}.tab{white-space:nowrap;border:0;border-radius:13px;padding:12px 15px;background:#e8edf7;color:#334664;font-weight:700}.tab.on{background:#294976;color:white}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:17px 0}.stat{background:white;border:1px solid #e2e8f3;border-radius:16px;padding:15px}.stat strong{display:block;font-size:23px}.stat span{color:#65748b;font-size:12px}.panel{background:white;border:1px solid #e2e8f2;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 4px 24px #2f40600a}.panel h2{font-size:19px;margin:0 0 11px}.hint{color:#6a7890;line-height:1.5}.filters{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.filters input,.filters select{border:1px solid #cdd6e6;border-radius:11px;padding:12px;background:white;min-width:0}.filters input{flex:1 1 180px}.filters select{flex:1 1 170px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(111px,1fr));gap:10px}.tile{border:1px solid #e1e6ef;background:white;border-radius:15px;min-height:126px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:9px 5px;gap:4px;text-align:center}.tile:hover{border-color:#5c7caf}.tile.known{border:2px solid #21976b;background:#e8f8ef;box-shadow:0 0 0 1px #21976b18}.tile.known .char{color:#14694c}.tile.learning{border:2px solid #d7a047;background:#fff7e8}.tile .tile-state{font-size:11px;font-weight:700;color:#14694c}.tile.learning .tile-state{color:#986414}.char{font-family:'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif;font-size:45px;line-height:1.25;font-weight:500}.muted{color:#6b7d96}.tile .muted{font-size:11px}.tile small{font-size:11px;color:#40546e}.pill{display:inline-block;padding:5px 8px;border-radius:40px;background:#e7edf6;color:#35506f;font-size:11px;font-weight:700}.group1{background:#eaf1ff;color:#385d96}.group2{background:#e8f7ed;color:#286446}.group3{background:#fff2d9;color:#8a5a12}.familygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}.family{border:1px solid #e2e7f0;border-radius:15px;padding:15px}.family h3{margin:0;display:flex;align-items:center;gap:10px}.family .char{font-size:35px}.example{display:inline-flex;flex-direction:column;gap:3px;padding:9px;margin:6px 5px 0 0;background:#f3f6fb;border-radius:10px;min-width:83px}.example b{font-weight:600}.example small{color:#66758a;font-size:11px}.btn{background:#294976;color:white;border:0;border-radius:12px;padding:12px 15px;font-weight:700}.btn.alt{background:#eef2fa;color:#294976}.btn.good{background:#22865d}.btn.bad{background:#d86767}.btn:disabled{opacity:.5}.study{max-width:550px;margin:12px auto;text-align:center}.herochar{font-size:115px;margin:25px 0 13px;font-family:'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif}.quiz-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.quiz-options button{padding:17px 8px;background:#f3f6fc;border:1px solid #dae3f1;border-radius:12px}.quiz-options button.correct{background:#d8f6e6;border-color:#35a473}.quiz-options button.wrong{background:#ffe2df;border-color:#d46a65}.flex{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.space{justify-content:space-between}.notice{border-left:4px solid #85a0cb;background:#eef3fc;border-radius:10px;padding:12px 14px;line-height:1.55}.empty{text-align:center;padding:30px;color:#6980a0}footer{color:#71829a;text-align:center;padding:20px;font-size:12px;line-height:1.6}@media(max-width:600px){header{padding:24px 18px}.wrap{padding:14px 12px 65px}.stat{padding:11px}.stat strong{font-size:20px}.tab{padding:11px}.quiz-options{grid-template-columns:1fr}.panel{padding:14px}}
 
 /* Version 0.5: writing studio */
@@ -17,1504 +17,1504 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
 </style></head><body><header><h1>字 Графемы</h1><p>214 ключей Канси · 30 фонетических семейств · карточки и тренировки</p></header><main class="wrap"><nav class="tabs" id="tabs"><button class="tab on" data-tab="radicals">214 ключей</button><button class="tab" data-tab="families">Фонетики</button><button class="tab" data-tab="study">Карточки</button><button class="tab" data-tab="writing">✍ Прописи</button><button class="tab" data-tab="quiz">Проверка</button><button class="tab" data-tab="progress">Прогресс</button></nav><div class="stats" id="stats"></div><section id="app"></section><footer>Учебные группы — практическая классификация, а не строгая лингвистическая. Ключи Канси не равны всем графемам и фонетикам. Данные и прогресс хранятся локально в браузере.</footer></main><script>const DB={
   "radicals": [
     {
-      "id": 1,
-      "hanzi": "一",
-      "display": "一",
-      "meaning": "один",
-      "group": 2
+        "id": 1,
+        "hanzi": "一",
+        "display": "一",
+        "meaning": "один",
+        "group": 2
     },
     {
-      "id": 2,
-      "hanzi": "丨",
-      "display": "丨",
-      "meaning": "вертикальная черта",
-      "group": 1
+        "id": 2,
+        "hanzi": "丨",
+        "display": "丨",
+        "meaning": "вертикальная черта",
+        "group": 1
     },
     {
-      "id": 3,
-      "hanzi": "丶",
-      "display": "丶",
-      "meaning": "точка",
-      "group": 1
+        "id": 3,
+        "hanzi": "丶",
+        "display": "丶",
+        "meaning": "точка",
+        "group": 1
     },
     {
-      "id": 4,
-      "hanzi": "丿",
-      "display": "丿",
-      "meaning": "косая черта",
-      "group": 1
+        "id": 4,
+        "hanzi": "丿",
+        "display": "丿",
+        "meaning": "косая черта",
+        "group": 1
     },
     {
-      "id": 5,
-      "hanzi": "乙",
-      "display": "乙",
-      "meaning": "второй; изгиб",
-      "group": 2
+        "id": 5,
+        "hanzi": "乙",
+        "display": "乙",
+        "meaning": "второй; изгиб",
+        "group": 2
     },
     {
-      "id": 6,
-      "hanzi": "亅",
-      "display": "亅",
-      "meaning": "крюк",
-      "group": 1
+        "id": 6,
+        "hanzi": "亅",
+        "display": "亅",
+        "meaning": "крюк",
+        "group": 1
     },
     {
-      "id": 7,
-      "hanzi": "二",
-      "display": "二",
-      "meaning": "два",
-      "group": 2
+        "id": 7,
+        "hanzi": "二",
+        "display": "二",
+        "meaning": "два",
+        "group": 2
     },
     {
-      "id": 8,
-      "hanzi": "亠",
-      "display": "亠",
-      "meaning": "крышка",
-      "group": 1
+        "id": 8,
+        "hanzi": "亠",
+        "display": "亠",
+        "meaning": "крышка",
+        "group": 1
     },
     {
-      "id": 9,
-      "hanzi": "人",
-      "display": "人",
-      "meaning": "человек",
-      "group": 2
+        "id": 9,
+        "hanzi": "人",
+        "display": "人",
+        "meaning": "человек",
+        "group": 2
     },
     {
-      "id": 10,
-      "hanzi": "儿",
-      "display": "儿",
-      "meaning": "ноги",
-      "group": 1
+        "id": 10,
+        "hanzi": "儿",
+        "display": "儿",
+        "meaning": "ноги (как ключ); ребёнок, сын (самостоятельный знак)",
+        "group": 1
     },
     {
-      "id": 11,
-      "hanzi": "入",
-      "display": "入",
-      "meaning": "входить",
-      "group": 2
+        "id": 11,
+        "hanzi": "入",
+        "display": "入",
+        "meaning": "входить",
+        "group": 2
     },
     {
-      "id": 12,
-      "hanzi": "八",
-      "display": "八",
-      "meaning": "восемь",
-      "group": 2
+        "id": 12,
+        "hanzi": "八",
+        "display": "八",
+        "meaning": "восемь",
+        "group": 2
     },
     {
-      "id": 13,
-      "hanzi": "冂",
-      "display": "冂",
-      "meaning": "открытая рамка",
-      "group": 1
+        "id": 13,
+        "hanzi": "冂",
+        "display": "冂",
+        "meaning": "открытая рамка",
+        "group": 1
     },
     {
-      "id": 14,
-      "hanzi": "冖",
-      "display": "冖",
-      "meaning": "покрывало",
-      "group": 1
+        "id": 14,
+        "hanzi": "冖",
+        "display": "冖",
+        "meaning": "покрывало",
+        "group": 1
     },
     {
-      "id": 15,
-      "hanzi": "冫",
-      "display": "冫",
-      "meaning": "лёд",
-      "group": 1
+        "id": 15,
+        "hanzi": "冫",
+        "display": "冫",
+        "meaning": "лёд",
+        "group": 1
     },
     {
-      "id": 16,
-      "hanzi": "几",
-      "display": "几",
-      "meaning": "столик",
-      "group": 2
+        "id": 16,
+        "hanzi": "几",
+        "display": "几",
+        "meaning": "столик",
+        "group": 2
     },
     {
-      "id": 17,
-      "hanzi": "凵",
-      "display": "凵",
-      "meaning": "открытый сосуд",
-      "group": 1
+        "id": 17,
+        "hanzi": "凵",
+        "display": "凵",
+        "meaning": "открытый сосуд",
+        "group": 1
     },
     {
-      "id": 18,
-      "hanzi": "刀",
-      "display": "刀",
-      "meaning": "нож",
-      "group": 2
+        "id": 18,
+        "hanzi": "刀",
+        "display": "刀",
+        "meaning": "нож",
+        "group": 2
     },
     {
-      "id": 19,
-      "hanzi": "力",
-      "display": "力",
-      "meaning": "сила",
-      "group": 2
+        "id": 19,
+        "hanzi": "力",
+        "display": "力",
+        "meaning": "сила",
+        "group": 2
     },
     {
-      "id": 20,
-      "hanzi": "勹",
-      "display": "勹",
-      "meaning": "обёртывать",
-      "group": 1
+        "id": 20,
+        "hanzi": "勹",
+        "display": "勹",
+        "meaning": "обёртывать",
+        "group": 1
     },
     {
-      "id": 21,
-      "hanzi": "匕",
-      "display": "匕",
-      "meaning": "ложка",
-      "group": 2
+        "id": 21,
+        "hanzi": "匕",
+        "display": "匕",
+        "meaning": "ложка",
+        "group": 2
     },
     {
-      "id": 22,
-      "hanzi": "匚",
-      "display": "匚",
-      "meaning": "коробка",
-      "group": 1
+        "id": 22,
+        "hanzi": "匚",
+        "display": "匚",
+        "meaning": "коробка",
+        "group": 1
     },
     {
-      "id": 23,
-      "hanzi": "匸",
-      "display": "匸",
-      "meaning": "тайник",
-      "group": 1
+        "id": 23,
+        "hanzi": "匸",
+        "display": "匸",
+        "meaning": "тайник",
+        "group": 1
     },
     {
-      "id": 24,
-      "hanzi": "十",
-      "display": "十",
-      "meaning": "десять",
-      "group": 2
+        "id": 24,
+        "hanzi": "十",
+        "display": "十",
+        "meaning": "десять",
+        "group": 2
     },
     {
-      "id": 25,
-      "hanzi": "卜",
-      "display": "卜",
-      "meaning": "гадание",
-      "group": 2
+        "id": 25,
+        "hanzi": "卜",
+        "display": "卜",
+        "meaning": "гадание",
+        "group": 2
     },
     {
-      "id": 26,
-      "hanzi": "卩",
-      "display": "卩",
-      "meaning": "печать",
-      "group": 1
+        "id": 26,
+        "hanzi": "卩",
+        "display": "卩",
+        "meaning": "печать",
+        "group": 1
     },
     {
-      "id": 27,
-      "hanzi": "厂",
-      "display": "厂",
-      "meaning": "обрыв",
-      "group": 2
+        "id": 27,
+        "hanzi": "厂",
+        "display": "厂",
+        "meaning": "обрыв",
+        "group": 2
     },
     {
-      "id": 28,
-      "hanzi": "厶",
-      "display": "厶",
-      "meaning": "личный",
-      "group": 1
+        "id": 28,
+        "hanzi": "厶",
+        "display": "厶",
+        "meaning": "личный",
+        "group": 1
     },
     {
-      "id": 29,
-      "hanzi": "又",
-      "display": "又",
-      "meaning": "снова",
-      "group": 2
+        "id": 29,
+        "hanzi": "又",
+        "display": "又",
+        "meaning": "снова",
+        "group": 2
     },
     {
-      "id": 30,
-      "hanzi": "口",
-      "display": "口",
-      "meaning": "рот",
-      "group": 2
+        "id": 30,
+        "hanzi": "口",
+        "display": "口",
+        "meaning": "рот",
+        "group": 2
     },
     {
-      "id": 31,
-      "hanzi": "囗",
-      "display": "囗",
-      "meaning": "ограда",
-      "group": 1
+        "id": 31,
+        "hanzi": "囗",
+        "display": "囗",
+        "meaning": "ограда",
+        "group": 1
     },
     {
-      "id": 32,
-      "hanzi": "土",
-      "display": "土",
-      "meaning": "земля",
-      "group": 2
+        "id": 32,
+        "hanzi": "土",
+        "display": "土",
+        "meaning": "земля",
+        "group": 2
     },
     {
-      "id": 33,
-      "hanzi": "士",
-      "display": "士",
-      "meaning": "учёный",
-      "group": 2
+        "id": 33,
+        "hanzi": "士",
+        "display": "士",
+        "meaning": "учёный",
+        "group": 2
     },
     {
-      "id": 34,
-      "hanzi": "夂",
-      "display": "夂",
-      "meaning": "идти назад",
-      "group": 1
+        "id": 34,
+        "hanzi": "夂",
+        "display": "夂",
+        "meaning": "идти назад",
+        "group": 1
     },
     {
-      "id": 35,
-      "hanzi": "夊",
-      "display": "夊",
-      "meaning": "идти медленно",
-      "group": 1
+        "id": 35,
+        "hanzi": "夊",
+        "display": "夊",
+        "meaning": "идти медленно",
+        "group": 1
     },
     {
-      "id": 36,
-      "hanzi": "夕",
-      "display": "夕",
-      "meaning": "вечер",
-      "group": 2
+        "id": 36,
+        "hanzi": "夕",
+        "display": "夕",
+        "meaning": "вечер",
+        "group": 2
     },
     {
-      "id": 37,
-      "hanzi": "大",
-      "display": "大",
-      "meaning": "большой",
-      "group": 2
+        "id": 37,
+        "hanzi": "大",
+        "display": "大",
+        "meaning": "большой",
+        "group": 2
     },
     {
-      "id": 38,
-      "hanzi": "女",
-      "display": "女",
-      "meaning": "женщина",
-      "group": 2
+        "id": 38,
+        "hanzi": "女",
+        "display": "女",
+        "meaning": "женщина",
+        "group": 2
     },
     {
-      "id": 39,
-      "hanzi": "子",
-      "display": "子",
-      "meaning": "ребёнок",
-      "group": 2
+        "id": 39,
+        "hanzi": "子",
+        "display": "子",
+        "meaning": "ребёнок",
+        "group": 2
     },
     {
-      "id": 40,
-      "hanzi": "宀",
-      "display": "宀",
-      "meaning": "крыша",
-      "group": 1
+        "id": 40,
+        "hanzi": "宀",
+        "display": "宀",
+        "meaning": "крыша",
+        "group": 1
     },
     {
-      "id": 41,
-      "hanzi": "寸",
-      "display": "寸",
-      "meaning": "дюйм",
-      "group": 2
+        "id": 41,
+        "hanzi": "寸",
+        "display": "寸",
+        "meaning": "дюйм",
+        "group": 2
     },
     {
-      "id": 42,
-      "hanzi": "小",
-      "display": "小",
-      "meaning": "маленький",
-      "group": 2
+        "id": 42,
+        "hanzi": "小",
+        "display": "小",
+        "meaning": "маленький",
+        "group": 2
     },
     {
-      "id": 43,
-      "hanzi": "尢",
-      "display": "尢",
-      "meaning": "хромой",
-      "group": 1
+        "id": 43,
+        "hanzi": "尢",
+        "display": "尢",
+        "meaning": "хромой",
+        "group": 1
     },
     {
-      "id": 44,
-      "hanzi": "尸",
-      "display": "尸",
-      "meaning": "труп",
-      "group": 2
+        "id": 44,
+        "hanzi": "尸",
+        "display": "尸",
+        "meaning": "труп",
+        "group": 2
     },
     {
-      "id": 45,
-      "hanzi": "屮",
-      "display": "屮",
-      "meaning": "росток",
-      "group": 1
+        "id": 45,
+        "hanzi": "屮",
+        "display": "屮",
+        "meaning": "росток",
+        "group": 1
     },
     {
-      "id": 46,
-      "hanzi": "山",
-      "display": "山",
-      "meaning": "гора",
-      "group": 2
+        "id": 46,
+        "hanzi": "山",
+        "display": "山",
+        "meaning": "гора",
+        "group": 2
     },
     {
-      "id": 47,
-      "hanzi": "巛",
-      "display": "巛",
-      "meaning": "река; извилина",
-      "group": 1
+        "id": 47,
+        "hanzi": "巛",
+        "display": "巛",
+        "meaning": "река; извилина",
+        "group": 1
     },
     {
-      "id": 48,
-      "hanzi": "工",
-      "display": "工",
-      "meaning": "работа",
-      "group": 3
+        "id": 48,
+        "hanzi": "工",
+        "display": "工",
+        "meaning": "работа",
+        "group": 3
     },
     {
-      "id": 49,
-      "hanzi": "己",
-      "display": "己",
-      "meaning": "сам",
-      "group": 2
+        "id": 49,
+        "hanzi": "己",
+        "display": "己",
+        "meaning": "сам",
+        "group": 2
     },
     {
-      "id": 50,
-      "hanzi": "巾",
-      "display": "巾",
-      "meaning": "полотенце",
-      "group": 2
+        "id": 50,
+        "hanzi": "巾",
+        "display": "巾",
+        "meaning": "полотенце",
+        "group": 2
     },
     {
-      "id": 51,
-      "hanzi": "干",
-      "display": "干",
-      "meaning": "сухой; ствол",
-      "group": 2
+        "id": 51,
+        "hanzi": "干",
+        "display": "干",
+        "meaning": "сухой; ствол",
+        "group": 2
     },
     {
-      "id": 52,
-      "hanzi": "幺",
-      "display": "幺",
-      "meaning": "нить",
-      "group": 1
+        "id": 52,
+        "hanzi": "幺",
+        "display": "幺",
+        "meaning": "нить",
+        "group": 1
     },
     {
-      "id": 53,
-      "hanzi": "广",
-      "display": "广",
-      "meaning": "широкий навес",
-      "group": 2
+        "id": 53,
+        "hanzi": "广",
+        "display": "广",
+        "meaning": "широкий навес",
+        "group": 2
     },
     {
-      "id": 54,
-      "hanzi": "廴",
-      "display": "廴",
-      "meaning": "длинный шаг",
-      "group": 1
+        "id": 54,
+        "hanzi": "廴",
+        "display": "廴",
+        "meaning": "длинный шаг",
+        "group": 1
     },
     {
-      "id": 55,
-      "hanzi": "廾",
-      "display": "廾",
-      "meaning": "сложенные руки",
-      "group": 1
+        "id": 55,
+        "hanzi": "廾",
+        "display": "廾",
+        "meaning": "сложенные руки",
+        "group": 1
     },
     {
-      "id": 56,
-      "hanzi": "弋",
-      "display": "弋",
-      "meaning": "стрела с нитью",
-      "group": 1
+        "id": 56,
+        "hanzi": "弋",
+        "display": "弋",
+        "meaning": "стрела с нитью",
+        "group": 1
     },
     {
-      "id": 57,
-      "hanzi": "弓",
-      "display": "弓",
-      "meaning": "лук",
-      "group": 2
+        "id": 57,
+        "hanzi": "弓",
+        "display": "弓",
+        "meaning": "лук",
+        "group": 2
     },
     {
-      "id": 58,
-      "hanzi": "彐",
-      "display": "彐",
-      "meaning": "свиная голова",
-      "group": 1
+        "id": 58,
+        "hanzi": "彐",
+        "display": "彐",
+        "meaning": "свиная голова",
+        "group": 1
     },
     {
-      "id": 59,
-      "hanzi": "彡",
-      "display": "彡",
-      "meaning": "перья; штрихи",
-      "group": 1
+        "id": 59,
+        "hanzi": "彡",
+        "display": "彡",
+        "meaning": "перья; штрихи",
+        "group": 1
     },
     {
-      "id": 60,
-      "hanzi": "彳",
-      "display": "彳",
-      "meaning": "шаг",
-      "group": 1
+        "id": 60,
+        "hanzi": "彳",
+        "display": "彳",
+        "meaning": "шаг",
+        "group": 1
     },
     {
-      "id": 61,
-      "hanzi": "心",
-      "display": "心",
-      "meaning": "сердце",
-      "group": 2
+        "id": 61,
+        "hanzi": "心",
+        "display": "心",
+        "meaning": "сердце",
+        "group": 2
     },
     {
-      "id": 62,
-      "hanzi": "戈",
-      "display": "戈",
-      "meaning": "копьё",
-      "group": 2
+        "id": 62,
+        "hanzi": "戈",
+        "display": "戈",
+        "meaning": "копьё",
+        "group": 2
     },
     {
-      "id": 63,
-      "hanzi": "戶",
-      "display": "戶",
-      "meaning": "дверь (одна створка)",
-      "group": 2
+        "id": 63,
+        "hanzi": "戶",
+        "display": "戶",
+        "meaning": "дверь (одна створка)",
+        "group": 2
     },
     {
-      "id": 64,
-      "hanzi": "手",
-      "display": "户",
-      "meaning": "рука",
-      "group": 2
+        "id": 64,
+        "hanzi": "手",
+        "display": "户",
+        "meaning": "рука",
+        "group": 2
     },
     {
-      "id": 65,
-      "hanzi": "支",
-      "display": "支",
-      "meaning": "ветвь",
-      "group": 2
+        "id": 65,
+        "hanzi": "支",
+        "display": "支",
+        "meaning": "ветвь",
+        "group": 2
     },
     {
-      "id": 66,
-      "hanzi": "攴",
-      "display": "攴",
-      "meaning": "удар",
-      "group": 1
+        "id": 66,
+        "hanzi": "攴",
+        "display": "攴",
+        "meaning": "удар",
+        "group": 1
     },
     {
-      "id": 67,
-      "hanzi": "文",
-      "display": "文",
-      "meaning": "письменность",
-      "group": 2
+        "id": 67,
+        "hanzi": "文",
+        "display": "文",
+        "meaning": "письменность",
+        "group": 2
     },
     {
-      "id": 68,
-      "hanzi": "斗",
-      "display": "斗",
-      "meaning": "ковш",
-      "group": 2
+        "id": 68,
+        "hanzi": "斗",
+        "display": "斗",
+        "meaning": "ковш",
+        "group": 2
     },
     {
-      "id": 69,
-      "hanzi": "斤",
-      "display": "斤",
-      "meaning": "топор",
-      "group": 2
+        "id": 69,
+        "hanzi": "斤",
+        "display": "斤",
+        "meaning": "топор",
+        "group": 2
     },
     {
-      "id": 70,
-      "hanzi": "方",
-      "display": "方",
-      "meaning": "направление",
-      "group": 3
+        "id": 70,
+        "hanzi": "方",
+        "display": "方",
+        "meaning": "направление",
+        "group": 3
     },
     {
-      "id": 71,
-      "hanzi": "无",
-      "display": "无",
-      "meaning": "не",
-      "group": 2
+        "id": 71,
+        "hanzi": "无",
+        "display": "无",
+        "meaning": "не",
+        "group": 2
     },
     {
-      "id": 72,
-      "hanzi": "日",
-      "display": "日",
-      "meaning": "солнце",
-      "group": 2
+        "id": 72,
+        "hanzi": "日",
+        "display": "日",
+        "meaning": "солнце",
+        "group": 2
     },
     {
-      "id": 73,
-      "hanzi": "曰",
-      "display": "曰",
-      "meaning": "говорить",
-      "group": 1
+        "id": 73,
+        "hanzi": "曰",
+        "display": "曰",
+        "meaning": "говорить",
+        "group": 1
     },
     {
-      "id": 74,
-      "hanzi": "月",
-      "display": "月",
-      "meaning": "луна",
-      "group": 2
+        "id": 74,
+        "hanzi": "月",
+        "display": "月",
+        "meaning": "луна",
+        "group": 2
     },
     {
-      "id": 75,
-      "hanzi": "木",
-      "display": "木",
-      "meaning": "дерево",
-      "group": 2
+        "id": 75,
+        "hanzi": "木",
+        "display": "木",
+        "meaning": "дерево",
+        "group": 2
     },
     {
-      "id": 76,
-      "hanzi": "欠",
-      "display": "欠",
-      "meaning": "недоставать",
-      "group": 2
+        "id": 76,
+        "hanzi": "欠",
+        "display": "欠",
+        "meaning": "недоставать",
+        "group": 2
     },
     {
-      "id": 77,
-      "hanzi": "止",
-      "display": "止",
-      "meaning": "останавливаться",
-      "group": 2
+        "id": 77,
+        "hanzi": "止",
+        "display": "止",
+        "meaning": "останавливаться",
+        "group": 2
     },
     {
-      "id": 78,
-      "hanzi": "歹",
-      "display": "歹",
-      "meaning": "смерть; останки",
-      "group": 2
+        "id": 78,
+        "hanzi": "歹",
+        "display": "歹",
+        "meaning": "смерть; останки",
+        "group": 2
     },
     {
-      "id": 79,
-      "hanzi": "殳",
-      "display": "殳",
-      "meaning": "оружие",
-      "group": 1
+        "id": 79,
+        "hanzi": "殳",
+        "display": "殳",
+        "meaning": "оружие",
+        "group": 1
     },
     {
-      "id": 80,
-      "hanzi": "毋",
-      "display": "毋",
-      "meaning": "не делай",
-      "group": 2
+        "id": 80,
+        "hanzi": "毋",
+        "display": "毋",
+        "meaning": "не делай",
+        "group": 2
     },
     {
-      "id": 81,
-      "hanzi": "比",
-      "display": "比",
-      "meaning": "сравнивать",
-      "group": 2
+        "id": 81,
+        "hanzi": "比",
+        "display": "比",
+        "meaning": "сравнивать",
+        "group": 2
     },
     {
-      "id": 82,
-      "hanzi": "毛",
-      "display": "毛",
-      "meaning": "шерсть",
-      "group": 2
+        "id": 82,
+        "hanzi": "毛",
+        "display": "毛",
+        "meaning": "шерсть",
+        "group": 2
     },
     {
-      "id": 83,
-      "hanzi": "氏",
-      "display": "氏",
-      "meaning": "род",
-      "group": 2
+        "id": 83,
+        "hanzi": "氏",
+        "display": "氏",
+        "meaning": "род",
+        "group": 2
     },
     {
-      "id": 84,
-      "hanzi": "气",
-      "display": "气",
-      "meaning": "пар",
-      "group": 2
+        "id": 84,
+        "hanzi": "气",
+        "display": "气",
+        "meaning": "пар",
+        "group": 2
     },
     {
-      "id": 85,
-      "hanzi": "水",
-      "display": "水",
-      "meaning": "вода",
-      "group": 2
+        "id": 85,
+        "hanzi": "水",
+        "display": "水",
+        "meaning": "вода",
+        "group": 2
     },
     {
-      "id": 86,
-      "hanzi": "火",
-      "display": "火",
-      "meaning": "огонь",
-      "group": 2
+        "id": 86,
+        "hanzi": "火",
+        "display": "火",
+        "meaning": "огонь",
+        "group": 2
     },
     {
-      "id": 87,
-      "hanzi": "爪",
-      "display": "爪",
-      "meaning": "коготь",
-      "group": 2
+        "id": 87,
+        "hanzi": "爪",
+        "display": "爪",
+        "meaning": "коготь",
+        "group": 2
     },
     {
-      "id": 88,
-      "hanzi": "父",
-      "display": "父",
-      "meaning": "отец",
-      "group": 2
+        "id": 88,
+        "hanzi": "父",
+        "display": "父",
+        "meaning": "отец",
+        "group": 2
     },
     {
-      "id": 89,
-      "hanzi": "爻",
-      "display": "爻",
-      "meaning": "перекрещивание",
-      "group": 1
+        "id": 89,
+        "hanzi": "爻",
+        "display": "爻",
+        "meaning": "перекрещивание",
+        "group": 1
     },
     {
-      "id": 90,
-      "hanzi": "爿",
-      "display": "丬",
-      "meaning": "половина дерева",
-      "group": 1
+        "id": 90,
+        "hanzi": "爿",
+        "display": "丬",
+        "meaning": "расщеплённое дерево; левая половина ствола",
+        "group": 1
     },
     {
-      "id": 91,
-      "hanzi": "片",
-      "display": "片",
-      "meaning": "пластина",
-      "group": 2
+        "id": 91,
+        "hanzi": "片",
+        "display": "片",
+        "meaning": "пластина",
+        "group": 2
     },
     {
-      "id": 92,
-      "hanzi": "牙",
-      "display": "牙",
-      "meaning": "клык",
-      "group": 2
+        "id": 92,
+        "hanzi": "牙",
+        "display": "牙",
+        "meaning": "клык",
+        "group": 2
     },
     {
-      "id": 93,
-      "hanzi": "牛",
-      "display": "牛",
-      "meaning": "корова",
-      "group": 2
+        "id": 93,
+        "hanzi": "牛",
+        "display": "牛",
+        "meaning": "корова",
+        "group": 2
     },
     {
-      "id": 94,
-      "hanzi": "犬",
-      "display": "犬",
-      "meaning": "собака",
-      "group": 2
+        "id": 94,
+        "hanzi": "犬",
+        "display": "犬",
+        "meaning": "собака",
+        "group": 2
     },
     {
-      "id": 95,
-      "hanzi": "玄",
-      "display": "玄",
-      "meaning": "тёмный",
-      "group": 2
+        "id": 95,
+        "hanzi": "玄",
+        "display": "玄",
+        "meaning": "тёмный",
+        "group": 2
     },
     {
-      "id": 96,
-      "hanzi": "玉",
-      "display": "玉",
-      "meaning": "нефрит",
-      "group": 2
+        "id": 96,
+        "hanzi": "玉",
+        "display": "玉",
+        "meaning": "нефрит",
+        "group": 2
     },
     {
-      "id": 97,
-      "hanzi": "瓜",
-      "display": "瓜",
-      "meaning": "дыня",
-      "group": 2
+        "id": 97,
+        "hanzi": "瓜",
+        "display": "瓜",
+        "meaning": "дыня",
+        "group": 2
     },
     {
-      "id": 98,
-      "hanzi": "瓦",
-      "display": "瓦",
-      "meaning": "черепица",
-      "group": 2
+        "id": 98,
+        "hanzi": "瓦",
+        "display": "瓦",
+        "meaning": "черепица",
+        "group": 2
     },
     {
-      "id": 99,
-      "hanzi": "甘",
-      "display": "甘",
-      "meaning": "сладкий",
-      "group": 2
+        "id": 99,
+        "hanzi": "甘",
+        "display": "甘",
+        "meaning": "сладкий",
+        "group": 2
     },
     {
-      "id": 100,
-      "hanzi": "生",
-      "display": "生",
-      "meaning": "жизнь; рождаться",
-      "group": 3
+        "id": 100,
+        "hanzi": "生",
+        "display": "生",
+        "meaning": "жизнь; рождаться",
+        "group": 3
     },
     {
-      "id": 101,
-      "hanzi": "用",
-      "display": "用",
-      "meaning": "использовать",
-      "group": 2
+        "id": 101,
+        "hanzi": "用",
+        "display": "用",
+        "meaning": "использовать",
+        "group": 2
     },
     {
-      "id": 102,
-      "hanzi": "田",
-      "display": "田",
-      "meaning": "поле",
-      "group": 2
+        "id": 102,
+        "hanzi": "田",
+        "display": "田",
+        "meaning": "поле",
+        "group": 2
     },
     {
-      "id": 103,
-      "hanzi": "疋",
-      "display": "疋",
-      "meaning": "свиток; нога",
-      "group": 1
+        "id": 103,
+        "hanzi": "疋",
+        "display": "疋",
+        "meaning": "рулон ткани; нога (в некоторых употреблениях)",
+        "group": 1
     },
     {
-      "id": 104,
-      "hanzi": "疒",
-      "display": "疒",
-      "meaning": "болезнь",
-      "group": 1
+        "id": 104,
+        "hanzi": "疒",
+        "display": "疒",
+        "meaning": "болезнь",
+        "group": 1
     },
     {
-      "id": 105,
-      "hanzi": "癶",
-      "display": "癶",
-      "meaning": "шаги",
-      "group": 1
+        "id": 105,
+        "hanzi": "癶",
+        "display": "癶",
+        "meaning": "шаги",
+        "group": 1
     },
     {
-      "id": 106,
-      "hanzi": "白",
-      "display": "白",
-      "meaning": "белый",
-      "group": 2
+        "id": 106,
+        "hanzi": "白",
+        "display": "白",
+        "meaning": "белый",
+        "group": 2
     },
     {
-      "id": 107,
-      "hanzi": "皮",
-      "display": "皮",
-      "meaning": "кожа",
-      "group": 3
+        "id": 107,
+        "hanzi": "皮",
+        "display": "皮",
+        "meaning": "кожа",
+        "group": 3
     },
     {
-      "id": 108,
-      "hanzi": "皿",
-      "display": "皿",
-      "meaning": "сосуд",
-      "group": 2
+        "id": 108,
+        "hanzi": "皿",
+        "display": "皿",
+        "meaning": "сосуд",
+        "group": 2
     },
     {
-      "id": 109,
-      "hanzi": "目",
-      "display": "目",
-      "meaning": "глаз",
-      "group": 2
+        "id": 109,
+        "hanzi": "目",
+        "display": "目",
+        "meaning": "глаз",
+        "group": 2
     },
     {
-      "id": 110,
-      "hanzi": "矛",
-      "display": "矛",
-      "meaning": "копьё",
-      "group": 2
+        "id": 110,
+        "hanzi": "矛",
+        "display": "矛",
+        "meaning": "копьё",
+        "group": 2
     },
     {
-      "id": 111,
-      "hanzi": "矢",
-      "display": "矢",
-      "meaning": "стрела",
-      "group": 2
+        "id": 111,
+        "hanzi": "矢",
+        "display": "矢",
+        "meaning": "стрела",
+        "group": 2
     },
     {
-      "id": 112,
-      "hanzi": "石",
-      "display": "石",
-      "meaning": "камень",
-      "group": 2
+        "id": 112,
+        "hanzi": "石",
+        "display": "石",
+        "meaning": "камень",
+        "group": 2
     },
     {
-      "id": 113,
-      "hanzi": "示",
-      "display": "示",
-      "meaning": "алтарь",
-      "group": 2
+        "id": 113,
+        "hanzi": "示",
+        "display": "示",
+        "meaning": "алтарь; обряд",
+        "group": 2
     },
     {
-      "id": 114,
-      "hanzi": "禸",
-      "display": "禸",
-      "meaning": "след",
-      "group": 1
+        "id": 114,
+        "hanzi": "禸",
+        "display": "禸",
+        "meaning": "след",
+        "group": 1
     },
     {
-      "id": 115,
-      "hanzi": "禾",
-      "display": "禾",
-      "meaning": "злак",
-      "group": 2
+        "id": 115,
+        "hanzi": "禾",
+        "display": "禾",
+        "meaning": "злак",
+        "group": 2
     },
     {
-      "id": 116,
-      "hanzi": "穴",
-      "display": "穴",
-      "meaning": "пещера",
-      "group": 2
+        "id": 116,
+        "hanzi": "穴",
+        "display": "穴",
+        "meaning": "пещера",
+        "group": 2
     },
     {
-      "id": 117,
-      "hanzi": "立",
-      "display": "立",
-      "meaning": "стоять",
-      "group": 2
+        "id": 117,
+        "hanzi": "立",
+        "display": "立",
+        "meaning": "стоять",
+        "group": 2
     },
     {
-      "id": 118,
-      "hanzi": "竹",
-      "display": "竹",
-      "meaning": "бамбук",
-      "group": 2
+        "id": 118,
+        "hanzi": "竹",
+        "display": "竹",
+        "meaning": "бамбук",
+        "group": 2
     },
     {
-      "id": 119,
-      "hanzi": "米",
-      "display": "米",
-      "meaning": "рис",
-      "group": 2
+        "id": 119,
+        "hanzi": "米",
+        "display": "米",
+        "meaning": "рис",
+        "group": 2
     },
     {
-      "id": 120,
-      "hanzi": "糸",
-      "display": "纟",
-      "meaning": "шёлк",
-      "group": 1
+        "id": 120,
+        "hanzi": "糸",
+        "display": "纟",
+        "meaning": "шёлк",
+        "group": 1
     },
     {
-      "id": 121,
-      "hanzi": "缶",
-      "display": "缶",
-      "meaning": "кувшин",
-      "group": 2
+        "id": 121,
+        "hanzi": "缶",
+        "display": "缶",
+        "meaning": "кувшин",
+        "group": 2
     },
     {
-      "id": 122,
-      "hanzi": "网",
-      "display": "网",
-      "meaning": "сеть",
-      "group": 2
+        "id": 122,
+        "hanzi": "网",
+        "display": "网",
+        "meaning": "сеть",
+        "group": 2
     },
     {
-      "id": 123,
-      "hanzi": "羊",
-      "display": "羊",
-      "meaning": "овца",
-      "group": 3
+        "id": 123,
+        "hanzi": "羊",
+        "display": "羊",
+        "meaning": "овца",
+        "group": 3
     },
     {
-      "id": 124,
-      "hanzi": "羽",
-      "display": "羽",
-      "meaning": "перо",
-      "group": 2
+        "id": 124,
+        "hanzi": "羽",
+        "display": "羽",
+        "meaning": "перо",
+        "group": 2
     },
     {
-      "id": 125,
-      "hanzi": "老",
-      "display": "老",
-      "meaning": "старый",
-      "group": 2
+        "id": 125,
+        "hanzi": "老",
+        "display": "老",
+        "meaning": "старый",
+        "group": 2
     },
     {
-      "id": 126,
-      "hanzi": "而",
-      "display": "而",
-      "meaning": "и; а также",
-      "group": 2
+        "id": 126,
+        "hanzi": "而",
+        "display": "而",
+        "meaning": "и; борода (как ключ)",
+        "group": 2
     },
     {
-      "id": 127,
-      "hanzi": "耒",
-      "display": "耒",
-      "meaning": "плуг",
-      "group": 2
+        "id": 127,
+        "hanzi": "耒",
+        "display": "耒",
+        "meaning": "плуг",
+        "group": 2
     },
     {
-      "id": 128,
-      "hanzi": "耳",
-      "display": "耳",
-      "meaning": "ухо",
-      "group": 2
+        "id": 128,
+        "hanzi": "耳",
+        "display": "耳",
+        "meaning": "ухо",
+        "group": 2
     },
     {
-      "id": 129,
-      "hanzi": "聿",
-      "display": "聿",
-      "meaning": "кисть для письма",
-      "group": 1
+        "id": 129,
+        "hanzi": "聿",
+        "display": "聿",
+        "meaning": "кисть для письма",
+        "group": 1
     },
     {
-      "id": 130,
-      "hanzi": "肉",
-      "display": "肉",
-      "meaning": "мясо",
-      "group": 2
+        "id": 130,
+        "hanzi": "肉",
+        "display": "肉",
+        "meaning": "мясо",
+        "group": 2
     },
     {
-      "id": 131,
-      "hanzi": "臣",
-      "display": "臣",
-      "meaning": "слуга",
-      "group": 2
+        "id": 131,
+        "hanzi": "臣",
+        "display": "臣",
+        "meaning": "слуга",
+        "group": 2
     },
     {
-      "id": 132,
-      "hanzi": "自",
-      "display": "自",
-      "meaning": "самостоятельно",
-      "group": 2
+        "id": 132,
+        "hanzi": "自",
+        "display": "自",
+        "meaning": "самостоятельно",
+        "group": 2
     },
     {
-      "id": 133,
-      "hanzi": "至",
-      "display": "至",
-      "meaning": "прибывать",
-      "group": 2
+        "id": 133,
+        "hanzi": "至",
+        "display": "至",
+        "meaning": "прибывать",
+        "group": 2
     },
     {
-      "id": 134,
-      "hanzi": "臼",
-      "display": "臼",
-      "meaning": "ступка",
-      "group": 2
+        "id": 134,
+        "hanzi": "臼",
+        "display": "臼",
+        "meaning": "ступка",
+        "group": 2
     },
     {
-      "id": 135,
-      "hanzi": "舌",
-      "display": "舌",
-      "meaning": "язык",
-      "group": 2
+        "id": 135,
+        "hanzi": "舌",
+        "display": "舌",
+        "meaning": "язык",
+        "group": 2
     },
     {
-      "id": 136,
-      "hanzi": "舛",
-      "display": "舛",
-      "meaning": "противоположные ноги",
-      "group": 1
+        "id": 136,
+        "hanzi": "舛",
+        "display": "舛",
+        "meaning": "противоположные ноги",
+        "group": 1
     },
     {
-      "id": 137,
-      "hanzi": "舟",
-      "display": "舟",
-      "meaning": "лодка",
-      "group": 2
+        "id": 137,
+        "hanzi": "舟",
+        "display": "舟",
+        "meaning": "лодка",
+        "group": 2
     },
     {
-      "id": 138,
-      "hanzi": "艮",
-      "display": "艮",
-      "meaning": "упорство",
-      "group": 2
+        "id": 138,
+        "hanzi": "艮",
+        "display": "艮",
+        "meaning": "останавливаться, упираться",
+        "group": 2
     },
     {
-      "id": 139,
-      "hanzi": "色",
-      "display": "色",
-      "meaning": "цвет",
-      "group": 2
+        "id": 139,
+        "hanzi": "色",
+        "display": "色",
+        "meaning": "цвет",
+        "group": 2
     },
     {
-      "id": 140,
-      "hanzi": "艸",
-      "display": "艹",
-      "meaning": "трава",
-      "group": 1
+        "id": 140,
+        "hanzi": "艸",
+        "display": "艹",
+        "meaning": "трава",
+        "group": 1
     },
     {
-      "id": 141,
-      "hanzi": "虍",
-      "display": "虍",
-      "meaning": "тигр",
-      "group": 1
+        "id": 141,
+        "hanzi": "虍",
+        "display": "虍",
+        "meaning": "тигр",
+        "group": 1
     },
     {
-      "id": 142,
-      "hanzi": "虫",
-      "display": "虫",
-      "meaning": "насекомое",
-      "group": 2
+        "id": 142,
+        "hanzi": "虫",
+        "display": "虫",
+        "meaning": "насекомое",
+        "group": 2
     },
     {
-      "id": 143,
-      "hanzi": "血",
-      "display": "血",
-      "meaning": "кровь",
-      "group": 2
+        "id": 143,
+        "hanzi": "血",
+        "display": "血",
+        "meaning": "кровь",
+        "group": 2
     },
     {
-      "id": 144,
-      "hanzi": "行",
-      "display": "行",
-      "meaning": "идти",
-      "group": 2
+        "id": 144,
+        "hanzi": "行",
+        "display": "行",
+        "meaning": "идти",
+        "group": 2
     },
     {
-      "id": 145,
-      "hanzi": "衣",
-      "display": "衣",
-      "meaning": "одежда",
-      "group": 2
+        "id": 145,
+        "hanzi": "衣",
+        "display": "衣",
+        "meaning": "одежда",
+        "group": 2
     },
     {
-      "id": 146,
-      "hanzi": "襾",
-      "display": "覀",
-      "meaning": "запад; покрывать",
-      "group": 1
+        "id": 146,
+        "hanzi": "襾",
+        "display": "覀",
+        "meaning": "покрывать; запад (самостоятельный знак)",
+        "group": 1
     },
     {
-      "id": 147,
-      "hanzi": "見",
-      "display": "见",
-      "meaning": "видеть",
-      "group": 2
+        "id": 147,
+        "hanzi": "見",
+        "display": "见",
+        "meaning": "видеть",
+        "group": 2
     },
     {
-      "id": 148,
-      "hanzi": "角",
-      "display": "角",
-      "meaning": "рог",
-      "group": 2
+        "id": 148,
+        "hanzi": "角",
+        "display": "角",
+        "meaning": "рог",
+        "group": 2
     },
     {
-      "id": 149,
-      "hanzi": "言",
-      "display": "讠",
-      "meaning": "речь",
-      "group": 2
+        "id": 149,
+        "hanzi": "言",
+        "display": "讠",
+        "meaning": "речь",
+        "group": 2
     },
     {
-      "id": 150,
-      "hanzi": "谷",
-      "display": "谷",
-      "meaning": "долина",
-      "group": 2
+        "id": 150,
+        "hanzi": "谷",
+        "display": "谷",
+        "meaning": "долина",
+        "group": 2
     },
     {
-      "id": 151,
-      "hanzi": "豆",
-      "display": "豆",
-      "meaning": "бобы",
-      "group": 2
+        "id": 151,
+        "hanzi": "豆",
+        "display": "豆",
+        "meaning": "бобы",
+        "group": 2
     },
     {
-      "id": 152,
-      "hanzi": "豕",
-      "display": "豕",
-      "meaning": "свинья",
-      "group": 2
+        "id": 152,
+        "hanzi": "豕",
+        "display": "豕",
+        "meaning": "свинья",
+        "group": 2
     },
     {
-      "id": 153,
-      "hanzi": "豸",
-      "display": "豸",
-      "meaning": "барсук",
-      "group": 1
+        "id": 153,
+        "hanzi": "豸",
+        "display": "豸",
+        "meaning": "хищный зверь; барсук",
+        "group": 1
     },
     {
-      "id": 154,
-      "hanzi": "貝",
-      "display": "贝",
-      "meaning": "раковина; деньги",
-      "group": 2
+        "id": 154,
+        "hanzi": "貝",
+        "display": "贝",
+        "meaning": "раковина; деньги",
+        "group": 2
     },
     {
-      "id": 155,
-      "hanzi": "赤",
-      "display": "赤",
-      "meaning": "красный",
-      "group": 2
+        "id": 155,
+        "hanzi": "赤",
+        "display": "赤",
+        "meaning": "красный",
+        "group": 2
     },
     {
-      "id": 156,
-      "hanzi": "走",
-      "display": "走",
-      "meaning": "бежать",
-      "group": 2
+        "id": 156,
+        "hanzi": "走",
+        "display": "走",
+        "meaning": "бежать",
+        "group": 2
     },
     {
-      "id": 157,
-      "hanzi": "足",
-      "display": "足",
-      "meaning": "нога",
-      "group": 2
+        "id": 157,
+        "hanzi": "足",
+        "display": "足",
+        "meaning": "нога",
+        "group": 2
     },
     {
-      "id": 158,
-      "hanzi": "身",
-      "display": "身",
-      "meaning": "тело",
-      "group": 2
+        "id": 158,
+        "hanzi": "身",
+        "display": "身",
+        "meaning": "тело",
+        "group": 2
     },
     {
-      "id": 159,
-      "hanzi": "車",
-      "display": "车",
-      "meaning": "повозка",
-      "group": 2
+        "id": 159,
+        "hanzi": "車",
+        "display": "车",
+        "meaning": "повозка",
+        "group": 2
     },
     {
-      "id": 160,
-      "hanzi": "辛",
-      "display": "辛",
-      "meaning": "горький",
-      "group": 2
+        "id": 160,
+        "hanzi": "辛",
+        "display": "辛",
+        "meaning": "горький",
+        "group": 2
     },
     {
-      "id": 161,
-      "hanzi": "辰",
-      "display": "辰",
-      "meaning": "утро",
-      "group": 2
+        "id": 161,
+        "hanzi": "辰",
+        "display": "辰",
+        "meaning": "утро",
+        "group": 2
     },
     {
-      "id": 162,
-      "hanzi": "辵",
-      "display": "辶",
-      "meaning": "движение",
-      "group": 1
+        "id": 162,
+        "hanzi": "辵",
+        "display": "辶",
+        "meaning": "движение",
+        "group": 1
     },
     {
-      "id": 163,
-      "hanzi": "邑",
-      "display": "阝",
-      "meaning": "город",
-      "group": 1
+        "id": 163,
+        "hanzi": "邑",
+        "display": "阝",
+        "meaning": "город (правый компонент 阝)",
+        "group": 1
     },
     {
-      "id": 164,
-      "hanzi": "酉",
-      "display": "酉",
-      "meaning": "вино",
-      "group": 2
+        "id": 164,
+        "hanzi": "酉",
+        "display": "酉",
+        "meaning": "вино",
+        "group": 2
     },
     {
-      "id": 165,
-      "hanzi": "釆",
-      "display": "釆",
-      "meaning": "различать",
-      "group": 1
+        "id": 165,
+        "hanzi": "釆",
+        "display": "釆",
+        "meaning": "различать",
+        "group": 1
     },
     {
-      "id": 166,
-      "hanzi": "里",
-      "display": "里",
-      "meaning": "внутри",
-      "group": 3
+        "id": 166,
+        "hanzi": "里",
+        "display": "里",
+        "meaning": "внутри",
+        "group": 3
     },
     {
-      "id": 167,
-      "hanzi": "金",
-      "display": "钅",
-      "meaning": "металл",
-      "group": 2
+        "id": 167,
+        "hanzi": "金",
+        "display": "钅",
+        "meaning": "металл",
+        "group": 2
     },
     {
-      "id": 168,
-      "hanzi": "長",
-      "display": "长",
-      "meaning": "длинный",
-      "group": 2
+        "id": 168,
+        "hanzi": "長",
+        "display": "长",
+        "meaning": "длинный",
+        "group": 2
     },
     {
-      "id": 169,
-      "hanzi": "門",
-      "display": "门",
-      "meaning": "ворота",
-      "group": 2
+        "id": 169,
+        "hanzi": "門",
+        "display": "门",
+        "meaning": "ворота",
+        "group": 2
     },
     {
-      "id": 170,
-      "hanzi": "阜",
-      "display": "阝",
-      "meaning": "холм",
-      "group": 1
+        "id": 170,
+        "hanzi": "阜",
+        "display": "阝",
+        "meaning": "холм (левый компонент 阝)",
+        "group": 1
     },
     {
-      "id": 171,
-      "hanzi": "隶",
-      "display": "隶",
-      "meaning": "раб",
-      "group": 2
+        "id": 171,
+        "hanzi": "隶",
+        "display": "隶",
+        "meaning": "раб",
+        "group": 2
     },
     {
-      "id": 172,
-      "hanzi": "隹",
-      "display": "隹",
-      "meaning": "короткохвостая птица",
-      "group": 1
+        "id": 172,
+        "hanzi": "隹",
+        "display": "隹",
+        "meaning": "короткохвостая птица",
+        "group": 1
     },
     {
-      "id": 173,
-      "hanzi": "雨",
-      "display": "雨",
-      "meaning": "дождь",
-      "group": 2
+        "id": 173,
+        "hanzi": "雨",
+        "display": "雨",
+        "meaning": "дождь",
+        "group": 2
     },
     {
-      "id": 174,
-      "hanzi": "靑",
-      "display": "青",
-      "meaning": "сине-зелёный",
-      "group": 3
+        "id": 174,
+        "hanzi": "靑",
+        "display": "青",
+        "meaning": "сине-зелёный",
+        "group": 3
     },
     {
-      "id": 175,
-      "hanzi": "非",
-      "display": "非",
-      "meaning": "неправильный; не",
-      "group": 2
+        "id": 175,
+        "hanzi": "非",
+        "display": "非",
+        "meaning": "неправильный; не",
+        "group": 2
     },
     {
-      "id": 176,
-      "hanzi": "面",
-      "display": "面",
-      "meaning": "лицо",
-      "group": 2
+        "id": 176,
+        "hanzi": "面",
+        "display": "面",
+        "meaning": "лицо",
+        "group": 2
     },
     {
-      "id": 177,
-      "hanzi": "革",
-      "display": "革",
-      "meaning": "кожа; выделанная",
-      "group": 2
+        "id": 177,
+        "hanzi": "革",
+        "display": "革",
+        "meaning": "кожа; выделанная",
+        "group": 2
     },
     {
-      "id": 178,
-      "hanzi": "韋",
-      "display": "韋",
-      "meaning": "кожа; обработанная",
-      "group": 2
+        "id": 178,
+        "hanzi": "韋",
+        "display": "韋",
+        "meaning": "выделанная кожа",
+        "group": 2
     },
     {
-      "id": 179,
-      "hanzi": "韭",
-      "display": "韭",
-      "meaning": "лук-порей",
-      "group": 2
+        "id": 179,
+        "hanzi": "韭",
+        "display": "韭",
+        "meaning": "лук-порей",
+        "group": 2
     },
     {
-      "id": 180,
-      "hanzi": "音",
-      "display": "音",
-      "meaning": "звук",
-      "group": 2
+        "id": 180,
+        "hanzi": "音",
+        "display": "音",
+        "meaning": "звук",
+        "group": 2
     },
     {
-      "id": 181,
-      "hanzi": "頁",
-      "display": "页",
-      "meaning": "голова; страница",
-      "group": 2
+        "id": 181,
+        "hanzi": "頁",
+        "display": "页",
+        "meaning": "голова (как ключ); страница (самостоятельный знак)",
+        "group": 2
     },
     {
-      "id": 182,
-      "hanzi": "風",
-      "display": "风",
-      "meaning": "ветер",
-      "group": 2
+        "id": 182,
+        "hanzi": "風",
+        "display": "风",
+        "meaning": "ветер",
+        "group": 2
     },
     {
-      "id": 183,
-      "hanzi": "飛",
-      "display": "飞",
-      "meaning": "летать",
-      "group": 2
+        "id": 183,
+        "hanzi": "飛",
+        "display": "飞",
+        "meaning": "летать",
+        "group": 2
     },
     {
-      "id": 184,
-      "hanzi": "食",
-      "display": "饣",
-      "meaning": "еда",
-      "group": 2
+        "id": 184,
+        "hanzi": "食",
+        "display": "饣",
+        "meaning": "еда",
+        "group": 2
     },
     {
-      "id": 185,
-      "hanzi": "首",
-      "display": "首",
-      "meaning": "голова",
-      "group": 2
+        "id": 185,
+        "hanzi": "首",
+        "display": "首",
+        "meaning": "голова",
+        "group": 2
     },
     {
-      "id": 186,
-      "hanzi": "香",
-      "display": "香",
-      "meaning": "аромат",
-      "group": 2
+        "id": 186,
+        "hanzi": "香",
+        "display": "香",
+        "meaning": "аромат",
+        "group": 2
     },
     {
-      "id": 187,
-      "hanzi": "馬",
-      "display": "马",
-      "meaning": "лошадь",
-      "group": 3
+        "id": 187,
+        "hanzi": "馬",
+        "display": "马",
+        "meaning": "лошадь",
+        "group": 3
     },
     {
-      "id": 188,
-      "hanzi": "骨",
-      "display": "骨",
-      "meaning": "кость",
-      "group": 2
+        "id": 188,
+        "hanzi": "骨",
+        "display": "骨",
+        "meaning": "кость",
+        "group": 2
     },
     {
-      "id": 189,
-      "hanzi": "高",
-      "display": "高",
-      "meaning": "высокий",
-      "group": 2
+        "id": 189,
+        "hanzi": "高",
+        "display": "高",
+        "meaning": "высокий",
+        "group": 2
     },
     {
-      "id": 190,
-      "hanzi": "髟",
-      "display": "髟",
-      "meaning": "длинные волосы",
-      "group": 1
+        "id": 190,
+        "hanzi": "髟",
+        "display": "髟",
+        "meaning": "длинные волосы",
+        "group": 1
     },
     {
-      "id": 191,
-      "hanzi": "鬥",
-      "display": "鬥",
-      "meaning": "борьба",
-      "group": 1
+        "id": 191,
+        "hanzi": "鬥",
+        "display": "鬥",
+        "meaning": "борьба",
+        "group": 1
     },
     {
-      "id": 192,
-      "hanzi": "鬯",
-      "display": "鬯",
-      "meaning": "ритуальное вино",
-      "group": 1
+        "id": 192,
+        "hanzi": "鬯",
+        "display": "鬯",
+        "meaning": "ритуальное вино",
+        "group": 1
     },
     {
-      "id": 193,
-      "hanzi": "鬲",
-      "display": "鬲",
-      "meaning": "треножник",
-      "group": 1
+        "id": 193,
+        "hanzi": "鬲",
+        "display": "鬲",
+        "meaning": "треножник",
+        "group": 1
     },
     {
-      "id": 194,
-      "hanzi": "鬼",
-      "display": "鬼",
-      "meaning": "призрак",
-      "group": 2
+        "id": 194,
+        "hanzi": "鬼",
+        "display": "鬼",
+        "meaning": "призрак",
+        "group": 2
     },
     {
-      "id": 195,
-      "hanzi": "魚",
-      "display": "鱼",
-      "meaning": "рыба",
-      "group": 2
+        "id": 195,
+        "hanzi": "魚",
+        "display": "鱼",
+        "meaning": "рыба",
+        "group": 2
     },
     {
-      "id": 196,
-      "hanzi": "鳥",
-      "display": "鸟",
-      "meaning": "птица",
-      "group": 2
+        "id": 196,
+        "hanzi": "鳥",
+        "display": "鸟",
+        "meaning": "птица",
+        "group": 2
     },
     {
-      "id": 197,
-      "hanzi": "鹵",
-      "display": "鹵",
-      "meaning": "соль",
-      "group": 1
+        "id": 197,
+        "hanzi": "鹵",
+        "display": "鹵",
+        "meaning": "соль",
+        "group": 1
     },
     {
-      "id": 198,
-      "hanzi": "鹿",
-      "display": "鹿",
-      "meaning": "олень",
-      "group": 2
+        "id": 198,
+        "hanzi": "鹿",
+        "display": "鹿",
+        "meaning": "олень",
+        "group": 2
     },
     {
-      "id": 199,
-      "hanzi": "麥",
-      "display": "麦",
-      "meaning": "пшеница",
-      "group": 2
+        "id": 199,
+        "hanzi": "麥",
+        "display": "麦",
+        "meaning": "пшеница",
+        "group": 2
     },
     {
-      "id": 200,
-      "hanzi": "麻",
-      "display": "麻",
-      "meaning": "конопля",
-      "group": 2
+        "id": 200,
+        "hanzi": "麻",
+        "display": "麻",
+        "meaning": "конопля",
+        "group": 2
     },
     {
-      "id": 201,
-      "hanzi": "黃",
-      "display": "黄",
-      "meaning": "жёлтый",
-      "group": 2
+        "id": 201,
+        "hanzi": "黃",
+        "display": "黄",
+        "meaning": "жёлтый",
+        "group": 2
     },
     {
-      "id": 202,
-      "hanzi": "黍",
-      "display": "黍",
-      "meaning": "просо",
-      "group": 2
+        "id": 202,
+        "hanzi": "黍",
+        "display": "黍",
+        "meaning": "просо",
+        "group": 2
     },
     {
-      "id": 203,
-      "hanzi": "黑",
-      "display": "黑",
-      "meaning": "чёрный",
-      "group": 2
+        "id": 203,
+        "hanzi": "黑",
+        "display": "黑",
+        "meaning": "чёрный",
+        "group": 2
     },
     {
-      "id": 204,
-      "hanzi": "黹",
-      "display": "黹",
-      "meaning": "вышивка",
-      "group": 1
+        "id": 204,
+        "hanzi": "黹",
+        "display": "黹",
+        "meaning": "вышивка",
+        "group": 1
     },
     {
-      "id": 205,
-      "hanzi": "黽",
-      "display": "黾",
-      "meaning": "лягушка",
-      "group": 1
+        "id": 205,
+        "hanzi": "黽",
+        "display": "黾",
+        "meaning": "лягушка, земноводное",
+        "group": 1
     },
     {
-      "id": 206,
-      "hanzi": "鼎",
-      "display": "鼎",
-      "meaning": "треножник-сосуд",
-      "group": 2
+        "id": 206,
+        "hanzi": "鼎",
+        "display": "鼎",
+        "meaning": "треножник-сосуд",
+        "group": 2
     },
     {
-      "id": 207,
-      "hanzi": "鼓",
-      "display": "鼓",
-      "meaning": "барабан",
-      "group": 2
+        "id": 207,
+        "hanzi": "鼓",
+        "display": "鼓",
+        "meaning": "барабан",
+        "group": 2
     },
     {
-      "id": 208,
-      "hanzi": "鼠",
-      "display": "鼠",
-      "meaning": "крыса",
-      "group": 2
+        "id": 208,
+        "hanzi": "鼠",
+        "display": "鼠",
+        "meaning": "крыса",
+        "group": 2
     },
     {
-      "id": 209,
-      "hanzi": "鼻",
-      "display": "鼻",
-      "meaning": "нос",
-      "group": 2
+        "id": 209,
+        "hanzi": "鼻",
+        "display": "鼻",
+        "meaning": "нос",
+        "group": 2
     },
     {
-      "id": 210,
-      "hanzi": "齊",
-      "display": "齐",
-      "meaning": "ровный",
-      "group": 2
+        "id": 210,
+        "hanzi": "齊",
+        "display": "齐",
+        "meaning": "ровный",
+        "group": 2
     },
     {
-      "id": 211,
-      "hanzi": "齒",
-      "display": "齿",
-      "meaning": "зуб",
-      "group": 2
+        "id": 211,
+        "hanzi": "齒",
+        "display": "齿",
+        "meaning": "зуб",
+        "group": 2
     },
     {
-      "id": 212,
-      "hanzi": "龍",
-      "display": "龙",
-      "meaning": "дракон",
-      "group": 2
+        "id": 212,
+        "hanzi": "龍",
+        "display": "龙",
+        "meaning": "дракон",
+        "group": 2
     },
     {
-      "id": 213,
-      "hanzi": "龜",
-      "display": "龟",
-      "meaning": "черепаха",
-      "group": 2
+        "id": 213,
+        "hanzi": "龜",
+        "display": "龟",
+        "meaning": "черепаха",
+        "group": 2
     },
     {
-      "id": 214,
-      "hanzi": "龠",
-      "display": "龠",
-      "meaning": "флейта",
-      "group": 1
+        "id": 214,
+        "hanzi": "龠",
+        "display": "龠",
+        "meaning": "флейта",
+        "group": 1
     }
-  ],
+],
   "families": [
     {
       "root": "青",
@@ -2416,11 +2416,12 @@ const audioFailedThisSession=new Set();
 function showAudioStatus(x,message){
  document.querySelectorAll('[data-audio-status]').forEach(el=>{if(el.dataset.audioStatus===x)el.textContent=message});
 }
+function playPreferredAudio(x){speak(x,audioPreferences[x]||'syllable')}
 function choosePreferredAudio(x,variant){
  audioPreferences[x]=variant;
  try{localStorage.setItem(AUDIO_PREF_KEY,JSON.stringify(audioPreferences))}catch(e){}
  document.querySelectorAll('[data-audio-preference]').forEach(b=>{if(b.dataset.audioPreference===x){const selected=b.dataset.prefVariant===variant;b.classList.toggle('good',selected);b.classList.toggle('alt',!selected);b.setAttribute('aria-pressed',String(selected))}});
- showAudioStatus(x,'✓ Предпочтение сохранено: '+(variant==='syllable'?'слог':'знак')+'.');
+ showAudioStatus(x,'✓ Основной голос: '+({syllable:'слог',character:'знак',alternate:'дополнительный',commons:'Commons'}[variant]||variant)+'.');
 }
 
 let audioReports={};try{audioReports=JSON.parse(localStorage.getItem(REPORT_KEY))||{}}catch(e){}
@@ -2482,7 +2483,7 @@ function speak(x,variant='syllable'){
 function reportAudio(x,variant){
  const py=getReading(x)||'—', k=x+'|'+variant;
  const labels={syllable:'Слог',character:'Иероглиф',commons:'Wikimedia Commons',alternate:'Альтернативный голос'};
- audioReports[k]={char:x,pinyin:py,source:labels[variant]||variant,issue:audioFailedThisSession.has(k)?'не воспроизводится':'обрезается / неразборчиво',updated:new Date().toISOString()};
+ audioReports[k]={char:x,pinyin:py,source:labels[variant]||variant,issue:audioFailedThisSession.has(k)?'не воспроизводится':'не нравится / обрывается / неразборчиво',updated:new Date().toISOString()};
  try{localStorage.setItem(REPORT_KEY,JSON.stringify(audioReports))}catch(e){}
  const el=document.querySelector('[data-report-status="'+x+'"]');
  if(el)el.textContent='⚑ Отмечено. Список можно выгрузить во вкладке «Прогресс».';
@@ -2501,9 +2502,9 @@ async function addAudioFiles(fileList){let ok=0,bad=0;for(const f of Array.from(
 
 function stats(){ $('#stats').innerHTML=`<div class="stat"><strong>${learned()} / 214</strong><span>Начаты ключи</span></div><div class="stat"><strong>${known()} / 214</strong><span>Знаю ключей</span></div><div class="stat"><strong>${DB.families.filter((_,i)=>stat('f'+i)===2).length} / 30</strong><span>Знаю семейств</span></div>`}
 function render(){document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('on',x.dataset.tab===state.tab));stats();if(state.tab==='radicals')renderRadicals();if(state.tab==='families')renderFamilies();if(state.tab==='study')renderStudy();if(state.tab==='quiz')renderQuiz();if(state.tab==='writing')renderWriting();if(state.tab==='progress')renderProgress()}
-function renderRadicals(){let a=DB.radicals.filter(r=>(state.group==='all'||r.group==state.group)&&(state.status==='all'||(state.status==='new'?stat('r'+r.id)===0:state.status==='learning'?stat('r'+r.id)===1:stat('r'+r.id)===2))&&`${r.id} ${r.hanzi} ${r.display} ${r.meaning} ${r.pinyin||''}`.toLowerCase().includes(state.search.toLowerCase()));$('#app').innerHTML=`<div class="panel"><h2>Словарь ключей</h2>${styleControl()}<div class="notice">Группа 1: учи написание и значение. Группа 2: добавляй произношение распространённых самостоятельных иероглифов. Группа 3: изучай вместе с фонетическими примерами. Некоторые ключи могут выполнять несколько функций.</div><div class="filters"><input id="search" placeholder="Поиск: знак, значение или номер" value="${escapeHtml(state.search)}"><select id="group"><option value="all">Все группы</option>${[1,2,3].map(i=>`<option value="${i}" ${state.group==i?'selected':''}>${G[i]}</option>`).join('')}</select><select id="status"><option value="all">Любой прогресс</option><option value="new" ${state.status==='new'?'selected':''}>Не изучено</option><option value="learning" ${state.status==='learning'?'selected':''}>Повторить</option><option value="known" ${state.status==='known'?'selected':''}>Знаю</option></select></div><p class="muted">Найдено: ${a.length}</p><div class="grid">${a.map(r=>`<button class="tile ${stat('r'+r.id)===2?'known':stat('r'+r.id)===1?'learning':''}" data-id="${r.id}" aria-label="Ключ № ${r.id}: ${r.meaning}, ${stat('r'+r.id)===2?'знаю':stat('r'+r.id)===1?'повторить':'ещё не изучен'}"><span class="muted">№ ${r.id}</span>${stat('r'+r.id)===2?'<span class="tile-state">✓ Знаю</span>':stat('r'+r.id)===1?'<span class="tile-state">◉ Повторить</span>':''}<span class="char">${r.display}</span>${r.group===2&&r.pinyin?`<span class="muted" style="font-weight:700">${r.pinyin}</span>`:''}<small>${escapeHtml(r.meaning)}</small></button>`).join('')}</div></div>`;$('#search').oninput=e=>{let v=e.target.value;state.search=v;const pos=e.target.selectionStart;renderRadicals();$('#search').focus();$('#search').setSelectionRange(pos,pos)};$('#group').onchange=e=>{state.group=e.target.value;renderRadicals()};$('#status').onchange=e=>{state.status=e.target.value;renderRadicals()};document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>openRadical(+b.dataset.id));initStyleControl()}
+function renderRadicals(){let a=DB.radicals.filter(r=>(state.group==='all'||r.group==state.group)&&(state.status==='all'||(state.status==='new'?stat('r'+r.id)===0:state.status==='learning'?stat('r'+r.id)===1:stat('r'+r.id)===2))&&`${r.id} ${r.hanzi} ${r.display} ${r.meaning} ${r.pinyin||''}`.toLowerCase().includes(state.search.toLowerCase()));$('#app').innerHTML=`<div class="panel"><h2>Словарь ключей</h2>${styleControl()}<div class="notice">Все иероглифы состоят из черт и более крупных частей. Здесь собраны 214 ключей — элементов, по которым традиционно ищут иероглифы в словарях. Мы разделили их на учебные группы. Группа 1: сначала запомни форму и значение, произношение пока необязательно. Группа 2: эти знаки также часто используют самостоятельно, поэтому учи значение, написание и произношение. Группа 3: знакомься с похожими по звучанию иероглифами. Это удобная учебная система, а не строгое лингвистическое деление.</div><div class="filters"><input id="search" placeholder="Поиск: знак, значение или номер" value="${escapeHtml(state.search)}"><select id="group"><option value="all">Все группы</option>${[1,2,3].map(i=>`<option value="${i}" ${state.group==i?'selected':''}>${G[i]}</option>`).join('')}</select><select id="status"><option value="all">Любой прогресс</option><option value="new" ${state.status==='new'?'selected':''}>Не изучено</option><option value="learning" ${state.status==='learning'?'selected':''}>Повторить</option><option value="known" ${state.status==='known'?'selected':''}>Знаю</option></select></div><p class="muted">Найдено: ${a.length}</p><div class="grid">${a.map(r=>`<button class="tile ${stat('r'+r.id)===2?'known':stat('r'+r.id)===1?'learning':''}" data-id="${r.id}" aria-label="Ключ № ${r.id}: ${r.meaning}, ${stat('r'+r.id)===2?'знаю':stat('r'+r.id)===1?'повторить':'ещё не изучен'}"><span class="muted">№ ${r.id}</span>${stat('r'+r.id)===2?'<span class="tile-state">✓ Знаю</span>':stat('r'+r.id)===1?'<span class="tile-state">◉ Повторить</span>':''}<span class="char">${r.display}</span>${r.group===2&&r.pinyin?`<span class="muted" style="font-weight:700">${r.pinyin}</span>`:''}<small>${escapeHtml(r.meaning)}</small></button>`).join('')}</div></div>`;$('#search').oninput=e=>{let v=e.target.value;state.search=v;const pos=e.target.selectionStart;renderRadicals();$('#search').focus();$('#search').setSelectionRange(pos,pos)};$('#group').onchange=e=>{state.group=e.target.value;renderRadicals()};$('#status').onchange=e=>{state.status=e.target.value;renderRadicals()};document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>openRadical(+b.dataset.id));initStyleControl()}
 function openRadical(id){const r=DB.radicals[id-1];$('#app').innerHTML=`<div class="panel study"><button class="btn alt" id="back">← К списку</button><div class="muted" style="margin-top:15px">Ключ Канси № ${id}</div><div class="herochar">${r.display}</div>${r.group===2&&r.pinyin?`<h2 style="color:#294976">${r.pinyin}</h2>`:''}<div class="flex" style="justify-content:center"><button class="btn alt" id="writeThis">✍ Написание и порядок черт</button></div>${r.hanzi!==r.display?`<p class="muted">Традиционная форма: <b>${r.hanzi}</b></p>`:''}<h2>${escapeHtml(r.meaning)}</h2><p><span class="pill group${r.group}">${G[r.group]}</span></p><p class="hint">${r.group===1?'Отдельное чтение пока можно не запоминать.':r.group===2?'Самостоятельное произношение учи по мере встречи с этим иероглифом.':'Попробуй найти похожие по звучанию иероглифы в разделе «Фонетики».'}</p><div class="flex" style="justify-content:center"><button class="btn alt" id="speak">▶ Слог</button>${r.group===2?`<button class="btn alt" id="speakChar">▶ Знак</button>`:""}<button class="btn alt" id="repeat">◉ Повторить</button><button class="btn good" id="know">✓ Знаю</button></div>${r.group===2?`<div class="flex" style="justify-content:center;margin-top:12px"><button class="btn ${audioPreferences[r.display]==='syllable'?'good':'alt'}" data-audio-preference="${r.display}" data-pref-variant="syllable" aria-pressed="${audioPreferences[r.display]==='syllable'}">♥ Лучше слог</button><button class="btn ${audioPreferences[r.display]==='character'?'good':'alt'}" data-audio-preference="${r.display}" data-pref-variant="character" aria-pressed="${audioPreferences[r.display]==='character'}">♥ Лучше знак</button></div><p class="hint">Выбранный вариант сохранится на устройстве.</p>`:""}<p class="hint" data-audio-status="${r.display}"></p><p class="hint">Используются записи носителя языка (путунхуа) из открытого набора audio-cmn. Для прослушивания требуется интернет. У редких ключей и неоднозначных чтений звук может отсутствовать.</p></div>`;$('#back').onclick=renderRadicals;$('#writeThis').onclick=()=>goWrite(r.display);$('#speak').onclick=()=>speak(r.display);if($('#speakChar'))$('#speakChar').onclick=()=>speak(r.display,'character');document.querySelectorAll('[data-audio-preference]').forEach(b=>b.onclick=()=>choosePreferredAudio(b.dataset.audioPreference,b.dataset.prefVariant));$('#repeat').onclick=()=>setstat('r'+id,1);$('#know').onclick=()=>setstat('r'+id,2)}
-function renderFamilies(){let a=DB.families.map((f,i)=>({...f,id:i})).filter(f=>state.famTier==='all'||f.tier==state.famTier);$('#app').innerHTML=`<div class="panel"><h2>30 фонетических семейств</h2>${styleControl()}<p class="hint">Фонетик подсказывает примерное звучание, но не всегда тон или начальный согласный. Сравни два варианта: «Слог» (Chen Wang) и «Знак» (Yue Tan). Отдельные записи есть не для всех знаков. Кнопки ♥ сохраняют лучший по твоему мнению вариант; кнопки ⚑ отмечают плохую запись. Для обеих кнопок нужен интернет; не каждый знак входит в аудиобиблиотеку.</p><div class="filters"><select id="tier"><option value="all">Все 30 семейств</option><option value="1" ${state.famTier==='1'?'selected':''}>Основные — 15</option><option value="2" ${state.famTier==='2'?'selected':''}>Дополнительные — 15</option></select></div><div class="familygrid">${a.map(f=>`<article class="family"><div class="flex space"><h3><span class="char">${f.root}</span><span>${f.pinyin}<br><small class="muted">${f.meaning}</small></span></h3><div class="flex"><button class="btn alt" data-speak="${f.root}" data-variant="syllable">▶ Слог</button><button class="btn alt" data-speak="${f.root}" data-variant="character" ${MISSING_CHARACTER_RECORDINGS.has(f.root)?'title="Отдельного файла нет: воспроизводится слог"':''}>${MISSING_CHARACTER_RECORDINGS.has(f.root)?'▶ Слог вместо знака':f.root==='申'?'▶ Слог (Commons)':'▶ Знак'}</button></div></div><p class="muted" style="margin:9px 0 3px">${f.tier===1?'Основное':'Дополнительное'} семейство</p>${f.examples.map(e=>`<button class="example" data-speak="${e.hanzi}" data-variant="character"><b>${e.hanzi} ${e.pinyin}</b><small>${e.meaning}</small></button>`).join('')}<div class="flex">${COMMONS_AUDIO[f.root]&&COMMONS_AUDIO[f.root].kind==='syllable'?`<button class="btn alt" data-speak="${f.root}" data-variant="commons">▶ Доп. голос</button>`:''}</div><div class="flex">${ALTERNATIVE_HSK_VOICE[f.root]?`<button class="btn alt" data-speak="${f.root}" data-variant="alternate">▶ Ещё голос</button>`:""}</div><p class="hint" data-audio-status="${f.root}">${MISSING_CHARACTER_RECORDINGS.has(f.root)?'Нет отдельной записи знака; воспроизводится слог.':f.root==='申'?'В Commons добавлен звук shēn (другой знак с тем же чтением).':COMMONS_AUDIO[f.root]?'Есть дополнительный голос слога из Wikimedia Commons.':''}</p><div class="flex" style="margin-top:12px"><button class="btn ${audioPreferences[f.root]==='syllable'?'good':'alt'}" data-audio-preference="${f.root}" data-pref-variant="syllable" aria-pressed="${audioPreferences[f.root]==='syllable'}">♥ Лучше слог</button><button class="btn ${audioPreferences[f.root]==='character'?'good':'alt'}" data-audio-preference="${f.root}" data-pref-variant="character" aria-pressed="${audioPreferences[f.root]==='character'}" ${MISSING_CHARACTER_RECORDINGS.has(f.root)?'disabled':''}>♥ Лучше знак</button></div><div class="flex" style="margin-top:12px"><button class="btn alt" data-report="${f.root}" data-report-variant="syllable">⚑ Слог</button><button class="btn alt" data-report="${f.root}" data-report-variant="character">⚑ Знак</button></div><p class="hint" data-report-status="${f.root}"></p><div style="margin-top:12px"><button class="btn alt" data-write="${f.root}">✍ Прописи</button> <button class="btn ${stat('f'+f.id)===2?'good':'alt'}" data-family="${f.id}">${stat('f'+f.id)===2?'✓ Семейство изучено':'Отметить как изученное'}</button></div></article>`).join('')}</div></div>`;initStyleControl();$('#tier').onchange=e=>{state.famTier=e.target.value;renderFamilies()};document.querySelectorAll('[data-speak]').forEach(b=>b.onclick=()=>speak(b.dataset.speak,b.dataset.variant||'syllable'));document.querySelectorAll('[data-report]').forEach(b=>b.onclick=()=>reportAudio(b.dataset.report,b.dataset.reportVariant));document.querySelectorAll('[data-audio-preference]').forEach(b=>b.onclick=()=>choosePreferredAudio(b.dataset.audioPreference,b.dataset.prefVariant));document.querySelectorAll('[data-write]').forEach(b=>b.onclick=()=>goWrite(b.dataset.write));initStyleControl();document.querySelectorAll('[data-family]').forEach(b=>b.onclick=()=>setstat('f'+b.dataset.family,stat('f'+b.dataset.family)===2?0:2))}
+function renderFamilies(){let a=DB.families.map((f,i)=>({...f,id:i})).filter(f=>state.famTier==='all'||f.tier==state.famTier);$('#app').innerHTML=`<div class="panel"><h2>30 фонетических семейств</h2>${styleControl()}<p class="hint">Фонетик — часть иероглифа, которая помогает приблизительно догадаться о произношении. Например, знаки одного семейства могут звучать похоже, хотя их значения различаются. «Слог» — произношение звука отдельно, «Знак» — запись конкретного иероглифа; «Ещё голос» — альтернативная запись того же слога. ♥ выбирает основной голос, ✕ отмечает неудачный. Для прослушивания нужен интернет.</p><div class="filters"><select id="tier"><option value="all">Все 30 семейств</option><option value="1" ${state.famTier==='1'?'selected':''}>Основные — 15</option><option value="2" ${state.famTier==='2'?'selected':''}>Дополнительные — 15</option></select></div><div class="familygrid">${a.map(f=>`<article class="family"><div class="flex space"><h3><span class="char">${f.root}</span><span>${f.pinyin}<br><small class="muted">${f.meaning}</small></span></h3><div class="flex"><button class="btn good" data-preferred-play="${f.root}">▶ Слушать</button><button class="btn alt" data-speak="${f.root}" data-variant="syllable">▶ Слог</button>${!MISSING_CHARACTER_RECORDINGS.has(f.root)&&f.root!=='申'?`<button class="btn alt" data-speak="${f.root}" data-variant="character">▶ Знак</button>`:''}</div></div><p class="muted" style="margin:9px 0 3px">${f.tier===1?'Основное':'Дополнительное'} семейство</p>${f.examples.map(e=>`<button class="example" data-speak="${e.hanzi}" data-variant="character"><b>${e.hanzi} ${e.pinyin}</b><small>${e.meaning}</small></button>`).join('')}<div class="flex">${COMMONS_AUDIO[f.root]&&COMMONS_AUDIO[f.root].kind==='syllable'?`<button class="btn alt" data-speak="${f.root}" data-variant="commons">▶ Доп. голос</button>`:''}</div><div class="flex">${ALTERNATIVE_HSK_VOICE[f.root]?`<button class="btn alt" data-speak="${f.root}" data-variant="alternate">▶ Ещё голос</button>`:""}</div><p class="hint" data-audio-status="${f.root}">${MISSING_CHARACTER_RECORDINGS.has(f.root)?'Нет отдельной записи знака; воспроизводится слог.':f.root==='申'?'В Commons добавлен звук shēn (другой знак с тем же чтением).':COMMONS_AUDIO[f.root]?'Есть дополнительный голос слога из Wikimedia Commons.':''}</p><div class="flex" style="margin-top:12px"><button class="btn ${audioPreferences[f.root]==='syllable'?'good':'alt'}" data-audio-preference="${f.root}" data-pref-variant="syllable">♥ Слог</button>${!MISSING_CHARACTER_RECORDINGS.has(f.root)&&f.root!=='申'?`<button class="btn ${audioPreferences[f.root]==='character'?'good':'alt'}" data-audio-preference="${f.root}" data-pref-variant="character">♥ Знак</button>`:''}${ALTERNATIVE_HSK_VOICE[f.root]?`<button class="btn ${audioPreferences[f.root]==='alternate'?'good':'alt'}" data-audio-preference="${f.root}" data-pref-variant="alternate">♥ Ещё голос</button>`:''}${COMMONS_AUDIO[f.root]?`<button class="btn ${audioPreferences[f.root]==='commons'?'good':'alt'}" data-audio-preference="${f.root}" data-pref-variant="commons">♥ Доп. голос</button>`:''}</div><div class="flex" style="margin-top:12px"><button class="btn alt" data-report="${f.root}" data-report-variant="syllable">✕ Слог</button>${!MISSING_CHARACTER_RECORDINGS.has(f.root)&&f.root!=='申'?`<button class="btn alt" data-report="${f.root}" data-report-variant="character">✕ Знак</button>`:''}${ALTERNATIVE_HSK_VOICE[f.root]?`<button class="btn alt" data-report="${f.root}" data-report-variant="alternate">✕ Ещё голос</button>`:''}${COMMONS_AUDIO[f.root]?`<button class="btn alt" data-report="${f.root}" data-report-variant="commons">✕ Доп. голос</button>`:''}</div><p class="hint" data-report-status="${f.root}"></p><div style="margin-top:12px"><button class="btn alt" data-write="${f.root}">✍ Прописи</button> <button class="btn ${stat('f'+f.id)===2?'good':'alt'}" data-family="${f.id}">${stat('f'+f.id)===2?'✓ Семейство изучено':'Отметить как изученное'}</button></div></article>`).join('')}</div></div>`;initStyleControl();$('#tier').onchange=e=>{state.famTier=e.target.value;renderFamilies()};document.querySelectorAll('[data-speak]').forEach(b=>b.onclick=()=>speak(b.dataset.speak,b.dataset.variant||'syllable'));document.querySelectorAll('[data-preferred-play]').forEach(b=>b.onclick=()=>playPreferredAudio(b.dataset.preferredPlay));document.querySelectorAll('[data-report]').forEach(b=>b.onclick=()=>reportAudio(b.dataset.report,b.dataset.reportVariant));document.querySelectorAll('[data-audio-preference]').forEach(b=>b.onclick=()=>choosePreferredAudio(b.dataset.audioPreference,b.dataset.prefVariant));document.querySelectorAll('[data-write]').forEach(b=>b.onclick=()=>goWrite(b.dataset.write));initStyleControl();document.querySelectorAll('[data-family]').forEach(b=>b.onclick=()=>setstat('f'+b.dataset.family,stat('f'+b.dataset.family)===2?0:2))}
 function studyPool(){if(state.studySet==='families')return DB.families.map((f,i)=>({key:'f'+i,char:f.root,back:`${f.pinyin} — ${f.meaning}`,extra:f.examples.map(e=>`${e.hanzi} ${e.pinyin}`).join(' · ')}));return DB.radicals.filter(r=>state.studySet==='all'||(state.studySet==='review'?stat('r'+r.id)!==2:r.group==state.studySet)).map(r=>({key:'r'+r.id,char:r.display,back:r.meaning+(r.group===2&&r.pinyin?' · '+r.pinyin:''),extra:`№ ${r.id} · ${G[r.group]}`}))}
 function renderStudy(){let pool=studyPool();if(state.current>=pool.length)state.current=0;let x=pool[state.current];$('#app').innerHTML=`<div class="panel study"><h2>Карточки для запоминания</h2>${styleControl()}<div class="filters"><select id="studyset"><option value="all">Все 214 ключей</option><option value="review">Только новые и на повторение</option><option value="1">Группа 1</option><option value="2">Группа 2</option><option value="3">Группа 3</option><option value="families">30 фонетических семейств</option></select></div>${x?`<div class="muted">Карточка ${state.current+1} из ${pool.length}</div><div class="herochar">${x.char}</div>${state.revealed?`<h2>${x.back}</h2><p class="hint">${x.extra}</p>`:`<p class="hint">Вспомни значение и, если нужно, чтение</p>`}<div class="flex" style="justify-content:center"><button class="btn alt" id="sound">▶</button><button class="btn alt" id="writeCard">✍ Написать</button><button class="btn" id="flip">${state.revealed?'Скрыть':'Показать ответ'}</button></div>${state.revealed?`<div class="flex" style="justify-content:center;margin:15px 0"><button class="btn bad" id="again">Повторить</button><button class="btn good" id="yes">Знаю</button></div>`:''}<div class="flex" style="justify-content:center;margin:16px 0"><button class="btn alt" id="prev">← Назад</button><button class="btn alt" id="next">Дальше →</button></div>`:`<div class="empty">Все карточки выбранного набора уже изучены.</div>`}</div>`;initStyleControl();$('#studyset').value=state.studySet;$('#studyset').onchange=e=>{state.studySet=e.target.value;state.current=0;state.revealed=false;renderStudy()};if(!x)return;initStyleControl();$('#writeCard').onclick=()=>goWrite(x.char);$('#sound').onclick=()=>speak(x.char);$('#flip').onclick=()=>{state.revealed=!state.revealed;renderStudy()};$('#prev').onclick=()=>{state.current=(state.current+pool.length-1)%pool.length;state.revealed=false;renderStudy()};$('#next').onclick=()=>advance();if(state.revealed){$('#again').onclick=()=>{progress[x.key]=1;save();advance()};$('#yes').onclick=()=>{progress[x.key]=2;save();advance()}}}
 function advance(){state.current++;state.revealed=false;render()}
@@ -2518,6 +2519,7 @@ let writeProgress={};try{writeProgress=JSON.parse(localStorage.getItem(WRITE_KEY
 let writer=null,writeData=null,writingSession=0,writingMistakes=0,writingDone=false;
 function saveWriteProgress(){try{localStorage.setItem(WRITE_KEY,JSON.stringify(writeProgress))}catch(e){}}
 function goWrite(ch){state.writeChar=ch;state.writeMode='demo';state.writeLevel=1;state.writeIndex=0;state.tab='writing';render()}
+function strokeWord(n){const t=n%100,u=n%10;return t>=11&&t<=14?'черт':u===1?'черта':u>=2&&u<=4?'черты':'черт'}
 function writingMessage(s){const el=$('#writingStatus');if(el)el.textContent=s}
 function safeChar(s){return [...String(s||'').trim()].length===1?s:'儿'}
 function writingOpts(size){return {width:size,height:size,padding:17,showCharacter:state.writeMode==='demo',showOutline:state.writeMode!=='practice'||state.writeLevel<3,strokeColor:state.writeMode==='practice'?'#24945a':'#292520',outlineColor:'#d9d0c2',drawingColor:state.writeMode==='practice'?'#d67734':'#255d63',highlightColor:'#d67734',strokeAnimationSpeed:1.2,acceptBackwardsStrokes:false,leniency:state.writeLevel===1?1.35:state.writeLevel===2?1.0:.85,onLoadCharDataError:()=>writingMessage('Для этого знака пока нет доступных проверенных данных о чертах. Попробуй другой знак или проверь интернет.')};}
@@ -2530,12 +2532,12 @@ function renderWriting(){
  $('#app').innerHTML=`<div class="panel study" style="max-width:650px"><h2>✍ Каллиграфия и прописи</h2>${styleControl()}
  <div class="filters"><select id="writeSelect" aria-label="Выбрать графему">${DB.radicals.map(r=>`<option value="${escapeHtml(r.display)}" ${r.display===ch?'selected':''}>№${r.id} · ${escapeHtml(r.display)} — ${escapeHtml(r.meaning)}</option>`).join('')}</select><select id="writeFamily" aria-label="Выбрать фонетик"><option value="">30 фонетиков</option>${DB.families.map(f=>`<option value="${f.root}" ${f.root===ch?'selected':''}>${f.root} · ${f.pinyin}</option>`).join('')}</select></div>
  <div class="writer-side"><span class="brushchar" style="font-size:42px">${escapeHtml(ch)}</span><div style="text-align:left"><b>${escapeHtml(name)}</b><div class="writermeta">${p?'Лучшая попытка: '+p.best+' ошибок · выполнено '+p.count+' раз':'Пока нет завершённых прописей'}</div></div></div>
- <div class="levels"><button id="demoTab" class="level ${state.writeMode==='demo'?'on':''}">▶ Порядок черт</button><button id="practiceTab" class="level ${state.writeMode==='practice'?'on':''}">✍ Тренировка</button><button id="modeReset" class="level">↻ Повторить</button></div>
+ <div class="writer-actions"><button id="demoTab" class="btn ${state.writeMode==='demo'?'good':'alt'}">▶ Порядок черт</button></div>
  ${state.writeMode==='practice'?`<div class="levels"><button data-level="1" class="level ${state.writeLevel===1?'on':''}">1 · Обвести</button><button data-level="2" class="level ${state.writeLevel===2?'on':''}">2 · Подсказка</button><button data-level="3" class="level ${state.writeLevel===3?'on':''}">3 · По памяти</button></div>`:''}
- <div class="writerbox"><div id="writingCanvas"></div></div><div id="writingStatus" class="writerstatus" role="status">Загружаю проверенные контуры черт…</div>
- <div id="writingActions" class="writer-actions"></div><p class="hint" style="font-size:12px">Для анимации и проверки нужна загрузка данных Hanzi Writer из интернета. Алгоритм оценивает движения, порядок, направление и расположение черт, но не художественное качество каллиграфии. Доступность данных зависит от знака.</p></div>`;
+ ${state.writeMode==='demo'?'<div id="writingActions" class="writer-actions"></div>':''}<div class="writerbox"><div id="writingCanvas"></div></div><div id="writingStatus" class="writerstatus" role="status">Загружаю проверенные контуры черт…</div>
+ ${state.writeMode==='practice'?'<div id="writingActions" class="writer-actions"></div>':''}<div class="writer-actions"><button id="practiceTab" class="btn ${state.writeMode==='practice'?'good':'alt'}">✍ Тренировка</button>${state.writeMode==='practice'?'<button id="modeReset" class="btn alt">↻ Повторить</button>':''}</div><p class="hint" style="font-size:12px">Для анимации и проверки нужна загрузка данных Hanzi Writer из интернета. Алгоритм оценивает движения, порядок, направление и расположение черт, но не художественное качество каллиграфии. Доступность данных зависит от знака.</p></div>`;
  initStyleControl();$('#writeSelect').onchange=e=>goWrite(e.target.value);$('#writeFamily').onchange=e=>{if(e.target.value)goWrite(e.target.value)};
- $('#demoTab').onclick=()=>{state.writeMode='demo';renderWriting()};$('#practiceTab').onclick=()=>{state.writeMode='practice';renderWriting()};$('#modeReset').onclick=()=>renderWriting();
+ $('#demoTab').onclick=()=>{state.writeMode='demo';renderWriting()};$('#practiceTab').onclick=()=>{state.writeMode='practice';renderWriting()};if($('#modeReset'))$('#modeReset').onclick=()=>renderWriting();
  document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{state.writeLevel=+b.dataset.level;renderWriting()});
  initializeWriter(ch);
 }
@@ -2561,11 +2563,11 @@ function showStrokeOrder(){if(!writer||!writeData)return;
  const count=writeData.strokes.length;
  const action=$('#writingActions');
  action.innerHTML='<button class="btn alt" id="strokePrev">← Черта</button><button class="btn alt" id="strokeNext">Черта →</button><button class="btn" id="strokeAll">▶ Все черты</button><button class="btn alt" id="strokeRestart">↻ Сначала</button>';
- const explain=()=>writingMessage(`Всего черт: ${count}. ${state.writeIndex+1}-я черта из ${count}. Нажми «Все черты» или пролистывай по одной.`);
+ const explain=()=>writingMessage(`Всего ${count} ${strokeWord(count)}. ${state.writeIndex+1}-я черта из ${count}. Нажми «Все черты» или пролистывай по одной.`);
  explain();
  $('#strokePrev').onclick=()=>{state.writeIndex=(state.writeIndex-1+count)%count;writer.highlightStroke(state.writeIndex);explain()};
  $('#strokeNext').onclick=()=>{state.writeIndex=(state.writeIndex+1)%count;writer.animateStroke(state.writeIndex);explain()};
- $('#strokeAll').onclick=()=>{writer.animateCharacter();writingMessage(`Анимация всех ${count} черт по порядку.`)};
+ $('#strokeAll').onclick=()=>{writer.animateCharacter();writingMessage(`Все черты (${count}) воспроизводятся по порядку.`)};
  $('#strokeRestart').onclick=()=>{state.writeIndex=0;writer.animateCharacter();writingMessage('Анимация запущена заново.')};
 }
 function startWritingQuiz(){if(!writer||!writeData)return;
@@ -2581,7 +2583,7 @@ function startWritingQuiz(){if(!writer||!writeData)return;
  onMistake:data=>{writingMistakes=data.totalMistakes;writingMessage(`🟠 Черта ${data.strokeNum+1}: попробуй ещё раз. Ошибок: ${writingMistakes}. Следи за началом, направлением и положением черты.`)},
  onCorrectStroke:data=>{writingMessage(`✅ Правильно! Черта ${data.strokeNum+1}. Осталось: ${data.strokesRemaining}. Ошибок: ${data.totalMistakes}.`)},
  onComplete:data=>{writingDone=true;writingMistakes=data.totalMistakes;const judgement=writingMistakes===0?'Правильно':writingMistakes<=2?'Почти правильно':'Надо повторить';
- const ch=state.writeChar,old=writeProgress[ch]||{count:0,best:999};writeProgress[ch]={count:old.count+1,best:Math.min(old.best,writingMistakes),last:writingMistakes,level,updated:new Date().toISOString()};saveWriteProgress();writingMessage(`✓ ${judgement}! ${writeData.strokes.length} черт, ошибок: ${writingMistakes}. Результат сохранён. Нажми «Очистить» для новой попытки.`)}
+ const ch=state.writeChar,old=writeProgress[ch]||{count:0,best:999};writeProgress[ch]={count:old.count+1,best:Math.min(old.best,writingMistakes),last:writingMistakes,level,updated:new Date().toISOString()};saveWriteProgress();writingMessage(`✓ ${judgement}! ${writeData.strokes.length} ${strokeWord(writeData.strokes.length)}, ошибок: ${writingMistakes}. Результат сохранён. Нажми «Очистить» для новой попытки.`)}
  });
  $('#writeClear').onclick=()=>renderWriting();
  $('#writeHint').onclick=()=>{writer.showOutline({duration:0});writingMessage('Контуры открыты. После подсказки продолжай писать; результат этой попытки учитывает помощь.')};
