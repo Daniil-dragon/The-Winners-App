@@ -27,3 +27,9 @@
 ## Источники и лицензии
 
 Hanzi Writer: https://hanziwriter.org/ и https://github.com/chanind/hanzi-writer (MIT). Геометрия черт: https://github.com/chanind/hanzi-writer-data (на основе Make Me a Hanzi; проверьте лицензии данных при распространении). Аудиоматериалы: https://github.com/hugolpz/audio-cmn — соответствующие лицензии CC BY-SA, указанные в предыдущей версии.
+
+## Аудио 0.5.4: дополнительные источники
+
+Для фонетических основ 朱 (zhū), 巴 (bā) и 申 (shēn) подключены дополнительные записи слогов Wikimedia Commons. Эти записи произнесены носителями китайского, но **не являются записями именно данных иероглифов**: zhū — 猪, bā — 八, shēn — 深. Источник: Shtooka Project (Wei Gao и Vion Nicolas), лицензия CC BY 2.0 France; https://creativecommons.org/licenses/by/2.0/fr/ . Файлы: https://commons.wikimedia.org/wiki/File:Zh-zhū.ogg , https://commons.wikimedia.org/wiki/File:Zh-bā.ogg и https://commons.wikimedia.org/wiki/File:Zh-shēn.ogg .
+
+Для 朱, 召, 巴 и 及 при отсутствии отдельной HSK-записи знака приложение воспроизводит доступную запись совпадающего слога с нужным тоном и прямо об этом сообщает. Выбранный пользователем лучший источник и прежний прогресс сохраняются. Проверка воспроизведения OGG на iPhone требуется отдельно.
