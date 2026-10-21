@@ -1,0 +1,2398 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#131c2f"><title>Графемы — китайский без зубрёжки</title><style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#19243b;background:#f5f7fc;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}header{background:linear-gradient(115deg,#17243e,#344f84);color:white;padding:26px max(20px,calc((100vw - 1080px)/2)) 23px}h1{margin:0;font-size:27px;letter-spacing:-.5px}header p{margin:7px 0 0;color:#ced8eb;line-height:1.5}.wrap{max-width:1080px;margin:auto;padding:19px 18px 80px}.tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px}.tab{white-space:nowrap;border:0;border-radius:13px;padding:12px 15px;background:#e8edf7;color:#334664;font-weight:700}.tab.on{background:#294976;color:white}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:17px 0}.stat{background:white;border:1px solid #e2e8f3;border-radius:16px;padding:15px}.stat strong{display:block;font-size:23px}.stat span{color:#65748b;font-size:12px}.panel{background:white;border:1px solid #e2e8f2;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 4px 24px #2f40600a}.panel h2{font-size:19px;margin:0 0 11px}.hint{color:#6a7890;line-height:1.5}.filters{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.filters input,.filters select{border:1px solid #cdd6e6;border-radius:11px;padding:12px;background:white;min-width:0}.filters input{flex:1 1 180px}.filters select{flex:1 1 170px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(111px,1fr));gap:10px}.tile{border:1px solid #e1e6ef;background:white;border-radius:15px;min-height:126px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:9px 5px;gap:4px;text-align:center}.tile:hover{border-color:#5c7caf}.char{font-family:'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif;font-size:45px;line-height:1.25;font-weight:500}.muted{color:#6b7d96}.tile .muted{font-size:11px}.tile small{font-size:11px;color:#40546e}.pill{display:inline-block;padding:5px 8px;border-radius:40px;background:#e7edf6;color:#35506f;font-size:11px;font-weight:700}.group1{background:#eaf1ff;color:#385d96}.group2{background:#e8f7ed;color:#286446}.group3{background:#fff2d9;color:#8a5a12}.familygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}.family{border:1px solid #e2e7f0;border-radius:15px;padding:15px}.family h3{margin:0;display:flex;align-items:center;gap:10px}.family .char{font-size:35px}.example{display:inline-flex;flex-direction:column;gap:3px;padding:9px;margin:6px 5px 0 0;background:#f3f6fb;border-radius:10px;min-width:83px}.example b{font-weight:600}.example small{color:#66758a;font-size:11px}.btn{background:#294976;color:white;border:0;border-radius:12px;padding:12px 15px;font-weight:700}.btn.alt{background:#eef2fa;color:#294976}.btn.good{background:#22865d}.btn.bad{background:#d86767}.btn:disabled{opacity:.5}.study{max-width:550px;margin:12px auto;text-align:center}.herochar{font-size:115px;margin:25px 0 13px;font-family:'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif}.quiz-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.quiz-options button{padding:17px 8px;background:#f3f6fc;border:1px solid #dae3f1;border-radius:12px}.quiz-options button.correct{background:#d8f6e6;border-color:#35a473}.quiz-options button.wrong{background:#ffe2df;border-color:#d46a65}.flex{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.space{justify-content:space-between}.notice{border-left:4px solid #85a0cb;background:#eef3fc;border-radius:10px;padding:12px 14px;line-height:1.55}.empty{text-align:center;padding:30px;color:#6980a0}footer{color:#71829a;text-align:center;padding:20px;font-size:12px;line-height:1.6}@media(max-width:600px){header{padding:24px 18px}.wrap{padding:14px 12px 65px}.stat{padding:11px}.stat strong{font-size:20px}.tab{padding:11px}.quiz-options{grid-template-columns:1fr}.panel{padding:14px}}
+</style></head><body><header><h1>字 Графемы</h1><p>214 ключей Канси · 30 фонетических семейств · карточки и тренировки</p></header><main class="wrap"><nav class="tabs" id="tabs"><button class="tab on" data-tab="radicals">214 ключей</button><button class="tab" data-tab="families">Фонетики</button><button class="tab" data-tab="study">Карточки</button><button class="tab" data-tab="quiz">Проверка</button><button class="tab" data-tab="progress">Прогресс</button></nav><div class="stats" id="stats"></div><section id="app"></section><footer>Учебные группы — практическая классификация, а не строгая лингвистическая. Ключи Канси не равны всем графемам и фонетикам. Данные и прогресс хранятся локально в браузере.</footer></main><script>const DB={
+  "radicals": [
+    {
+      "id": 1,
+      "hanzi": "一",
+      "display": "一",
+      "meaning": "один",
+      "group": 2
+    },
+    {
+      "id": 2,
+      "hanzi": "丨",
+      "display": "丨",
+      "meaning": "вертикальная черта",
+      "group": 1
+    },
+    {
+      "id": 3,
+      "hanzi": "丶",
+      "display": "丶",
+      "meaning": "точка",
+      "group": 1
+    },
+    {
+      "id": 4,
+      "hanzi": "丿",
+      "display": "丿",
+      "meaning": "косая черта",
+      "group": 1
+    },
+    {
+      "id": 5,
+      "hanzi": "乙",
+      "display": "乙",
+      "meaning": "второй; изгиб",
+      "group": 2
+    },
+    {
+      "id": 6,
+      "hanzi": "亅",
+      "display": "亅",
+      "meaning": "крюк",
+      "group": 1
+    },
+    {
+      "id": 7,
+      "hanzi": "二",
+      "display": "二",
+      "meaning": "два",
+      "group": 2
+    },
+    {
+      "id": 8,
+      "hanzi": "亠",
+      "display": "亠",
+      "meaning": "крышка",
+      "group": 1
+    },
+    {
+      "id": 9,
+      "hanzi": "人",
+      "display": "人",
+      "meaning": "человек",
+      "group": 2
+    },
+    {
+      "id": 10,
+      "hanzi": "儿",
+      "display": "儿",
+      "meaning": "ноги",
+      "group": 1
+    },
+    {
+      "id": 11,
+      "hanzi": "入",
+      "display": "入",
+      "meaning": "входить",
+      "group": 2
+    },
+    {
+      "id": 12,
+      "hanzi": "八",
+      "display": "八",
+      "meaning": "восемь",
+      "group": 2
+    },
+    {
+      "id": 13,
+      "hanzi": "冂",
+      "display": "冂",
+      "meaning": "открытая рамка",
+      "group": 1
+    },
+    {
+      "id": 14,
+      "hanzi": "冖",
+      "display": "冖",
+      "meaning": "покрывало",
+      "group": 1
+    },
+    {
+      "id": 15,
+      "hanzi": "冫",
+      "display": "冫",
+      "meaning": "лёд",
+      "group": 1
+    },
+    {
+      "id": 16,
+      "hanzi": "几",
+      "display": "几",
+      "meaning": "столик",
+      "group": 2
+    },
+    {
+      "id": 17,
+      "hanzi": "凵",
+      "display": "凵",
+      "meaning": "открытый сосуд",
+      "group": 1
+    },
+    {
+      "id": 18,
+      "hanzi": "刀",
+      "display": "刀",
+      "meaning": "нож",
+      "group": 2
+    },
+    {
+      "id": 19,
+      "hanzi": "力",
+      "display": "力",
+      "meaning": "сила",
+      "group": 2
+    },
+    {
+      "id": 20,
+      "hanzi": "勹",
+      "display": "勹",
+      "meaning": "обёртывать",
+      "group": 1
+    },
+    {
+      "id": 21,
+      "hanzi": "匕",
+      "display": "匕",
+      "meaning": "ложка",
+      "group": 2
+    },
+    {
+      "id": 22,
+      "hanzi": "匚",
+      "display": "匚",
+      "meaning": "коробка",
+      "group": 1
+    },
+    {
+      "id": 23,
+      "hanzi": "匸",
+      "display": "匸",
+      "meaning": "тайник",
+      "group": 1
+    },
+    {
+      "id": 24,
+      "hanzi": "十",
+      "display": "十",
+      "meaning": "десять",
+      "group": 2
+    },
+    {
+      "id": 25,
+      "hanzi": "卜",
+      "display": "卜",
+      "meaning": "гадание",
+      "group": 2
+    },
+    {
+      "id": 26,
+      "hanzi": "卩",
+      "display": "卩",
+      "meaning": "печать",
+      "group": 1
+    },
+    {
+      "id": 27,
+      "hanzi": "厂",
+      "display": "厂",
+      "meaning": "обрыв",
+      "group": 2
+    },
+    {
+      "id": 28,
+      "hanzi": "厶",
+      "display": "厶",
+      "meaning": "личный",
+      "group": 1
+    },
+    {
+      "id": 29,
+      "hanzi": "又",
+      "display": "又",
+      "meaning": "снова",
+      "group": 2
+    },
+    {
+      "id": 30,
+      "hanzi": "口",
+      "display": "口",
+      "meaning": "рот",
+      "group": 2
+    },
+    {
+      "id": 31,
+      "hanzi": "囗",
+      "display": "囗",
+      "meaning": "ограда",
+      "group": 1
+    },
+    {
+      "id": 32,
+      "hanzi": "土",
+      "display": "土",
+      "meaning": "земля",
+      "group": 2
+    },
+    {
+      "id": 33,
+      "hanzi": "士",
+      "display": "士",
+      "meaning": "учёный",
+      "group": 2
+    },
+    {
+      "id": 34,
+      "hanzi": "夂",
+      "display": "夂",
+      "meaning": "идти назад",
+      "group": 1
+    },
+    {
+      "id": 35,
+      "hanzi": "夊",
+      "display": "夊",
+      "meaning": "идти медленно",
+      "group": 1
+    },
+    {
+      "id": 36,
+      "hanzi": "夕",
+      "display": "夕",
+      "meaning": "вечер",
+      "group": 2
+    },
+    {
+      "id": 37,
+      "hanzi": "大",
+      "display": "大",
+      "meaning": "большой",
+      "group": 2
+    },
+    {
+      "id": 38,
+      "hanzi": "女",
+      "display": "女",
+      "meaning": "женщина",
+      "group": 2
+    },
+    {
+      "id": 39,
+      "hanzi": "子",
+      "display": "子",
+      "meaning": "ребёнок",
+      "group": 2
+    },
+    {
+      "id": 40,
+      "hanzi": "宀",
+      "display": "宀",
+      "meaning": "крыша",
+      "group": 1
+    },
+    {
+      "id": 41,
+      "hanzi": "寸",
+      "display": "寸",
+      "meaning": "дюйм",
+      "group": 2
+    },
+    {
+      "id": 42,
+      "hanzi": "小",
+      "display": "小",
+      "meaning": "маленький",
+      "group": 2
+    },
+    {
+      "id": 43,
+      "hanzi": "尢",
+      "display": "尢",
+      "meaning": "хромой",
+      "group": 1
+    },
+    {
+      "id": 44,
+      "hanzi": "尸",
+      "display": "尸",
+      "meaning": "труп",
+      "group": 2
+    },
+    {
+      "id": 45,
+      "hanzi": "屮",
+      "display": "屮",
+      "meaning": "росток",
+      "group": 1
+    },
+    {
+      "id": 46,
+      "hanzi": "山",
+      "display": "山",
+      "meaning": "гора",
+      "group": 2
+    },
+    {
+      "id": 47,
+      "hanzi": "巛",
+      "display": "巛",
+      "meaning": "река; извилина",
+      "group": 1
+    },
+    {
+      "id": 48,
+      "hanzi": "工",
+      "display": "工",
+      "meaning": "работа",
+      "group": 3
+    },
+    {
+      "id": 49,
+      "hanzi": "己",
+      "display": "己",
+      "meaning": "сам",
+      "group": 2
+    },
+    {
+      "id": 50,
+      "hanzi": "巾",
+      "display": "巾",
+      "meaning": "полотенце",
+      "group": 2
+    },
+    {
+      "id": 51,
+      "hanzi": "干",
+      "display": "干",
+      "meaning": "сухой; ствол",
+      "group": 2
+    },
+    {
+      "id": 52,
+      "hanzi": "幺",
+      "display": "幺",
+      "meaning": "нить",
+      "group": 1
+    },
+    {
+      "id": 53,
+      "hanzi": "广",
+      "display": "广",
+      "meaning": "широкий навес",
+      "group": 2
+    },
+    {
+      "id": 54,
+      "hanzi": "廴",
+      "display": "廴",
+      "meaning": "длинный шаг",
+      "group": 1
+    },
+    {
+      "id": 55,
+      "hanzi": "廾",
+      "display": "廾",
+      "meaning": "сложенные руки",
+      "group": 1
+    },
+    {
+      "id": 56,
+      "hanzi": "弋",
+      "display": "弋",
+      "meaning": "стрела с нитью",
+      "group": 1
+    },
+    {
+      "id": 57,
+      "hanzi": "弓",
+      "display": "弓",
+      "meaning": "лук",
+      "group": 2
+    },
+    {
+      "id": 58,
+      "hanzi": "彐",
+      "display": "彐",
+      "meaning": "свиная голова",
+      "group": 1
+    },
+    {
+      "id": 59,
+      "hanzi": "彡",
+      "display": "彡",
+      "meaning": "перья; штрихи",
+      "group": 1
+    },
+    {
+      "id": 60,
+      "hanzi": "彳",
+      "display": "彳",
+      "meaning": "шаг",
+      "group": 1
+    },
+    {
+      "id": 61,
+      "hanzi": "心",
+      "display": "心",
+      "meaning": "сердце",
+      "group": 2
+    },
+    {
+      "id": 62,
+      "hanzi": "戈",
+      "display": "戈",
+      "meaning": "копьё",
+      "group": 2
+    },
+    {
+      "id": 63,
+      "hanzi": "戶",
+      "display": "戶",
+      "meaning": "дверь (одна створка)",
+      "group": 2
+    },
+    {
+      "id": 64,
+      "hanzi": "手",
+      "display": "户",
+      "meaning": "рука",
+      "group": 2
+    },
+    {
+      "id": 65,
+      "hanzi": "支",
+      "display": "支",
+      "meaning": "ветвь",
+      "group": 2
+    },
+    {
+      "id": 66,
+      "hanzi": "攴",
+      "display": "攴",
+      "meaning": "удар",
+      "group": 1
+    },
+    {
+      "id": 67,
+      "hanzi": "文",
+      "display": "文",
+      "meaning": "письменность",
+      "group": 2
+    },
+    {
+      "id": 68,
+      "hanzi": "斗",
+      "display": "斗",
+      "meaning": "ковш",
+      "group": 2
+    },
+    {
+      "id": 69,
+      "hanzi": "斤",
+      "display": "斤",
+      "meaning": "топор",
+      "group": 2
+    },
+    {
+      "id": 70,
+      "hanzi": "方",
+      "display": "方",
+      "meaning": "направление",
+      "group": 3
+    },
+    {
+      "id": 71,
+      "hanzi": "无",
+      "display": "无",
+      "meaning": "не",
+      "group": 2
+    },
+    {
+      "id": 72,
+      "hanzi": "日",
+      "display": "日",
+      "meaning": "солнце",
+      "group": 2
+    },
+    {
+      "id": 73,
+      "hanzi": "曰",
+      "display": "曰",
+      "meaning": "говорить",
+      "group": 1
+    },
+    {
+      "id": 74,
+      "hanzi": "月",
+      "display": "月",
+      "meaning": "луна",
+      "group": 2
+    },
+    {
+      "id": 75,
+      "hanzi": "木",
+      "display": "木",
+      "meaning": "дерево",
+      "group": 2
+    },
+    {
+      "id": 76,
+      "hanzi": "欠",
+      "display": "欠",
+      "meaning": "недоставать",
+      "group": 2
+    },
+    {
+      "id": 77,
+      "hanzi": "止",
+      "display": "止",
+      "meaning": "останавливаться",
+      "group": 2
+    },
+    {
+      "id": 78,
+      "hanzi": "歹",
+      "display": "歹",
+      "meaning": "смерть; останки",
+      "group": 2
+    },
+    {
+      "id": 79,
+      "hanzi": "殳",
+      "display": "殳",
+      "meaning": "оружие",
+      "group": 1
+    },
+    {
+      "id": 80,
+      "hanzi": "毋",
+      "display": "毋",
+      "meaning": "не делай",
+      "group": 2
+    },
+    {
+      "id": 81,
+      "hanzi": "比",
+      "display": "比",
+      "meaning": "сравнивать",
+      "group": 2
+    },
+    {
+      "id": 82,
+      "hanzi": "毛",
+      "display": "毛",
+      "meaning": "шерсть",
+      "group": 2
+    },
+    {
+      "id": 83,
+      "hanzi": "氏",
+      "display": "氏",
+      "meaning": "род",
+      "group": 2
+    },
+    {
+      "id": 84,
+      "hanzi": "气",
+      "display": "气",
+      "meaning": "пар",
+      "group": 2
+    },
+    {
+      "id": 85,
+      "hanzi": "水",
+      "display": "水",
+      "meaning": "вода",
+      "group": 2
+    },
+    {
+      "id": 86,
+      "hanzi": "火",
+      "display": "火",
+      "meaning": "огонь",
+      "group": 2
+    },
+    {
+      "id": 87,
+      "hanzi": "爪",
+      "display": "爪",
+      "meaning": "коготь",
+      "group": 2
+    },
+    {
+      "id": 88,
+      "hanzi": "父",
+      "display": "父",
+      "meaning": "отец",
+      "group": 2
+    },
+    {
+      "id": 89,
+      "hanzi": "爻",
+      "display": "爻",
+      "meaning": "перекрещивание",
+      "group": 1
+    },
+    {
+      "id": 90,
+      "hanzi": "爿",
+      "display": "丬",
+      "meaning": "половина дерева",
+      "group": 1
+    },
+    {
+      "id": 91,
+      "hanzi": "片",
+      "display": "片",
+      "meaning": "пластина",
+      "group": 2
+    },
+    {
+      "id": 92,
+      "hanzi": "牙",
+      "display": "牙",
+      "meaning": "клык",
+      "group": 2
+    },
+    {
+      "id": 93,
+      "hanzi": "牛",
+      "display": "牛",
+      "meaning": "корова",
+      "group": 2
+    },
+    {
+      "id": 94,
+      "hanzi": "犬",
+      "display": "犬",
+      "meaning": "собака",
+      "group": 2
+    },
+    {
+      "id": 95,
+      "hanzi": "玄",
+      "display": "玄",
+      "meaning": "тёмный",
+      "group": 2
+    },
+    {
+      "id": 96,
+      "hanzi": "玉",
+      "display": "玉",
+      "meaning": "нефрит",
+      "group": 2
+    },
+    {
+      "id": 97,
+      "hanzi": "瓜",
+      "display": "瓜",
+      "meaning": "дыня",
+      "group": 2
+    },
+    {
+      "id": 98,
+      "hanzi": "瓦",
+      "display": "瓦",
+      "meaning": "черепица",
+      "group": 2
+    },
+    {
+      "id": 99,
+      "hanzi": "甘",
+      "display": "甘",
+      "meaning": "сладкий",
+      "group": 2
+    },
+    {
+      "id": 100,
+      "hanzi": "生",
+      "display": "生",
+      "meaning": "жизнь; рождаться",
+      "group": 3
+    },
+    {
+      "id": 101,
+      "hanzi": "用",
+      "display": "用",
+      "meaning": "использовать",
+      "group": 2
+    },
+    {
+      "id": 102,
+      "hanzi": "田",
+      "display": "田",
+      "meaning": "поле",
+      "group": 2
+    },
+    {
+      "id": 103,
+      "hanzi": "疋",
+      "display": "疋",
+      "meaning": "свиток; нога",
+      "group": 1
+    },
+    {
+      "id": 104,
+      "hanzi": "疒",
+      "display": "疒",
+      "meaning": "болезнь",
+      "group": 1
+    },
+    {
+      "id": 105,
+      "hanzi": "癶",
+      "display": "癶",
+      "meaning": "шаги",
+      "group": 1
+    },
+    {
+      "id": 106,
+      "hanzi": "白",
+      "display": "白",
+      "meaning": "белый",
+      "group": 2
+    },
+    {
+      "id": 107,
+      "hanzi": "皮",
+      "display": "皮",
+      "meaning": "кожа",
+      "group": 3
+    },
+    {
+      "id": 108,
+      "hanzi": "皿",
+      "display": "皿",
+      "meaning": "сосуд",
+      "group": 2
+    },
+    {
+      "id": 109,
+      "hanzi": "目",
+      "display": "目",
+      "meaning": "глаз",
+      "group": 2
+    },
+    {
+      "id": 110,
+      "hanzi": "矛",
+      "display": "矛",
+      "meaning": "копьё",
+      "group": 2
+    },
+    {
+      "id": 111,
+      "hanzi": "矢",
+      "display": "矢",
+      "meaning": "стрела",
+      "group": 2
+    },
+    {
+      "id": 112,
+      "hanzi": "石",
+      "display": "石",
+      "meaning": "камень",
+      "group": 2
+    },
+    {
+      "id": 113,
+      "hanzi": "示",
+      "display": "示",
+      "meaning": "алтарь",
+      "group": 2
+    },
+    {
+      "id": 114,
+      "hanzi": "禸",
+      "display": "禸",
+      "meaning": "след",
+      "group": 1
+    },
+    {
+      "id": 115,
+      "hanzi": "禾",
+      "display": "禾",
+      "meaning": "злак",
+      "group": 2
+    },
+    {
+      "id": 116,
+      "hanzi": "穴",
+      "display": "穴",
+      "meaning": "пещера",
+      "group": 2
+    },
+    {
+      "id": 117,
+      "hanzi": "立",
+      "display": "立",
+      "meaning": "стоять",
+      "group": 2
+    },
+    {
+      "id": 118,
+      "hanzi": "竹",
+      "display": "竹",
+      "meaning": "бамбук",
+      "group": 2
+    },
+    {
+      "id": 119,
+      "hanzi": "米",
+      "display": "米",
+      "meaning": "рис",
+      "group": 2
+    },
+    {
+      "id": 120,
+      "hanzi": "糸",
+      "display": "纟",
+      "meaning": "шёлк",
+      "group": 1
+    },
+    {
+      "id": 121,
+      "hanzi": "缶",
+      "display": "缶",
+      "meaning": "кувшин",
+      "group": 2
+    },
+    {
+      "id": 122,
+      "hanzi": "网",
+      "display": "网",
+      "meaning": "сеть",
+      "group": 2
+    },
+    {
+      "id": 123,
+      "hanzi": "羊",
+      "display": "羊",
+      "meaning": "овца",
+      "group": 3
+    },
+    {
+      "id": 124,
+      "hanzi": "羽",
+      "display": "羽",
+      "meaning": "перо",
+      "group": 2
+    },
+    {
+      "id": 125,
+      "hanzi": "老",
+      "display": "老",
+      "meaning": "старый",
+      "group": 2
+    },
+    {
+      "id": 126,
+      "hanzi": "而",
+      "display": "而",
+      "meaning": "и; а также",
+      "group": 2
+    },
+    {
+      "id": 127,
+      "hanzi": "耒",
+      "display": "耒",
+      "meaning": "плуг",
+      "group": 2
+    },
+    {
+      "id": 128,
+      "hanzi": "耳",
+      "display": "耳",
+      "meaning": "ухо",
+      "group": 2
+    },
+    {
+      "id": 129,
+      "hanzi": "聿",
+      "display": "聿",
+      "meaning": "кисть для письма",
+      "group": 1
+    },
+    {
+      "id": 130,
+      "hanzi": "肉",
+      "display": "肉",
+      "meaning": "мясо",
+      "group": 2
+    },
+    {
+      "id": 131,
+      "hanzi": "臣",
+      "display": "臣",
+      "meaning": "слуга",
+      "group": 2
+    },
+    {
+      "id": 132,
+      "hanzi": "自",
+      "display": "自",
+      "meaning": "самостоятельно",
+      "group": 2
+    },
+    {
+      "id": 133,
+      "hanzi": "至",
+      "display": "至",
+      "meaning": "прибывать",
+      "group": 2
+    },
+    {
+      "id": 134,
+      "hanzi": "臼",
+      "display": "臼",
+      "meaning": "ступка",
+      "group": 2
+    },
+    {
+      "id": 135,
+      "hanzi": "舌",
+      "display": "舌",
+      "meaning": "язык",
+      "group": 2
+    },
+    {
+      "id": 136,
+      "hanzi": "舛",
+      "display": "舛",
+      "meaning": "противоположные ноги",
+      "group": 1
+    },
+    {
+      "id": 137,
+      "hanzi": "舟",
+      "display": "舟",
+      "meaning": "лодка",
+      "group": 2
+    },
+    {
+      "id": 138,
+      "hanzi": "艮",
+      "display": "艮",
+      "meaning": "упорство",
+      "group": 2
+    },
+    {
+      "id": 139,
+      "hanzi": "色",
+      "display": "色",
+      "meaning": "цвет",
+      "group": 2
+    },
+    {
+      "id": 140,
+      "hanzi": "艸",
+      "display": "艹",
+      "meaning": "трава",
+      "group": 1
+    },
+    {
+      "id": 141,
+      "hanzi": "虍",
+      "display": "虍",
+      "meaning": "тигр",
+      "group": 1
+    },
+    {
+      "id": 142,
+      "hanzi": "虫",
+      "display": "虫",
+      "meaning": "насекомое",
+      "group": 2
+    },
+    {
+      "id": 143,
+      "hanzi": "血",
+      "display": "血",
+      "meaning": "кровь",
+      "group": 2
+    },
+    {
+      "id": 144,
+      "hanzi": "行",
+      "display": "行",
+      "meaning": "идти",
+      "group": 2
+    },
+    {
+      "id": 145,
+      "hanzi": "衣",
+      "display": "衣",
+      "meaning": "одежда",
+      "group": 2
+    },
+    {
+      "id": 146,
+      "hanzi": "襾",
+      "display": "覀",
+      "meaning": "запад; покрывать",
+      "group": 1
+    },
+    {
+      "id": 147,
+      "hanzi": "見",
+      "display": "见",
+      "meaning": "видеть",
+      "group": 2
+    },
+    {
+      "id": 148,
+      "hanzi": "角",
+      "display": "角",
+      "meaning": "рог",
+      "group": 2
+    },
+    {
+      "id": 149,
+      "hanzi": "言",
+      "display": "讠",
+      "meaning": "речь",
+      "group": 2
+    },
+    {
+      "id": 150,
+      "hanzi": "谷",
+      "display": "谷",
+      "meaning": "долина",
+      "group": 2
+    },
+    {
+      "id": 151,
+      "hanzi": "豆",
+      "display": "豆",
+      "meaning": "бобы",
+      "group": 2
+    },
+    {
+      "id": 152,
+      "hanzi": "豕",
+      "display": "豕",
+      "meaning": "свинья",
+      "group": 2
+    },
+    {
+      "id": 153,
+      "hanzi": "豸",
+      "display": "豸",
+      "meaning": "барсук",
+      "group": 1
+    },
+    {
+      "id": 154,
+      "hanzi": "貝",
+      "display": "贝",
+      "meaning": "раковина; деньги",
+      "group": 2
+    },
+    {
+      "id": 155,
+      "hanzi": "赤",
+      "display": "赤",
+      "meaning": "красный",
+      "group": 2
+    },
+    {
+      "id": 156,
+      "hanzi": "走",
+      "display": "走",
+      "meaning": "бежать",
+      "group": 2
+    },
+    {
+      "id": 157,
+      "hanzi": "足",
+      "display": "足",
+      "meaning": "нога",
+      "group": 2
+    },
+    {
+      "id": 158,
+      "hanzi": "身",
+      "display": "身",
+      "meaning": "тело",
+      "group": 2
+    },
+    {
+      "id": 159,
+      "hanzi": "車",
+      "display": "车",
+      "meaning": "повозка",
+      "group": 2
+    },
+    {
+      "id": 160,
+      "hanzi": "辛",
+      "display": "辛",
+      "meaning": "горький",
+      "group": 2
+    },
+    {
+      "id": 161,
+      "hanzi": "辰",
+      "display": "辰",
+      "meaning": "утро",
+      "group": 2
+    },
+    {
+      "id": 162,
+      "hanzi": "辵",
+      "display": "辶",
+      "meaning": "движение",
+      "group": 1
+    },
+    {
+      "id": 163,
+      "hanzi": "邑",
+      "display": "阝",
+      "meaning": "город",
+      "group": 1
+    },
+    {
+      "id": 164,
+      "hanzi": "酉",
+      "display": "酉",
+      "meaning": "вино",
+      "group": 2
+    },
+    {
+      "id": 165,
+      "hanzi": "釆",
+      "display": "釆",
+      "meaning": "различать",
+      "group": 1
+    },
+    {
+      "id": 166,
+      "hanzi": "里",
+      "display": "里",
+      "meaning": "внутри",
+      "group": 3
+    },
+    {
+      "id": 167,
+      "hanzi": "金",
+      "display": "钅",
+      "meaning": "металл",
+      "group": 2
+    },
+    {
+      "id": 168,
+      "hanzi": "長",
+      "display": "长",
+      "meaning": "длинный",
+      "group": 2
+    },
+    {
+      "id": 169,
+      "hanzi": "門",
+      "display": "门",
+      "meaning": "ворота",
+      "group": 2
+    },
+    {
+      "id": 170,
+      "hanzi": "阜",
+      "display": "阝",
+      "meaning": "холм",
+      "group": 1
+    },
+    {
+      "id": 171,
+      "hanzi": "隶",
+      "display": "隶",
+      "meaning": "раб",
+      "group": 2
+    },
+    {
+      "id": 172,
+      "hanzi": "隹",
+      "display": "隹",
+      "meaning": "короткохвостая птица",
+      "group": 1
+    },
+    {
+      "id": 173,
+      "hanzi": "雨",
+      "display": "雨",
+      "meaning": "дождь",
+      "group": 2
+    },
+    {
+      "id": 174,
+      "hanzi": "靑",
+      "display": "青",
+      "meaning": "сине-зелёный",
+      "group": 3
+    },
+    {
+      "id": 175,
+      "hanzi": "非",
+      "display": "非",
+      "meaning": "неправильный; не",
+      "group": 2
+    },
+    {
+      "id": 176,
+      "hanzi": "面",
+      "display": "面",
+      "meaning": "лицо",
+      "group": 2
+    },
+    {
+      "id": 177,
+      "hanzi": "革",
+      "display": "革",
+      "meaning": "кожа; выделанная",
+      "group": 2
+    },
+    {
+      "id": 178,
+      "hanzi": "韋",
+      "display": "韋",
+      "meaning": "кожа; обработанная",
+      "group": 2
+    },
+    {
+      "id": 179,
+      "hanzi": "韭",
+      "display": "韭",
+      "meaning": "лук-порей",
+      "group": 2
+    },
+    {
+      "id": 180,
+      "hanzi": "音",
+      "display": "音",
+      "meaning": "звук",
+      "group": 2
+    },
+    {
+      "id": 181,
+      "hanzi": "頁",
+      "display": "页",
+      "meaning": "голова; страница",
+      "group": 2
+    },
+    {
+      "id": 182,
+      "hanzi": "風",
+      "display": "风",
+      "meaning": "ветер",
+      "group": 2
+    },
+    {
+      "id": 183,
+      "hanzi": "飛",
+      "display": "飞",
+      "meaning": "летать",
+      "group": 2
+    },
+    {
+      "id": 184,
+      "hanzi": "食",
+      "display": "饣",
+      "meaning": "еда",
+      "group": 2
+    },
+    {
+      "id": 185,
+      "hanzi": "首",
+      "display": "首",
+      "meaning": "голова",
+      "group": 2
+    },
+    {
+      "id": 186,
+      "hanzi": "香",
+      "display": "香",
+      "meaning": "аромат",
+      "group": 2
+    },
+    {
+      "id": 187,
+      "hanzi": "馬",
+      "display": "马",
+      "meaning": "лошадь",
+      "group": 3
+    },
+    {
+      "id": 188,
+      "hanzi": "骨",
+      "display": "骨",
+      "meaning": "кость",
+      "group": 2
+    },
+    {
+      "id": 189,
+      "hanzi": "高",
+      "display": "高",
+      "meaning": "высокий",
+      "group": 2
+    },
+    {
+      "id": 190,
+      "hanzi": "髟",
+      "display": "髟",
+      "meaning": "длинные волосы",
+      "group": 1
+    },
+    {
+      "id": 191,
+      "hanzi": "鬥",
+      "display": "鬥",
+      "meaning": "борьба",
+      "group": 1
+    },
+    {
+      "id": 192,
+      "hanzi": "鬯",
+      "display": "鬯",
+      "meaning": "ритуальное вино",
+      "group": 1
+    },
+    {
+      "id": 193,
+      "hanzi": "鬲",
+      "display": "鬲",
+      "meaning": "треножник",
+      "group": 1
+    },
+    {
+      "id": 194,
+      "hanzi": "鬼",
+      "display": "鬼",
+      "meaning": "призрак",
+      "group": 2
+    },
+    {
+      "id": 195,
+      "hanzi": "魚",
+      "display": "鱼",
+      "meaning": "рыба",
+      "group": 2
+    },
+    {
+      "id": 196,
+      "hanzi": "鳥",
+      "display": "鸟",
+      "meaning": "птица",
+      "group": 2
+    },
+    {
+      "id": 197,
+      "hanzi": "鹵",
+      "display": "鹵",
+      "meaning": "соль",
+      "group": 1
+    },
+    {
+      "id": 198,
+      "hanzi": "鹿",
+      "display": "鹿",
+      "meaning": "олень",
+      "group": 2
+    },
+    {
+      "id": 199,
+      "hanzi": "麥",
+      "display": "麦",
+      "meaning": "пшеница",
+      "group": 2
+    },
+    {
+      "id": 200,
+      "hanzi": "麻",
+      "display": "麻",
+      "meaning": "конопля",
+      "group": 2
+    },
+    {
+      "id": 201,
+      "hanzi": "黃",
+      "display": "黄",
+      "meaning": "жёлтый",
+      "group": 2
+    },
+    {
+      "id": 202,
+      "hanzi": "黍",
+      "display": "黍",
+      "meaning": "просо",
+      "group": 2
+    },
+    {
+      "id": 203,
+      "hanzi": "黑",
+      "display": "黑",
+      "meaning": "чёрный",
+      "group": 2
+    },
+    {
+      "id": 204,
+      "hanzi": "黹",
+      "display": "黹",
+      "meaning": "вышивка",
+      "group": 1
+    },
+    {
+      "id": 205,
+      "hanzi": "黽",
+      "display": "黾",
+      "meaning": "лягушка",
+      "group": 1
+    },
+    {
+      "id": 206,
+      "hanzi": "鼎",
+      "display": "鼎",
+      "meaning": "треножник-сосуд",
+      "group": 2
+    },
+    {
+      "id": 207,
+      "hanzi": "鼓",
+      "display": "鼓",
+      "meaning": "барабан",
+      "group": 2
+    },
+    {
+      "id": 208,
+      "hanzi": "鼠",
+      "display": "鼠",
+      "meaning": "крыса",
+      "group": 2
+    },
+    {
+      "id": 209,
+      "hanzi": "鼻",
+      "display": "鼻",
+      "meaning": "нос",
+      "group": 2
+    },
+    {
+      "id": 210,
+      "hanzi": "齊",
+      "display": "齐",
+      "meaning": "ровный",
+      "group": 2
+    },
+    {
+      "id": 211,
+      "hanzi": "齒",
+      "display": "齿",
+      "meaning": "зуб",
+      "group": 2
+    },
+    {
+      "id": 212,
+      "hanzi": "龍",
+      "display": "龙",
+      "meaning": "дракон",
+      "group": 2
+    },
+    {
+      "id": 213,
+      "hanzi": "龜",
+      "display": "龟",
+      "meaning": "черепаха",
+      "group": 2
+    },
+    {
+      "id": 214,
+      "hanzi": "龠",
+      "display": "龠",
+      "meaning": "флейта",
+      "group": 1
+    }
+  ],
+  "families": [
+    {
+      "root": "青",
+      "pinyin": "qīng",
+      "meaning": "сине-зелёный",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "清",
+          "pinyin": "qīng",
+          "meaning": "чистый"
+        },
+        {
+          "hanzi": "情",
+          "pinyin": "qíng",
+          "meaning": "чувство"
+        },
+        {
+          "hanzi": "请",
+          "pinyin": "qǐng",
+          "meaning": "просить"
+        },
+        {
+          "hanzi": "晴",
+          "pinyin": "qíng",
+          "meaning": "ясная погода"
+        }
+      ]
+    },
+    {
+      "root": "马",
+      "pinyin": "mǎ",
+      "meaning": "лошадь",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "妈",
+          "pinyin": "mā",
+          "meaning": "мама"
+        },
+        {
+          "hanzi": "吗",
+          "pinyin": "ma",
+          "meaning": "вопросительная частица"
+        },
+        {
+          "hanzi": "码",
+          "pinyin": "mǎ",
+          "meaning": "код"
+        },
+        {
+          "hanzi": "骂",
+          "pinyin": "mà",
+          "meaning": "ругать"
+        }
+      ]
+    },
+    {
+      "root": "方",
+      "pinyin": "fāng",
+      "meaning": "направление",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "房",
+          "pinyin": "fáng",
+          "meaning": "комната"
+        },
+        {
+          "hanzi": "防",
+          "pinyin": "fáng",
+          "meaning": "защищать"
+        },
+        {
+          "hanzi": "访",
+          "pinyin": "fǎng",
+          "meaning": "посещать"
+        },
+        {
+          "hanzi": "放",
+          "pinyin": "fàng",
+          "meaning": "отпускать"
+        }
+      ]
+    },
+    {
+      "root": "胡",
+      "pinyin": "hú",
+      "meaning": "борода; фамилия",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "湖",
+          "pinyin": "hú",
+          "meaning": "озеро"
+        },
+        {
+          "hanzi": "葫",
+          "pinyin": "hú",
+          "meaning": "тыква"
+        },
+        {
+          "hanzi": "蝴",
+          "pinyin": "hú",
+          "meaning": "бабочка"
+        },
+        {
+          "hanzi": "糊",
+          "pinyin": "hú",
+          "meaning": "клейстер"
+        }
+      ]
+    },
+    {
+      "root": "朱",
+      "pinyin": "zhū",
+      "meaning": "киноварь",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "珠",
+          "pinyin": "zhū",
+          "meaning": "жемчуг"
+        },
+        {
+          "hanzi": "株",
+          "pinyin": "zhū",
+          "meaning": "растение (сч. сл.)"
+        },
+        {
+          "hanzi": "蛛",
+          "pinyin": "zhū",
+          "meaning": "паук"
+        },
+        {
+          "hanzi": "诛",
+          "pinyin": "zhū",
+          "meaning": "казнить"
+        }
+      ]
+    },
+    {
+      "root": "主",
+      "pinyin": "zhǔ",
+      "meaning": "главный",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "住",
+          "pinyin": "zhù",
+          "meaning": "жить"
+        },
+        {
+          "hanzi": "注",
+          "pinyin": "zhù",
+          "meaning": "помечать"
+        },
+        {
+          "hanzi": "柱",
+          "pinyin": "zhù",
+          "meaning": "столб"
+        },
+        {
+          "hanzi": "驻",
+          "pinyin": "zhù",
+          "meaning": "размещаться"
+        }
+      ]
+    },
+    {
+      "root": "包",
+      "pinyin": "bāo",
+      "meaning": "заворачивать",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "抱",
+          "pinyin": "bào",
+          "meaning": "обнимать"
+        },
+        {
+          "hanzi": "饱",
+          "pinyin": "bǎo",
+          "meaning": "сытый"
+        },
+        {
+          "hanzi": "泡",
+          "pinyin": "pào",
+          "meaning": "пузырь"
+        },
+        {
+          "hanzi": "跑",
+          "pinyin": "pǎo",
+          "meaning": "бегать"
+        }
+      ]
+    },
+    {
+      "root": "召",
+      "pinyin": "zhào",
+      "meaning": "призывать",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "诏",
+          "pinyin": "zhào",
+          "meaning": "указ"
+        },
+        {
+          "hanzi": "招",
+          "pinyin": "zhāo",
+          "meaning": "привлекать"
+        },
+        {
+          "hanzi": "昭",
+          "pinyin": "zhāo",
+          "meaning": "светлый"
+        },
+        {
+          "hanzi": "绍",
+          "pinyin": "shào",
+          "meaning": "продолжать"
+        }
+      ]
+    },
+    {
+      "root": "丁",
+      "pinyin": "dīng",
+      "meaning": "небесный ствол",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "钉",
+          "pinyin": "dīng",
+          "meaning": "гвоздь"
+        },
+        {
+          "hanzi": "盯",
+          "pinyin": "dīng",
+          "meaning": "пристально смотреть"
+        },
+        {
+          "hanzi": "订",
+          "pinyin": "dìng",
+          "meaning": "заказывать"
+        },
+        {
+          "hanzi": "顶",
+          "pinyin": "dǐng",
+          "meaning": "вершина"
+        }
+      ]
+    },
+    {
+      "root": "令",
+      "pinyin": "lìng",
+      "meaning": "приказ",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "领",
+          "pinyin": "lǐng",
+          "meaning": "получать"
+        },
+        {
+          "hanzi": "铃",
+          "pinyin": "líng",
+          "meaning": "колокольчик"
+        },
+        {
+          "hanzi": "零",
+          "pinyin": "líng",
+          "meaning": "ноль"
+        },
+        {
+          "hanzi": "龄",
+          "pinyin": "líng",
+          "meaning": "возраст"
+        }
+      ]
+    },
+    {
+      "root": "申",
+      "pinyin": "shēn",
+      "meaning": "заявлять",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "伸",
+          "pinyin": "shēn",
+          "meaning": "тянуть"
+        },
+        {
+          "hanzi": "呻",
+          "pinyin": "shēn",
+          "meaning": "стонать"
+        },
+        {
+          "hanzi": "绅",
+          "pinyin": "shēn",
+          "meaning": "джентльмен"
+        },
+        {
+          "hanzi": "神",
+          "pinyin": "shén",
+          "meaning": "дух"
+        }
+      ]
+    },
+    {
+      "root": "亡",
+      "pinyin": "wáng",
+      "meaning": "погибать",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "忘",
+          "pinyin": "wàng",
+          "meaning": "забывать"
+        },
+        {
+          "hanzi": "忙",
+          "pinyin": "máng",
+          "meaning": "занятой"
+        },
+        {
+          "hanzi": "盲",
+          "pinyin": "máng",
+          "meaning": "слепой"
+        }
+      ]
+    },
+    {
+      "root": "巴",
+      "pinyin": "bā",
+      "meaning": "прилипать; надеяться",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "吧",
+          "pinyin": "ba",
+          "meaning": "частица"
+        },
+        {
+          "hanzi": "芭",
+          "pinyin": "bā",
+          "meaning": "растение"
+        },
+        {
+          "hanzi": "疤",
+          "pinyin": "bā",
+          "meaning": "шрам"
+        },
+        {
+          "hanzi": "把",
+          "pinyin": "bǎ",
+          "meaning": "держать"
+        }
+      ]
+    },
+    {
+      "root": "里",
+      "pinyin": "lǐ",
+      "meaning": "внутри",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "理",
+          "pinyin": "lǐ",
+          "meaning": "принцип"
+        },
+        {
+          "hanzi": "锂",
+          "pinyin": "lǐ",
+          "meaning": "литий"
+        },
+        {
+          "hanzi": "鲤",
+          "pinyin": "lǐ",
+          "meaning": "карп"
+        },
+        {
+          "hanzi": "厘",
+          "pinyin": "lí",
+          "meaning": "сотая часть"
+        }
+      ]
+    },
+    {
+      "root": "票",
+      "pinyin": "piào",
+      "meaning": "билет",
+      "tier": 1,
+      "examples": [
+        {
+          "hanzi": "漂",
+          "pinyin": "piāo",
+          "meaning": "плавать"
+        },
+        {
+          "hanzi": "飘",
+          "pinyin": "piāo",
+          "meaning": "развеваться"
+        },
+        {
+          "hanzi": "瞟",
+          "pinyin": "piǎo",
+          "meaning": "коситься"
+        },
+        {
+          "hanzi": "剽",
+          "pinyin": "piāo",
+          "meaning": "стремительный"
+        }
+      ]
+    },
+    {
+      "root": "可",
+      "pinyin": "kě",
+      "meaning": "можно",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "河",
+          "pinyin": "hé",
+          "meaning": "река"
+        },
+        {
+          "hanzi": "何",
+          "pinyin": "hé",
+          "meaning": "что"
+        },
+        {
+          "hanzi": "荷",
+          "pinyin": "hé",
+          "meaning": "лотос"
+        },
+        {
+          "hanzi": "呵",
+          "pinyin": "hē",
+          "meaning": "выдыхать"
+        }
+      ]
+    },
+    {
+      "root": "工",
+      "pinyin": "gōng",
+      "meaning": "работа",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "功",
+          "pinyin": "gōng",
+          "meaning": "заслуга"
+        },
+        {
+          "hanzi": "攻",
+          "pinyin": "gōng",
+          "meaning": "атаковать"
+        },
+        {
+          "hanzi": "空",
+          "pinyin": "kōng",
+          "meaning": "пустой"
+        },
+        {
+          "hanzi": "红",
+          "pinyin": "hóng",
+          "meaning": "красный"
+        }
+      ]
+    },
+    {
+      "root": "良",
+      "pinyin": "liáng",
+      "meaning": "хороший",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "粮",
+          "pinyin": "liáng",
+          "meaning": "зерно"
+        },
+        {
+          "hanzi": "狼",
+          "pinyin": "láng",
+          "meaning": "волк"
+        },
+        {
+          "hanzi": "浪",
+          "pinyin": "làng",
+          "meaning": "волна"
+        },
+        {
+          "hanzi": "娘",
+          "pinyin": "niáng",
+          "meaning": "мать"
+        }
+      ]
+    },
+    {
+      "root": "交",
+      "pinyin": "jiāo",
+      "meaning": "обмен",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "郊",
+          "pinyin": "jiāo",
+          "meaning": "пригород"
+        },
+        {
+          "hanzi": "胶",
+          "pinyin": "jiāo",
+          "meaning": "клей"
+        },
+        {
+          "hanzi": "较",
+          "pinyin": "jiào",
+          "meaning": "сравнивать"
+        },
+        {
+          "hanzi": "校",
+          "pinyin": "xiào",
+          "meaning": "школа"
+        }
+      ]
+    },
+    {
+      "root": "古",
+      "pinyin": "gǔ",
+      "meaning": "древний",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "姑",
+          "pinyin": "gū",
+          "meaning": "тётя"
+        },
+        {
+          "hanzi": "固",
+          "pinyin": "gù",
+          "meaning": "прочный"
+        },
+        {
+          "hanzi": "故",
+          "pinyin": "gù",
+          "meaning": "причина"
+        },
+        {
+          "hanzi": "苦",
+          "pinyin": "kǔ",
+          "meaning": "горький"
+        }
+      ]
+    },
+    {
+      "root": "其",
+      "pinyin": "qí",
+      "meaning": "его; тот",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "期",
+          "pinyin": "qī",
+          "meaning": "срок"
+        },
+        {
+          "hanzi": "棋",
+          "pinyin": "qí",
+          "meaning": "шахматы"
+        },
+        {
+          "hanzi": "旗",
+          "pinyin": "qí",
+          "meaning": "флаг"
+        },
+        {
+          "hanzi": "欺",
+          "pinyin": "qī",
+          "meaning": "обманывать"
+        }
+      ]
+    },
+    {
+      "root": "皮",
+      "pinyin": "pí",
+      "meaning": "кожа",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "彼",
+          "pinyin": "bǐ",
+          "meaning": "тот"
+        },
+        {
+          "hanzi": "波",
+          "pinyin": "bō",
+          "meaning": "волна"
+        },
+        {
+          "hanzi": "坡",
+          "pinyin": "pō",
+          "meaning": "склон"
+        },
+        {
+          "hanzi": "破",
+          "pinyin": "pò",
+          "meaning": "ломать"
+        }
+      ]
+    },
+    {
+      "root": "羊",
+      "pinyin": "yáng",
+      "meaning": "овца",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "洋",
+          "pinyin": "yáng",
+          "meaning": "океан"
+        },
+        {
+          "hanzi": "样",
+          "pinyin": "yàng",
+          "meaning": "образец"
+        },
+        {
+          "hanzi": "详",
+          "pinyin": "xiáng",
+          "meaning": "подробный"
+        },
+        {
+          "hanzi": "痒",
+          "pinyin": "yǎng",
+          "meaning": "чесаться"
+        }
+      ]
+    },
+    {
+      "root": "采",
+      "pinyin": "cǎi",
+      "meaning": "собирать",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "彩",
+          "pinyin": "cǎi",
+          "meaning": "цветной"
+        },
+        {
+          "hanzi": "菜",
+          "pinyin": "cài",
+          "meaning": "овощи"
+        },
+        {
+          "hanzi": "踩",
+          "pinyin": "cǎi",
+          "meaning": "наступать"
+        },
+        {
+          "hanzi": "睬",
+          "pinyin": "cǎi",
+          "meaning": "замечать"
+        }
+      ]
+    },
+    {
+      "root": "兆",
+      "pinyin": "zhào",
+      "meaning": "предзнаменование",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "桃",
+          "pinyin": "táo",
+          "meaning": "персик"
+        },
+        {
+          "hanzi": "逃",
+          "pinyin": "táo",
+          "meaning": "убегать"
+        },
+        {
+          "hanzi": "跳",
+          "pinyin": "tiào",
+          "meaning": "прыгать"
+        },
+        {
+          "hanzi": "挑",
+          "pinyin": "tiāo",
+          "meaning": "выбирать"
+        }
+      ]
+    },
+    {
+      "root": "半",
+      "pinyin": "bàn",
+      "meaning": "половина",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "伴",
+          "pinyin": "bàn",
+          "meaning": "спутник"
+        },
+        {
+          "hanzi": "拌",
+          "pinyin": "bàn",
+          "meaning": "смешивать"
+        },
+        {
+          "hanzi": "判",
+          "pinyin": "pàn",
+          "meaning": "судить"
+        },
+        {
+          "hanzi": "胖",
+          "pinyin": "pàng",
+          "meaning": "толстый"
+        }
+      ]
+    },
+    {
+      "root": "反",
+      "pinyin": "fǎn",
+      "meaning": "обратный",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "返",
+          "pinyin": "fǎn",
+          "meaning": "возвращаться"
+        },
+        {
+          "hanzi": "饭",
+          "pinyin": "fàn",
+          "meaning": "еда"
+        },
+        {
+          "hanzi": "贩",
+          "pinyin": "fàn",
+          "meaning": "торговать"
+        },
+        {
+          "hanzi": "板",
+          "pinyin": "bǎn",
+          "meaning": "доска"
+        }
+      ]
+    },
+    {
+      "root": "分",
+      "pinyin": "fēn",
+      "meaning": "делить",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "纷",
+          "pinyin": "fēn",
+          "meaning": "многочисленный"
+        },
+        {
+          "hanzi": "粉",
+          "pinyin": "fěn",
+          "meaning": "порошок"
+        },
+        {
+          "hanzi": "份",
+          "pinyin": "fèn",
+          "meaning": "порция"
+        },
+        {
+          "hanzi": "盼",
+          "pinyin": "pàn",
+          "meaning": "надеяться"
+        }
+      ]
+    },
+    {
+      "root": "及",
+      "pinyin": "jí",
+      "meaning": "достигать",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "级",
+          "pinyin": "jí",
+          "meaning": "уровень"
+        },
+        {
+          "hanzi": "极",
+          "pinyin": "jí",
+          "meaning": "крайний"
+        },
+        {
+          "hanzi": "吸",
+          "pinyin": "xī",
+          "meaning": "вдыхать"
+        }
+      ]
+    },
+    {
+      "root": "生",
+      "pinyin": "shēng",
+      "meaning": "жизнь",
+      "tier": 2,
+      "examples": [
+        {
+          "hanzi": "牲",
+          "pinyin": "shēng",
+          "meaning": "жертвенное животное"
+        },
+        {
+          "hanzi": "胜",
+          "pinyin": "shèng",
+          "meaning": "побеждать"
+        },
+        {
+          "hanzi": "姓",
+          "pinyin": "xìng",
+          "meaning": "фамилия"
+        },
+        {
+          "hanzi": "性",
+          "pinyin": "xìng",
+          "meaning": "свойство"
+        }
+      ]
+    }
+  ]
+};
+const G={1:'Форма + значение',2:'Самостоятельный знак',3:'Фонетический ориентир'};const KEY='hanzi_radicals_progress_v1';
+let progress={};try{progress=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){};const state={tab:'radicals',search:'',group:'all',status:'all',famTier:'all',current:0,studySet:'all',revealed:false,quiz:null,quizCount:0,quizWins:0};
+const $=s=>document.querySelector(s);const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){try{localStorage.setItem(KEY,JSON.stringify(progress))}catch(e){alert('Браузер не разрешил сохранение. Для надёжного прогресса открой приложение по HTTPS.')}}function stat(id){return progress[id]||0}function setstat(id,n){progress[id]=n;save();render()}function known(){return DB.radicals.filter(x=>stat('r'+x.id)===2).length}function learned(){return DB.radicals.filter(x=>stat('r'+x.id)>0).length}
+// Audio 0.2: recordings only; never silently substitute TTS for a different reading.
+const AUDIO_COMMONS={'五|wǔ':'https://commons.wikimedia.org/wiki/Special:Redirect/file/Zh-wǔ.ogg'};
+let currentRecording=null;
+const readIndex=new Map();
+for(const f of DB.families){readIndex.set(f.root,f.pinyin);for(const e of f.examples)readIndex.set(e.hanzi,e.pinyin)}
+function toneFile(p){
+ const m={'ā':['a',1],'á':['a',2],'ǎ':['a',3],'à':['a',4],'ē':['e',1],'é':['e',2],'ě':['e',3],'è':['e',4],
+ 'ī':['i',1],'í':['i',2],'ǐ':['i',3],'ì':['i',4],'ō':['o',1],'ó':['o',2],'ǒ':['o',3],'ò':['o',4],
+ 'ū':['u',1],'ú':['u',2],'ǔ':['u',3],'ù':['u',4],'ǖ':['v',1],'ǘ':['v',2],'ǚ':['v',3],'ǜ':['v',4]};
+ let syllables=p.normalize('NFC').toLowerCase().trim().split(/\s+/);if(syllables.length!==1||p.includes('/'))return null;
+ let tone=5,base='';for(const c of syllables[0]){if(m[c]){base+=m[c][0];tone=m[c][1]}else base+=c==='ü'?'v':c}
+ return /^[a-zv]+$/.test(base)?base+tone:null;
+}
+function getReading(x){return readIndex.get(x)||(x==='五'?'wǔ':null)}
+function audioDB(){return new Promise((res,rej)=>{let r=indexedDB.open('hanzi_radicals_audio_v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('files');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+async function storeRecording(name,blob){let db=await audioDB();return new Promise((res,rej)=>{let tx=db.transaction('files','readwrite');tx.objectStore('files').put(blob,name);tx.oncomplete=()=>{db.close();res()};tx.onerror=()=>{db.close();rej(tx.error)}})}
+async function loadRecording(name){let db=await audioDB();return new Promise((res,rej)=>{let tx=db.transaction('files','readonly'),q=tx.objectStore('files').get(name);q.onsuccess=()=>{db.close();res(q.result)};q.onerror=()=>{db.close();rej(q.error)}})}
+// Audio 0.3: authentic Mandarin recordings by Chen Wang (CC BY-SA),
+// hosted by Hugo Lopez's audio-cmn project. No browser text-to-speech.
+const AUDIO_BASE='https://raw.githubusercontent.com/hugolpz/audio-cmn/master/64k/syllabs/cmn-';
+const AUDIO_SOURCE='https://github.com/hugolpz/audio-cmn';
+function remoteAudioUrl(key){return AUDIO_BASE+encodeURIComponent(key)+'.mp3'}
+function stopAudio(){if(currentRecording){currentRecording.pause();currentRecording.onended=null;currentRecording=null}}
+function playRecording(url,x,py,local=false){
+ const a=new Audio(url);currentRecording=a;
+ a.onended=()=>{if(local)URL.revokeObjectURL(url);if(currentRecording===a)currentRecording=null};
+ a.onerror=()=>{if(local)URL.revokeObjectURL(url);if(currentRecording===a)currentRecording=null;alert('Запись «'+x+'» ('+py+') недоступна. Проверь интернет или загрузи свой аудиофайл во вкладке «Прогресс».')};
+ a.play().catch(e=>{if(local)URL.revokeObjectURL(url);if(currentRecording===a)currentRecording=null;alert('Не удалось воспроизвести звук: '+e.message)});
+}
+function speak(x){
+ stopAudio();
+ const py=getReading(x);
+ if(!py){alert('Для «'+x+'» пока не задано однозначное чтение. Неверный тон воспроизводить не будем.');return}
+ const key=toneFile(py);
+ if(!key){alert('У «'+x+'» несколько чтений ('+py+'). Нужно выбрать конкретное чтение.');return}
+ if(key.endsWith('5')){alert('Для нейтрального тона «'+x+'» ('+py+') нет проверенной отдельной записи. Требуется специальная запись, а не подмена первым тоном.');return}
+ // Start online playback synchronously from the user click: critical on iOS Safari.
+ // Remote files are real human syllable recordings, not synthesized voices.
+ playRecording(remoteAudioUrl(key),x,py);
+}
+async function addAudioFiles(fileList){let ok=0,bad=0;for(const f of Array.from(fileList||[])){
+ let m=f.name.toLowerCase().match(/^([a-zv]+[1-5])(?:[_-][^.]*)?\.(mp3|m4a|ogg|oga|wav|flac)$/);
+ if(!m){bad++;continue}
+ try{await storeRecording(m[1],f);ok++}catch(e){bad++}
+ }alert('Импортировано записей: '+ok+'. Пропущено: '+bad+'. Название файла должно начинаться с пиньиня и номера тона, например qing1.mp3.');}
+
+function stats(){ $('#stats').innerHTML=`<div class="stat"><strong>${learned()} / 214</strong><span>Начаты ключи</span></div><div class="stat"><strong>${known()} / 214</strong><span>Знаю ключей</span></div><div class="stat"><strong>${DB.families.filter((_,i)=>stat('f'+i)===2).length} / 30</strong><span>Знаю семейств</span></div>`}
+function render(){document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('on',x.dataset.tab===state.tab));stats();if(state.tab==='radicals')renderRadicals();if(state.tab==='families')renderFamilies();if(state.tab==='study')renderStudy();if(state.tab==='quiz')renderQuiz();if(state.tab==='progress')renderProgress()}
+function renderRadicals(){let a=DB.radicals.filter(r=>(state.group==='all'||r.group==state.group)&&(state.status==='all'||(state.status==='new'?stat('r'+r.id)===0:state.status==='learning'?stat('r'+r.id)===1:stat('r'+r.id)===2))&&`${r.id} ${r.hanzi} ${r.display} ${r.meaning}`.toLowerCase().includes(state.search.toLowerCase()));$('#app').innerHTML=`<div class="panel"><h2>Словарь ключей</h2><div class="notice">Группа 1: учи написание и значение. Группа 2: добавляй произношение распространённых самостоятельных иероглифов. Группа 3: изучай вместе с фонетическими примерами. Некоторые ключи могут выполнять несколько функций.</div><div class="filters"><input id="search" placeholder="Поиск: знак, значение или номер" value="${escapeHtml(state.search)}"><select id="group"><option value="all">Все группы</option>${[1,2,3].map(i=>`<option value="${i}" ${state.group==i?'selected':''}>${G[i]}</option>`).join('')}</select><select id="status"><option value="all">Любой прогресс</option><option value="new" ${state.status==='new'?'selected':''}>Не изучено</option><option value="learning" ${state.status==='learning'?'selected':''}>Повторить</option><option value="known" ${state.status==='known'?'selected':''}>Знаю</option></select></div><p class="muted">Найдено: ${a.length}</p><div class="grid">${a.map(r=>`<button class="tile" data-id="${r.id}"><span class="muted">№ ${r.id} ${stat('r'+r.id)===2?'✓':stat('r'+r.id)===1?'◉':''}</span><span class="char">${r.display}</span><small>${escapeHtml(r.meaning)}</small></button>`).join('')}</div></div>`;$('#search').oninput=e=>{let v=e.target.value;state.search=v;const pos=e.target.selectionStart;renderRadicals();$('#search').focus();$('#search').setSelectionRange(pos,pos)};$('#group').onchange=e=>{state.group=e.target.value;renderRadicals()};$('#status').onchange=e=>{state.status=e.target.value;renderRadicals()};document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>openRadical(+b.dataset.id))}
+function openRadical(id){const r=DB.radicals[id-1];$('#app').innerHTML=`<div class="panel study"><button class="btn alt" id="back">← К списку</button><div class="muted" style="margin-top:15px">Ключ Канси № ${id}</div><div class="herochar">${r.display}</div>${r.hanzi!==r.display?`<p class="muted">Традиционная форма: <b>${r.hanzi}</b></p>`:''}<h2>${escapeHtml(r.meaning)}</h2><p><span class="pill group${r.group}">${G[r.group]}</span></p><p class="hint">${r.group===1?'Отдельное чтение пока можно не запоминать.':r.group===2?'Самостоятельное произношение учи по мере встречи с этим иероглифом.':'Попробуй найти похожие по звучанию иероглифы в разделе «Фонетики».'}</p><div class="flex" style="justify-content:center"><button class="btn alt" id="speak">▶ Произнести знак</button><button class="btn alt" id="repeat">◉ Повторить</button><button class="btn good" id="know">✓ Знаю</button></div><p class="hint">Используются записи носителя языка (путунхуа) из открытого набора audio-cmn. Для прослушивания требуется интернет. У редких ключей и неоднозначных чтений звук может отсутствовать.</p></div>`;$('#back').onclick=renderRadicals;$('#speak').onclick=()=>speak(r.display);$('#repeat').onclick=()=>setstat('r'+id,1);$('#know').onclick=()=>setstat('r'+id,2)}
+function renderFamilies(){let a=DB.families.map((f,i)=>({...f,id:i})).filter(f=>state.famTier==='all'||f.tier==state.famTier);$('#app').innerHTML=`<div class="panel"><h2>30 фонетических семейств</h2><p class="hint">Фонетик подсказывает примерное звучание, но не всегда тон или начальный согласный. Нажми ▶, чтобы услышать запись носителя языка. Требуется интернет. Некоторые чтения (особенно нейтральный тон) пока не озвучиваются.</p><div class="filters"><select id="tier"><option value="all">Все 30 семейств</option><option value="1" ${state.famTier==='1'?'selected':''}>Основные — 15</option><option value="2" ${state.famTier==='2'?'selected':''}>Дополнительные — 15</option></select></div><div class="familygrid">${a.map(f=>`<article class="family"><div class="flex space"><h3><span class="char">${f.root}</span><span>${f.pinyin}<br><small class="muted">${f.meaning}</small></span></h3><button class="btn alt" data-speak="${f.root}">▶</button></div><p class="muted" style="margin:9px 0 3px">${f.tier===1?'Основное':'Дополнительное'} семейство</p>${f.examples.map(e=>`<button class="example" data-speak="${e.hanzi}"><b>${e.hanzi} ${e.pinyin}</b><small>${e.meaning}</small></button>`).join('')}<div style="margin-top:12px"><button class="btn ${stat('f'+f.id)===2?'good':'alt'}" data-family="${f.id}">${stat('f'+f.id)===2?'✓ Семейство изучено':'Отметить как изученное'}</button></div></article>`).join('')}</div></div>`;$('#tier').onchange=e=>{state.famTier=e.target.value;renderFamilies()};document.querySelectorAll('[data-speak]').forEach(b=>b.onclick=()=>speak(b.dataset.speak));document.querySelectorAll('[data-family]').forEach(b=>b.onclick=()=>setstat('f'+b.dataset.family,stat('f'+b.dataset.family)===2?0:2))}
+function studyPool(){if(state.studySet==='families')return DB.families.map((f,i)=>({key:'f'+i,char:f.root,back:`${f.pinyin} — ${f.meaning}`,extra:f.examples.map(e=>`${e.hanzi} ${e.pinyin}`).join(' · ')}));return DB.radicals.filter(r=>state.studySet==='all'||(state.studySet==='review'?stat('r'+r.id)!==2:r.group==state.studySet)).map(r=>({key:'r'+r.id,char:r.display,back:r.meaning,extra:`№ ${r.id} · ${G[r.group]}`}))}
+function renderStudy(){let pool=studyPool();if(state.current>=pool.length)state.current=0;let x=pool[state.current];$('#app').innerHTML=`<div class="panel study"><h2>Карточки для запоминания</h2><div class="filters"><select id="studyset"><option value="all">Все 214 ключей</option><option value="review">Только новые и на повторение</option><option value="1">Группа 1</option><option value="2">Группа 2</option><option value="3">Группа 3</option><option value="families">30 фонетических семейств</option></select></div>${x?`<div class="muted">Карточка ${state.current+1} из ${pool.length}</div><div class="herochar">${x.char}</div>${state.revealed?`<h2>${x.back}</h2><p class="hint">${x.extra}</p>`:`<p class="hint">Вспомни значение и, если нужно, чтение</p>`}<div class="flex" style="justify-content:center"><button class="btn alt" id="sound">▶</button><button class="btn" id="flip">${state.revealed?'Скрыть':'Показать ответ'}</button></div>${state.revealed?`<div class="flex" style="justify-content:center;margin:15px 0"><button class="btn bad" id="again">Повторить</button><button class="btn good" id="yes">Знаю</button></div>`:''}<div class="flex" style="justify-content:center;margin:16px 0"><button class="btn alt" id="prev">← Назад</button><button class="btn alt" id="next">Дальше →</button></div>`:`<div class="empty">Все карточки выбранного набора уже изучены.</div>`}</div>`;$('#studyset').value=state.studySet;$('#studyset').onchange=e=>{state.studySet=e.target.value;state.current=0;state.revealed=false;renderStudy()};if(!x)return;$('#sound').onclick=()=>speak(x.char);$('#flip').onclick=()=>{state.revealed=!state.revealed;renderStudy()};$('#prev').onclick=()=>{state.current=(state.current+pool.length-1)%pool.length;state.revealed=false;renderStudy()};$('#next').onclick=()=>advance();if(state.revealed){$('#again').onclick=()=>{progress[x.key]=1;save();advance()};$('#yes').onclick=()=>{progress[x.key]=2;save();advance()}}}
+function advance(){state.current++;state.revealed=false;render()}
+function nextQuestion(){let pool=DB.radicals;let target=pool[Math.floor(Math.random()*pool.length)],opts=[target];let options=pool.filter(r=>r.id!==target.id&&r.meaning!==target.meaning);while(opts.length<4){let pick=options.splice(Math.floor(Math.random()*options.length),1)[0];if(pick&&!opts.some(o=>o.meaning===pick.meaning))opts.push(pick)}opts.sort(()=>Math.random()-.5);state.quiz={target,options:opts,answer:null};renderQuiz()}
+function renderQuiz(){if(!state.quiz){nextQuestion();return}let q=state.quiz;$('#app').innerHTML=`<div class="panel study"><h2>Проверка значения ключей</h2><p class="muted">Верно: ${state.quizWins} из ${state.quizCount}</p><div class="herochar">${q.target.display}</div><p class="hint">Какое значение у этого ключа?</p><div class="quiz-options">${q.options.map(o=>`<button data-opt="${o.id}" class="${q.answer===null?'':o.id===q.target.id?'correct':o.id===q.answer?'wrong':''}" ${q.answer!==null?'disabled':''}>${escapeHtml(o.meaning)}</button>`).join('')}</div>${q.answer!==null?`<p style="font-weight:700">${q.answer===q.target.id?'Правильно!':'Ответ: '+q.target.meaning}</p><button class="btn" id="newq">Следующий вопрос →</button>`:''}</div>`;document.querySelectorAll('[data-opt]').forEach(b=>b.onclick=()=>{if(q.answer!==null)return;q.answer=+b.dataset.opt;state.quizCount++;if(q.answer===q.target.id){state.quizWins++;progress['r'+q.target.id]=2}else progress['r'+q.target.id]=1;save();renderQuiz()});if(q.answer!==null)$('#newq').onclick=nextQuestion}
+function renderProgress(){$('#app').innerHTML=`<div class="panel"><h2>Твой прогресс</h2><p class="hint">Состояния карточек сохраняются локально на этом устройстве. «Знаю» — самооценка; для долговременного запоминания возвращайся к карточкам повторно.</p><p>Знаю: <b>${known()}</b> ключей. На повторении: <b>${DB.radicals.filter(r=>stat('r'+r.id)===1).length}</b>.</p><div class="flex"><button class="btn" id="export">Скачать прогресс JSON</button><label class="btn alt">Импортировать JSON<input type="file" id="import" accept=".json,application/json" style="display:none"></label><button class="btn bad" id="reset">Сбросить прогресс</button></div><p class="hint">Экспорт пригодится при переносе на другой телефон или при очистке браузера.</p><hr><h3>Аудиозаписи носителей языка</h3><p class="hint">Онлайн-озвучивание носителем языка подключено (audio-cmn, Chen Wang, CC BY-SA). При наличии интернета нажимай ▶ на карточках. Браузерный синтез отключён. При необходимости можно импортировать MP3/OGG/M4A/FLAC/WAV записи с именами по пиньиню и тону: qing1.mp3, ma3.ogg, fang2.mp3. Можно выбрать сразу много файлов. Они сохраняются в IndexedDB этого браузера, однако текущий режим воспроизводит онлайн-записи; импортированные файлы пока не выбираются автоматически. Односложные записи произносятся с изолированным тоном; это не тренажёр тоновых изменений в связной речи.</p><label class="btn alt">Загрузить аудиофайлы<input type="file" id="importaudio" accept="audio/*,.mp3,.ogg,.oga,.m4a,.wav,.flac" multiple style="display:none"></label><p class="hint">Внимание: импортируйте только записи, для которых есть право на использование; пиньинь в названии должен точно соответствовать звуку. Некоторые иероглифы многозначны и имеют несколько чтений.</p></div>`;$('#importaudio').onchange=async e=>{await addAudioFiles(e.target.files);e.target.value=''};$('#export').onclick=()=>{const b=new Blob([JSON.stringify({version:1,progress},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='hanzi-progress.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};$('#import').onchange=async e=>{try{let d=JSON.parse(await e.target.files[0].text());if(!d.progress||typeof d.progress!=='object')throw Error('Не найден прогресс');progress=d.progress;save();render()}catch(e){alert('Не удалось загрузить: '+e.message)}};$('#reset').onclick=()=>{if(confirm('Удалить все отметки изучения?')){progress={};save();render()}}}
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(!b)return;state.tab=b.dataset.tab;render()});render();</script></body></html>
