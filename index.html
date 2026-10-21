@@ -2534,8 +2534,8 @@ function renderWriting(){
  <div class="writer-side"><span class="brushchar" style="font-size:42px">${escapeHtml(ch)}</span><div style="text-align:left"><b>${escapeHtml(name)}</b><div class="writermeta">${p?'Лучшая попытка: '+p.best+' ошибок · выполнено '+p.count+' раз':'Пока нет завершённых прописей'}</div></div></div>
  <div class="writer-actions"><button id="demoTab" class="btn ${state.writeMode==='demo'?'good':'alt'}">▶ Порядок черт</button></div>
  ${state.writeMode==='practice'?`<div class="levels"><button data-level="1" class="level ${state.writeLevel===1?'on':''}">1 · Обвести</button><button data-level="2" class="level ${state.writeLevel===2?'on':''}">2 · Подсказка</button><button data-level="3" class="level ${state.writeLevel===3?'on':''}">3 · По памяти</button></div>`:''}
- <div class="writerbox"><div id="writingCanvas"></div></div><div id="writingStatus" class="writerstatus" role="status">Загружаю проверенные контуры черт…</div>
- <div id="writingActions" class="writer-actions"></div><div class="writer-actions"><button id="practiceTab" class="btn ${state.writeMode==='practice'?'good':'alt'}">✍ Тренировка</button>${state.writeMode==='practice'?'<button id="modeReset" class="btn alt">↻ Повторить</button>':''}</div><p class="hint" style="font-size:12px">Для анимации и проверки нужна загрузка данных Hanzi Writer из интернета. Алгоритм оценивает движения, порядок, направление и расположение черт, но не художественное качество каллиграфии. Доступность данных зависит от знака.</p></div>`;
+ ${state.writeMode==='demo'?'<div id="writingActions" class="writer-actions"></div>':''}<div class="writerbox"><div id="writingCanvas"></div></div><div id="writingStatus" class="writerstatus" role="status">Загружаю проверенные контуры черт…</div>
+ ${state.writeMode==='practice'?'<div id="writingActions" class="writer-actions"></div>':''}<div class="writer-actions"><button id="practiceTab" class="btn ${state.writeMode==='practice'?'good':'alt'}">✍ Тренировка</button>${state.writeMode==='practice'?'<button id="modeReset" class="btn alt">↻ Повторить</button>':''}</div><p class="hint" style="font-size:12px">Для анимации и проверки нужна загрузка данных Hanzi Writer из интернета. Алгоритм оценивает движения, порядок, направление и расположение черт, но не художественное качество каллиграфии. Доступность данных зависит от знака.</p></div>`;
  initStyleControl();$('#writeSelect').onchange=e=>goWrite(e.target.value);$('#writeFamily').onchange=e=>{if(e.target.value)goWrite(e.target.value)};
  $('#demoTab').onclick=()=>{state.writeMode='demo';renderWriting()};$('#practiceTab').onclick=()=>{state.writeMode='practice';renderWriting()};if($('#modeReset'))$('#modeReset').onclick=()=>renderWriting();
  document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{state.writeLevel=+b.dataset.level;renderWriting()});
@@ -2567,7 +2567,7 @@ function showStrokeOrder(){if(!writer||!writeData)return;
  explain();
  $('#strokePrev').onclick=()=>{state.writeIndex=(state.writeIndex-1+count)%count;writer.highlightStroke(state.writeIndex);explain()};
  $('#strokeNext').onclick=()=>{state.writeIndex=(state.writeIndex+1)%count;writer.animateStroke(state.writeIndex);explain()};
- $('#strokeAll').onclick=()=>{writer.animateCharacter();writingMessage(`Анимация всех ${count} ${strokeWord(count)} по порядку.`)};
+ $('#strokeAll').onclick=()=>{writer.animateCharacter();writingMessage(`Все черты (${count}) воспроизводятся по порядку.`)};
  $('#strokeRestart').onclick=()=>{state.writeIndex=0;writer.animateCharacter();writingMessage('Анимация запущена заново.')};
 }
 function startWritingQuiz(){if(!writer||!writeData)return;
