@@ -2430,23 +2430,27 @@ function remoteCharacterUrl(char){return AUDIO_WORD_BASE+encodeURIComponent(char
 function stopAudio(){if(currentRecording){currentRecording.pause();currentRecording.onended=null;currentRecording.onerror=null;currentRecording=null}}
 function playRecording(url,x,py,local=false,variant='syllable'){
  const a=new Audio();currentRecording=a;a.preload='auto';a.src=url;
- let retried=false,finished=false;
+ let retried=false,characterFallback=false,finished=false,activeVariant=variant;
  const cleanup=()=>{if(finished)return;finished=true;if(local)URL.revokeObjectURL(url);if(currentRecording===a)currentRecording=null};
  const fail=()=>{if(finished)return;cleanup();audioFailedThisSession.add(x+'|'+variant);
   showAudioStatus(x,'⚠ Запись «'+(variant==='character'?'Знак':'Слог')+'» не воспроизводится. Попробуй '+(variant==='character'?'«Слог»':'другую запись')+'.');};
  const fallback=()=>{
   if(finished)return;
-  if(variant==='commons'&&!retried){retried=true;
+  if(variant==='commons'&&!retried){retried=true;activeVariant='syllable';
     showAudioStatus(x,'Wikimedia Commons недоступен на этом устройстве. Включаю слог из основной библиотеки.');
     a.src=remoteAudioUrl(toneFile(py));a.load();a.play().catch(fail);return;
   }
   if(!retried&&!local&&url.startsWith('https://raw.githubusercontent.com/hugolpz/audio-cmn/master/')){
    retried=true;a.src=url.replace('https://raw.githubusercontent.com/hugolpz/audio-cmn/master/','https://cdn.jsdelivr.net/gh/hugolpz/audio-cmn@master/');
    a.load();a.play().catch(fail);
+  }else if(variant==='character'&&!characterFallback&&toneFile(py)&&!toneFile(py).endsWith('5')){
+    characterFallback=true;activeVariant='syllable';
+    showAudioStatus(x,'Нет доступной записи знака. Включаю слог '+py+' с тем же тоном.');
+    a.src=remoteAudioUrl(toneFile(py));a.load();a.play().catch(fail);
   }else fail();
  };
  a.onended=cleanup;
- a.onplaying=()=>{audioFailedThisSession.delete(x+'|'+variant);showAudioStatus(x,'▶ Воспроизводится '+(variant==='character'?'знак':'слог')+'.')};
+ a.onplaying=()=>{audioFailedThisSession.delete(x+'|'+variant);showAudioStatus(x,'▶ Воспроизводится '+(activeVariant==='character'?'знак':'слог')+'.')};
  a.onerror=fallback;
  a.play().catch(e=>{if(e&&e.name==='NotAllowedError'){cleanup();showAudioStatus(x,'Safari заблокировал запуск. Нажми кнопку ещё раз.')}else fallback()});
 }
