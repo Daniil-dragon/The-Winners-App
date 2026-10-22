@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#131c2f"><title>字 Графемы 0.7.0 — курс, повторения и семейства</title><script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script><style>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#131c2f"><title>字 Графемы 0.7.2 — уточнение значений ключей</title><script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script><style>
 :root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#19243b;background:#f5f7fc;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}header{background:linear-gradient(115deg,#17243e,#344f84);color:white;padding:26px max(20px,calc((100vw - 1080px)/2)) 23px}h1{margin:0;font-size:27px;letter-spacing:-.5px}header p{margin:7px 0 0;color:#ced8eb;line-height:1.5}.wrap{max-width:1080px;margin:auto;padding:19px 18px 80px}.tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px}.tab{white-space:nowrap;border:0;border-radius:13px;padding:12px 15px;background:#e8edf7;color:#334664;font-weight:700}.tab.on{background:#294976;color:white}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:17px 0}.stat{background:white;border:1px solid #e2e8f3;border-radius:16px;padding:15px}.stat strong{display:block;font-size:23px}.stat span{color:#65748b;font-size:12px}.panel{background:white;border:1px solid #e2e8f2;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 4px 24px #2f40600a}.panel h2{font-size:19px;margin:0 0 11px}.hint{color:#6a7890;line-height:1.5}.filters{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.filters input,.filters select{border:1px solid #cdd6e6;border-radius:11px;padding:12px;background:white;min-width:0}.filters input{flex:1 1 180px}.filters select{flex:1 1 170px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(111px,1fr));gap:10px}.tile{border:1px solid #e1e6ef;background:white;border-radius:15px;min-height:126px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:9px 5px;gap:4px;text-align:center}.tile:hover{border-color:#5c7caf}.tile.known{border:2px solid #21976b;background:#e8f8ef;box-shadow:0 0 0 1px #21976b18}.tile.known .char{color:#14694c}.tile.learning{border:2px solid #d7a047;background:#fff7e8}.tile .tile-state{font-size:11px;font-weight:700;color:#14694c}.tile.learning .tile-state{color:#986414}.char{font-family:'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif;font-size:45px;line-height:1.25;font-weight:500}.muted{color:#6b7d96}.tile .muted{font-size:11px}.tile small{font-size:11px;color:#40546e}.pill{display:inline-block;padding:5px 8px;border-radius:40px;background:#e7edf6;color:#35506f;font-size:11px;font-weight:700}.group1{background:#eaf1ff;color:#385d96}.group2{background:#e8f7ed;color:#286446}.group3{background:#fff2d9;color:#8a5a12}.familygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}.family{border:1px solid #e2e7f0;border-radius:15px;padding:15px}.family h3{margin:0;display:flex;align-items:center;gap:10px}.family .char{font-size:35px}.example{display:inline-flex;flex-direction:column;gap:3px;padding:9px;margin:6px 5px 0 0;background:#f3f6fb;border-radius:10px;min-width:83px}.example b{font-weight:600}.example small{color:#66758a;font-size:11px}.btn{background:#294976;color:white;border:0;border-radius:12px;padding:12px 15px;font-weight:700}.btn.alt{background:#eef2fa;color:#294976}.btn.good{background:#22865d}.btn.bad{background:#d86767}.btn:disabled{opacity:.5}.study{max-width:550px;margin:12px auto;text-align:center}.herochar{font-size:115px;margin:25px 0 13px;font-family:'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif}.quiz-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.quiz-options button{padding:17px 8px;background:#f3f6fc;border:1px solid #dae3f1;border-radius:12px}.quiz-options button.correct{background:#d8f6e6;border-color:#35a473}.quiz-options button.wrong{background:#ffe2df;border-color:#d46a65}.flex{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.space{justify-content:space-between}.notice{border-left:4px solid #85a0cb;background:#eef3fc;border-radius:10px;padding:12px 14px;line-height:1.55}.empty{text-align:center;padding:30px;color:#6980a0}footer{color:#71829a;text-align:center;padding:20px;font-size:12px;line-height:1.6}@media(max-width:600px){header{padding:24px 18px}.wrap{padding:14px 12px 65px}.stat{padding:11px}.stat strong{font-size:20px}.tab{padding:11px}.quiz-options{grid-template-columns:1fr}.panel{padding:14px}}
 
 /* Version 0.5: writing studio */
@@ -50,10 +50,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 4,
         "hanzi": "丿",
         "display": "丿",
-        "meaning": "косая черта",
+        "meaning": "косая черта влево",
         "group": 1,
         "radicalMeaning": "косая черта",
-        "keyMeaning": "косая черта"
+        "keyMeaning": "косая черта влево"
     },
     {
         "id": 5,
@@ -86,10 +86,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 8,
         "hanzi": "亠",
         "display": "亠",
-        "meaning": "крышка, верхняя часть знака",
+        "meaning": "верхняя часть знака; «крышка» (условное название)",
         "group": 1,
         "radicalMeaning": "крышка, верхняя часть знака",
-        "keyMeaning": "крышка, верхняя часть знака"
+        "keyMeaning": "верхняя часть знака; «крышка» (условное название)"
     },
     {
         "id": 9,
@@ -108,7 +108,7 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "group": 1,
         "radicalMeaning": "ноги (ключ); ребёнок, сын (отдельный знак)",
         "keyMeaning": "ноги (значение ключа)",
-        "independentMeaning": "ребёнок, сын"
+        "independentMeaning": "儿 (ér) — ребёнок, сын (упрощённое письмо)"
     },
     {
         "id": 11,
@@ -123,28 +123,28 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 12,
         "hanzi": "八",
         "display": "八",
-        "meaning": "восемь",
+        "meaning": "восемь; разделение (исторически)",
         "group": 2,
         "radicalMeaning": "восемь",
-        "keyMeaning": "восемь"
+        "keyMeaning": "восемь; разделение (исторически)"
     },
     {
         "id": 13,
         "hanzi": "冂",
         "display": "冂",
-        "meaning": "рамка, открытая снизу",
+        "meaning": "отдалённые пределы; внешняя граница",
         "group": 1,
         "radicalMeaning": "рамка, открытая снизу",
-        "keyMeaning": "рамка, открытая снизу"
+        "keyMeaning": "отдалённые пределы; внешняя граница"
     },
     {
         "id": 14,
         "hanzi": "冖",
         "display": "冖",
-        "meaning": "покров, крышка",
+        "meaning": "покрывать; покров",
         "group": 1,
         "radicalMeaning": "покров, крышка",
-        "keyMeaning": "покров, крышка"
+        "keyMeaning": "покрывать; покров"
     },
     {
         "id": 15,
@@ -159,19 +159,20 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 16,
         "hanzi": "几",
         "display": "几",
-        "meaning": "низкий столик",
+        "meaning": "низкий столик; скамейка",
         "group": 2,
         "radicalMeaning": "низкий столик",
-        "keyMeaning": "низкий столик"
+        "keyMeaning": "низкий столик; скамейка",
+        "independentMeaning": "几 (jǐ) — сколько, несколько (современный упрощённый знак; другое чтение)"
     },
     {
         "id": 17,
         "hanzi": "凵",
         "display": "凵",
-        "meaning": "коробка, открытая сверху",
+        "meaning": "яма; углубление",
         "group": 1,
         "radicalMeaning": "коробка, открытая сверху",
-        "keyMeaning": "коробка, открытая сверху"
+        "keyMeaning": "яма; углубление"
     },
     {
         "id": 18,
@@ -195,10 +196,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 20,
         "hanzi": "勹",
         "display": "勹",
-        "meaning": "оборачивать; охватывать",
+        "meaning": "обнимать; охватывать",
         "group": 1,
         "radicalMeaning": "обёртывать; охватывать",
-        "keyMeaning": "оборачивать; охватывать"
+        "keyMeaning": "обнимать; охватывать"
     },
     {
         "id": 21,
@@ -213,19 +214,19 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 22,
         "hanzi": "匚",
         "display": "匚",
-        "meaning": "ящик, рамка, открытая справа",
+        "meaning": "короб; прямоугольный футляр",
         "group": 1,
         "radicalMeaning": "ящик, рамка, открытая справа",
-        "keyMeaning": "ящик, рамка, открытая справа"
+        "keyMeaning": "короб; прямоугольный футляр"
     },
     {
         "id": 23,
         "hanzi": "匸",
         "display": "匸",
-        "meaning": "ограда, укрытие (открыто справа)",
+        "meaning": "укрытие; скрывать",
         "group": 1,
         "radicalMeaning": "ограда, укрытие (открыто справа)",
-        "keyMeaning": "ограда, укрытие (открыто справа)"
+        "keyMeaning": "укрытие; скрывать"
     },
     {
         "id": 24,
@@ -249,10 +250,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 26,
         "hanzi": "卩",
         "display": "卩",
-        "meaning": "печать; коленопреклонённый человек",
+        "meaning": "печать власти; коленопреклонённая фигура",
         "group": 1,
         "radicalMeaning": "печать; коленопреклонённый человек",
-        "keyMeaning": "печать; коленопреклонённый человек"
+        "keyMeaning": "печать власти; коленопреклонённая фигура"
     },
     {
         "id": 27,
@@ -261,25 +262,27 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "meaning": "скала, обрыв",
         "group": 2,
         "radicalMeaning": "скала, обрыв",
-        "keyMeaning": "скала, обрыв"
+        "keyMeaning": "скала, обрыв",
+        "independentMeaning": "厂 (chǎng) — завод, фабрика (упрощённый знак; другое чтение)"
     },
     {
         "id": 28,
         "hanzi": "厶",
         "display": "厶",
-        "meaning": "частный, личный",
+        "meaning": "частный; личный (старое значение)",
         "group": 1,
         "radicalMeaning": "частный, личный",
-        "keyMeaning": "частный, личный"
+        "keyMeaning": "частный; личный (старое значение)"
     },
     {
         "id": 29,
         "hanzi": "又",
         "display": "又",
-        "meaning": "снова",
+        "meaning": "рука (как графический компонент); снова (как слово)",
         "group": 2,
         "radicalMeaning": "снова",
-        "keyMeaning": "снова"
+        "keyMeaning": "рука (как графический компонент); снова (как слово)",
+        "independentMeaning": "又 (yòu) — снова, опять"
     },
     {
         "id": 30,
@@ -294,10 +297,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 31,
         "hanzi": "囗",
         "display": "囗",
-        "meaning": "ограждение, рамка",
+        "meaning": "окружать; ограда",
         "group": 1,
         "radicalMeaning": "ограждение, рамка",
-        "keyMeaning": "ограждение, рамка"
+        "keyMeaning": "окружать; ограда"
     },
     {
         "id": 32,
@@ -322,19 +325,19 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 34,
         "hanzi": "夂",
         "display": "夂",
-        "meaning": "движение назад; следовать",
+        "meaning": "идти следом; шаг сверху вниз",
         "group": 1,
         "radicalMeaning": "движение назад; следовать",
-        "keyMeaning": "движение назад; следовать"
+        "keyMeaning": "идти следом; шаг сверху вниз"
     },
     {
         "id": 35,
         "hanzi": "夊",
         "display": "夊",
-        "meaning": "медленно идти",
+        "meaning": "медленно идти; волочить ноги",
         "group": 1,
         "radicalMeaning": "медленно идти",
-        "keyMeaning": "медленно идти"
+        "keyMeaning": "медленно идти; волочить ноги"
     },
     {
         "id": 36,
@@ -403,19 +406,19 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 43,
         "hanzi": "尢",
         "display": "尢",
-        "meaning": "хромой; слабая нога",
+        "meaning": "хромая нога; согнутая нога",
         "group": 1,
         "radicalMeaning": "хромой; слабая нога",
-        "keyMeaning": "хромой; слабая нога"
+        "keyMeaning": "хромая нога; согнутая нога"
     },
     {
         "id": 44,
         "hanzi": "尸",
         "display": "尸",
-        "meaning": "тело, труп",
+        "meaning": "лежащий человек; тело",
         "group": 2,
         "radicalMeaning": "тело; труп",
-        "keyMeaning": "тело, труп",
+        "keyMeaning": "лежащий человек; тело",
         "independentMeaning": "труп"
     },
     {
@@ -449,10 +452,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 48,
         "hanzi": "工",
         "display": "工",
-        "meaning": "работа",
+        "meaning": "работа; ремесло",
         "group": 3,
         "radicalMeaning": "работа",
-        "keyMeaning": "работа"
+        "keyMeaning": "работа; ремесло"
     },
     {
         "id": 49,
@@ -476,11 +479,11 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 51,
         "hanzi": "干",
         "display": "干",
-        "meaning": "сухой; щит (в старом значении)",
+        "meaning": "щит (историческое значение ключа)",
         "group": 2,
         "radicalMeaning": "сухой; щит (в старом значении)",
-        "keyMeaning": "сухой; щит (в старом значении)",
-        "independentMeaning": "сухой (gān); делать (gàn) — другое чтение"
+        "keyMeaning": "щит (историческое значение ключа)",
+        "independentMeaning": "干: gān — сухой; gàn — делать (современные упрощённые значения)"
     },
     {
         "id": 52,
@@ -495,10 +498,11 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 53,
         "hanzi": "广",
         "display": "广",
-        "meaning": "навес; скальный выступ (как ключ)",
+        "meaning": "навес; строение без передней стены",
         "group": 2,
         "radicalMeaning": "навес; скальный выступ (как ключ)",
-        "keyMeaning": "навес; скальный выступ (как ключ)"
+        "keyMeaning": "навес; строение без передней стены",
+        "independentMeaning": "广 (guǎng) — широкий, обширный (современное упрощённое письмо)"
     },
     {
         "id": 54,
@@ -513,10 +517,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 55,
         "hanzi": "廾",
         "display": "廾",
-        "meaning": "две руки, сложенные вместе",
+        "meaning": "две поднятые руки",
         "group": 1,
         "radicalMeaning": "две руки, сложенные вместе",
-        "keyMeaning": "две руки, сложенные вместе"
+        "keyMeaning": "две поднятые руки"
     },
     {
         "id": 56,
@@ -540,19 +544,19 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 58,
         "hanzi": "彐",
         "display": "彐",
-        "meaning": "голова свиньи; морда животного",
+        "meaning": "морда кабана",
         "group": 1,
         "radicalMeaning": "морда, рыло животного",
-        "keyMeaning": "голова свиньи; морда животного"
+        "keyMeaning": "морда кабана"
     },
     {
         "id": 59,
         "hanzi": "彡",
         "display": "彡",
-        "meaning": "три штриха; волосы, украшение",
+        "meaning": "волосы; декоративные линии",
         "group": 1,
         "radicalMeaning": "три штриха; волосы, украшение",
-        "keyMeaning": "три штриха; волосы, украшение"
+        "keyMeaning": "волосы; декоративные линии"
     },
     {
         "id": 60,
@@ -585,10 +589,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 63,
         "hanzi": "戶",
         "display": "戶",
-        "meaning": "дверь (одна створка)",
+        "meaning": "одна створка двери",
         "group": 2,
         "radicalMeaning": "дверь (одна створка)",
-        "keyMeaning": "дверь (одна створка)"
+        "keyMeaning": "одна створка двери"
     },
     {
         "id": 64,
@@ -612,10 +616,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 66,
         "hanzi": "攴",
         "display": "攴",
-        "meaning": "ударять; стучать",
+        "meaning": "стучать; ударять",
         "group": 1,
         "radicalMeaning": "ударять; стучать",
-        "keyMeaning": "ударять; стучать"
+        "keyMeaning": "стучать; ударять"
     },
     {
         "id": 67,
@@ -639,29 +643,29 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 69,
         "hanzi": "斤",
         "display": "斤",
-        "meaning": "топор; мера веса",
+        "meaning": "топор",
         "group": 2,
         "radicalMeaning": "топор; мера веса",
-        "keyMeaning": "топор; мера веса",
+        "keyMeaning": "топор",
         "independentMeaning": "цзинь — мера массы"
     },
     {
         "id": 70,
         "hanzi": "方",
         "display": "方",
-        "meaning": "направление",
+        "meaning": "сторона; направление",
         "group": 3,
         "radicalMeaning": "направление",
-        "keyMeaning": "направление"
+        "keyMeaning": "сторона; направление"
     },
     {
         "id": 71,
         "hanzi": "无",
         "display": "无",
-        "meaning": "нет, не; отсутствие",
+        "meaning": "отсутствие; не иметь",
         "group": 2,
         "radicalMeaning": "нет, не; отсутствие",
-        "keyMeaning": "нет, не; отсутствие"
+        "keyMeaning": "отсутствие; не иметь"
     },
     {
         "id": 72,
@@ -724,19 +728,19 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 78,
         "hanzi": "歹",
         "display": "歹",
-        "meaning": "останки, кости",
+        "meaning": "обломки костей; останки",
         "group": 2,
         "radicalMeaning": "смерть; останки",
-        "keyMeaning": "останки, кости"
+        "keyMeaning": "обломки костей; останки"
     },
     {
         "id": 79,
         "hanzi": "殳",
         "display": "殳",
-        "meaning": "оружие; ударять",
+        "meaning": "оружие с рукоятью; ударять",
         "group": 1,
         "radicalMeaning": "оружие; ударять",
-        "keyMeaning": "оружие; ударять"
+        "keyMeaning": "оружие с рукоятью; ударять"
     },
     {
         "id": 80,
@@ -779,11 +783,11 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 84,
         "hanzi": "气",
         "display": "气",
-        "meaning": "пар, дыхание",
+        "meaning": "пар; дыхание",
         "group": 2,
         "radicalMeaning": "пар; воздух, дыхание",
-        "keyMeaning": "пар, дыхание",
-        "independentMeaning": "воздух, газ"
+        "keyMeaning": "пар; дыхание",
+        "independentMeaning": "气 (qì) — воздух, газ"
     },
     {
         "id": 85,
@@ -834,10 +838,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 90,
         "hanzi": "爿",
         "display": "丬",
-        "meaning": "половина расщеплённого ствола",
+        "meaning": "левая половина расщеплённого ствола",
         "group": 1,
         "radicalMeaning": "расщеплённый ствол дерева",
-        "keyMeaning": "половина расщеплённого ствола"
+        "keyMeaning": "левая половина расщеплённого ствола"
     },
     {
         "id": 91,
@@ -953,11 +957,11 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 103,
         "hanzi": "疋",
         "display": "疋",
-        "meaning": "рулон ткани; нога",
+        "meaning": "отрез ткани; свёрток ткани (также древнее обозначение ноги)",
         "group": 1,
         "radicalMeaning": "рулон ткани; нога (другое значение)",
-        "keyMeaning": "рулон ткани; нога",
-        "independentMeaning": "используется редко, значения различаются"
+        "keyMeaning": "отрез ткани; свёрток ткани (также древнее обозначение ноги)",
+        "independentMeaning": "疋 — редкий самостоятельный знак с несколькими чтениями и значениями"
     },
     {
         "id": 104,
@@ -972,10 +976,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 105,
         "hanzi": "癶",
         "display": "癶",
-        "meaning": "следы, шаги ног",
+        "meaning": "следы ног; движение ног",
         "group": 1,
         "radicalMeaning": "следы, шаги ног",
-        "keyMeaning": "следы, шаги ног"
+        "keyMeaning": "следы ног; движение ног"
     },
     {
         "id": 106,
@@ -1044,20 +1048,20 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 113,
         "hanzi": "示",
         "display": "示",
-        "meaning": "алтарь, обряд",
+        "meaning": "жертвенник; алтарь",
         "group": 2,
         "radicalMeaning": "дух; алтарь, религиозный обряд",
-        "keyMeaning": "алтарь, обряд",
-        "independentMeaning": "показывать; давать знать (shì)"
+        "keyMeaning": "жертвенник; алтарь",
+        "independentMeaning": "示 (shì) — показывать, указывать"
     },
     {
         "id": 114,
         "hanzi": "禸",
         "display": "禸",
-        "meaning": "следы животного; отпечаток",
+        "meaning": "след зверя; след ноги",
         "group": 1,
         "radicalMeaning": "следы животного; отпечаток",
-        "keyMeaning": "следы животного; отпечаток"
+        "keyMeaning": "след зверя; след ноги"
     },
     {
         "id": 115,
@@ -1162,11 +1166,11 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 126,
         "hanzi": "而",
         "display": "而",
-        "meaning": "борода (историческое значение ключа)",
+        "meaning": "борода (древнее значение графемы)",
         "group": 2,
         "radicalMeaning": "борода (историческое значение ключа); и (союз)",
-        "keyMeaning": "борода (историческое значение ключа)",
-        "independentMeaning": "и, а, но — союз"
+        "keyMeaning": "борода (древнее значение графемы)",
+        "independentMeaning": "而 (ér) — а, но; и (союз)"
     },
     {
         "id": 127,
@@ -1199,10 +1203,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 130,
         "hanzi": "肉",
         "display": "肉",
-        "meaning": "мясо, плоть",
+        "meaning": "мясо; плоть (вариант ⺼)",
         "group": 2,
         "radicalMeaning": "мясо; плоть (в составе знаков часто ⺼)",
-        "keyMeaning": "мясо, плоть"
+        "keyMeaning": "мясо; плоть (вариант ⺼)"
     },
     {
         "id": 131,
@@ -1253,10 +1257,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 136,
         "hanzi": "舛",
         "display": "舛",
-        "meaning": "ноги в разные стороны",
+        "meaning": "ноги, направленные в разные стороны",
         "group": 1,
         "radicalMeaning": "ноги в разные стороны",
-        "keyMeaning": "ноги в разные стороны"
+        "keyMeaning": "ноги, направленные в разные стороны"
     },
     {
         "id": 137,
@@ -1271,11 +1275,11 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 138,
         "hanzi": "艮",
         "display": "艮",
-        "meaning": "останавливаться; упираться",
+        "meaning": "останавливаться; поворачиваться назад",
         "group": 2,
         "radicalMeaning": "останавливаться; упираться",
-        "keyMeaning": "останавливаться; упираться",
-        "independentMeaning": "упрямый (в древних употреблениях)"
+        "keyMeaning": "останавливаться; поворачиваться назад",
+        "independentMeaning": "艮 (gèn) — триграмма «гора» в «И цзин»"
     },
     {
         "id": 139,
@@ -1299,10 +1303,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 141,
         "hanzi": "虍",
         "display": "虍",
-        "meaning": "тигр (верхняя часть знака)",
+        "meaning": "голова тигра",
         "group": 1,
         "radicalMeaning": "тигр (верхняя часть знака)",
-        "keyMeaning": "тигр (верхняя часть знака)"
+        "keyMeaning": "голова тигра"
     },
     {
         "id": 142,
@@ -1326,10 +1330,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 144,
         "hanzi": "行",
         "display": "行",
-        "meaning": "идти; движение, перекрёсток",
+        "meaning": "перекрёсток; движение по дороге",
         "group": 2,
         "radicalMeaning": "идти; движение, перекрёсток",
-        "keyMeaning": "идти; движение, перекрёсток",
+        "keyMeaning": "перекрёсток; движение по дороге",
         "independentMeaning": "идти; род занятий"
     },
     {
@@ -1345,11 +1349,11 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 146,
         "hanzi": "襾",
         "display": "覀",
-        "meaning": "покрывать; верхняя часть знака",
+        "meaning": "покрывать; покров",
         "group": 1,
         "radicalMeaning": "покрывать; верхняя часть знака (覀)",
-        "keyMeaning": "покрывать; верхняя часть знака",
-        "independentMeaning": "не путать с 西 («запад»)"
+        "keyMeaning": "покрывать; покров",
+        "independentMeaning": "не отождествлять с 西 (xī) «запад»"
     },
     {
         "id": 147,
@@ -1391,10 +1395,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 151,
         "hanzi": "豆",
         "display": "豆",
-        "meaning": "боб; сосуд на ножке (старинный)",
+        "meaning": "ритуальный сосуд на ножке",
         "group": 2,
         "radicalMeaning": "боб; сосуд на ножке (старинный)",
-        "keyMeaning": "боб; сосуд на ножке (старинный)",
+        "keyMeaning": "ритуальный сосуд на ножке",
         "independentMeaning": "бобы"
     },
     {
@@ -1410,11 +1414,11 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 153,
         "hanzi": "豸",
         "display": "豸",
-        "meaning": "зверь; барсук",
+        "meaning": "зверь (древнее изображение хищника)",
         "group": 1,
         "radicalMeaning": "хищный зверь; барсук",
-        "keyMeaning": "зверь; барсук",
-        "independentMeaning": "животное (исторический знак)"
+        "keyMeaning": "зверь (древнее изображение хищника)",
+        "independentMeaning": "豸 — редкий самостоятельный знак; исторически «зверь»"
     },
     {
         "id": 154,
@@ -1483,10 +1487,11 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 161,
         "hanzi": "辰",
         "display": "辰",
-        "meaning": "утро; время, небесное тело",
+        "meaning": "пятая земная ветвь; время",
         "group": 2,
         "radicalMeaning": "утро; время, небесное тело",
-        "keyMeaning": "утро; время, небесное тело"
+        "keyMeaning": "пятая земная ветвь; время",
+        "independentMeaning": "辰 (chén) — пятая земная ветвь, время"
     },
     {
         "id": 162,
@@ -1520,10 +1525,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 165,
         "hanzi": "釆",
         "display": "釆",
-        "meaning": "различать; разделять",
+        "meaning": "различать; отделять",
         "group": 1,
         "radicalMeaning": "различать; разделять",
-        "keyMeaning": "различать; разделять"
+        "keyMeaning": "различать; отделять"
     },
     {
         "id": 166,
@@ -1533,7 +1538,7 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "group": 3,
         "radicalMeaning": "деревня; ли (мера расстояния); внутри (самостоятельный знак)",
         "keyMeaning": "деревня; мера расстояния ли",
-        "independentMeaning": "внутри (упрощённое 里)"
+        "independentMeaning": "里 (lǐ) — внутри; также единица расстояния ли"
     },
     {
         "id": 167,
@@ -1576,10 +1581,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 171,
         "hanzi": "隶",
         "display": "隶",
-        "meaning": "невольник; раб",
+        "meaning": "догонять; схватывать (историческое значение)",
         "group": 2,
         "radicalMeaning": "невольник; раб",
-        "keyMeaning": "невольник; раб"
+        "keyMeaning": "догонять; схватывать (историческое значение)"
     },
     {
         "id": 172,
@@ -1603,10 +1608,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 174,
         "hanzi": "靑",
         "display": "青",
-        "meaning": "синий, зелёный, голубой",
+        "meaning": "сине-зелёный цвет",
         "group": 3,
         "radicalMeaning": "синий, зелёный, голубой",
-        "keyMeaning": "синий, зелёный, голубой"
+        "keyMeaning": "сине-зелёный цвет"
     },
     {
         "id": 175,
@@ -1630,20 +1635,20 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 177,
         "hanzi": "革",
         "display": "革",
-        "meaning": "выделанная кожа",
+        "meaning": "выделанная кожа (без шерсти)",
         "group": 2,
         "radicalMeaning": "выделанная кожа",
-        "keyMeaning": "выделанная кожа"
+        "keyMeaning": "выделанная кожа (без шерсти)"
     },
     {
         "id": 178,
         "hanzi": "韋",
         "display": "韋",
-        "meaning": "выделанная кожа",
+        "meaning": "мягкая выделанная кожа",
         "group": 2,
         "radicalMeaning": "дублёная кожа",
-        "keyMeaning": "выделанная кожа",
-        "independentMeaning": "сохранять отличие от 革 «кожа»"
+        "keyMeaning": "мягкая выделанная кожа",
+        "independentMeaning": "韦 (wéi) — мягкая кожа (упрощённая форма 韋)"
     },
     {
         "id": 179,
@@ -1671,7 +1676,7 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "group": 2,
         "radicalMeaning": "голова (ключ); страница (современное значение 页)",
         "keyMeaning": "голова (значение ключа)",
-        "independentMeaning": "страница (упрощённая форма 页)"
+        "independentMeaning": "页 (yè) — страница (упрощённая форма 頁)"
     },
     {
         "id": 182,
@@ -1812,10 +1817,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 197,
         "hanzi": "鹵",
         "display": "鹵",
-        "meaning": "соль (старый знак)",
+        "meaning": "соль; солончак",
         "group": 1,
         "radicalMeaning": "соль (старый знак)",
-        "keyMeaning": "соль (старый знак)"
+        "keyMeaning": "соль; солончак"
     },
     {
         "id": 198,
@@ -1884,10 +1889,10 @@ body.kai-mode .char,body.kai-mode .herochar,body.kai-mode .brushchar{font-family
         "id": 205,
         "hanzi": "黽",
         "display": "黾",
-        "meaning": "лягушка; земноводное",
+        "meaning": "лягушка; жаба",
         "group": 1,
         "radicalMeaning": "лягушка; земноводное",
-        "keyMeaning": "лягушка; земноводное"
+        "keyMeaning": "лягушка; жаба"
     },
     {
         "id": 206,
