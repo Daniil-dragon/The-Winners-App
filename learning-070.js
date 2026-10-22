@@ -6,6 +6,7 @@ try{edu={...edu,...JSON.parse(localStorage.getItem(EDU_KEY)||'{}')}}catch(e){}
 edu.skills||={};edu.lesson||={index:0,step:0};edu.tone||={index:0,correct:0,total:0};
 const eduSave=()=>localStorage.setItem(EDU_KEY,JSON.stringify(edu));
 const days=[1,3,7,14,30,60];
+const sessionSkipped=new Set();
 function scoreSkill(c,k,ok){
  const id=c+'|'+k,old=edu.skills[id]||{streak:0,tries:0};
  const streak=ok?old.streak+1:0;
@@ -27,11 +28,11 @@ function renderLesson(){
  eduBtn('eduHard',()=>{scoreSkill(r.display,l.step===2?'writing':l.step===3?'tone':'meaning',false);nextLesson()});
  eduBtn('eduGood',()=>{scoreSkill(r.display,l.step===2?'writing':l.step===3?'tone':'meaning',true);nextLesson()});
 }
-function dueQueue(){return DB.radicals.flatMap(r=>['meaning','writing','tone'].filter(k=>k!=='tone'||r.group!==1).filter(k=>edu.skills[r.display+'|'+k]&&edu.skills[r.display+'|'+k].due<=Date.now()).map(k=>({r,k})))}
+function dueQueue(){return DB.radicals.flatMap(r=>['meaning','writing','tone'].filter(k=>k!=='tone'||r.group!==1).filter(k=>edu.skills[r.display+'|'+k]&&edu.skills[r.display+'|'+k].due<=Date.now()&&!sessionSkipped.has(r.display+'|'+k)).map(k=>({r,k})))}
 function renderReviewEdu(){
  const q=dueQueue(),v=q[0];
  eduPart().innerHTML='<div class="panel study"><h2>Умное повторение</h2><p class="hint">Пора повторить: '+q.length+' навыков. Интервалы после успешных ответов: 1, 3, 7, 14, 30, 60 дней.</p>'+(v?'<h3>'+skillTitle[v.k]+'</h3><div class="herochar">'+v.r.display+'</div><button class="btn alt" id="eduReveal">Показать ответ</button><p id="eduSolution" hidden>'+escapeHtml(v.k==='meaning'?v.r.meaning:v.k==='tone'?(v.r.pinyin||getReading(v.r.display)||'Чтение не указано'):'Напиши знак по памяти')+'</p><div class="flex"><button class="btn bad" id="eduFail">Не получилось</button><button class="btn good" id="eduPass">Получилось</button></div>':'<p>Запланированных повторений на сегодня нет.</p>')+'</div>';
- if(v){eduBtn('eduReveal',()=>document.getElementById('eduSolution').hidden=false);eduBtn('eduFail',()=>{scoreSkill(v.r.display,v.k,false);renderReviewEdu()});eduBtn('eduPass',()=>{scoreSkill(v.r.display,v.k,true);renderReviewEdu()})}
+ if(v){eduBtn('eduReveal',()=>document.getElementById('eduSolution').hidden=false);eduBtn('eduFail',()=>{scoreSkill(v.r.display,v.k,false);sessionSkipped.add(v.r.display+'|'+v.k);renderReviewEdu()});eduBtn('eduPass',()=>{scoreSkill(v.r.display,v.k,true);renderReviewEdu()})}
 }
 function renderEduStats(){
  const counts=Object.fromEntries(['meaning','writing','tone'].map(k=>[k,DB.radicals.filter(r=>(edu.skills[r.display+'|'+k]?.streak||0)>=2).length]));
