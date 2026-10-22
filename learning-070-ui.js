@@ -1,6 +1,7 @@
 
 'use strict';
 let explored=0,toneAnswer=null;
+const semanticParts={'清':'氵 — вода','请':'讠 — речь','情':'忄 — сердце, чувства','晴':'日 — солнце','妈':'女 — женщина','吗':'口 — рот','码':'石 — камень','骂':'口 — рот','河':'氵 — вода','湖':'氵 — вода','抱':'扌 — рука','跑':'足 — нога','泡':'氵 — вода','炮':'火 — огонь','抄':'扌 — рука','秒':'禾 — злак','钞':'钅 — металл','烧':'火 — огонь','绕':'纟 — нить'};
 const toneExamples=DB.families.flatMap(f=>[{hanzi:f.root,pinyin:f.pinyin},...f.examples.map(x=>({hanzi:x.hanzi,pinyin:x.pinyin}))]).filter(x=>getReading(x.hanzi)&&toneFile(x.pinyin));
 function toneOf(p){const m=toneFile(p)?.match(/[1-5]$/);return m?+m[0]:5}
 function toneBase(p){return toneFile(p)?.replace(/[1-5]$/,'')||''}
