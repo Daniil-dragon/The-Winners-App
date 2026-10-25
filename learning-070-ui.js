@@ -50,7 +50,7 @@ renderStudy=function(){
  '<p class="muted">Карточек в наборе: '+pool.length+'</p>'+
  (x?'<p class="muted">Карточка '+(state.current+1)+' из '+pool.length+'</p><div class="herochar">'+x.char+'</div>'+
  (state.revealed?'<h2>'+escapeHtml(x.meaning)+'</h2><p class="hint">'+escapeHtml(x.info)+(x.reading?' · '+escapeHtml(x.reading):'')+'</p>':'<p class="hint">Вспомни значение. Ответ скрыт до твоего решения.</p>')+
- '<div class="flex" style="justify-content:center"><button class="btn alt" id="studySound">▶ Слушать</button><button class="btn" id="studyFlip">'+(state.revealed?'Скрыть ответ':'Показать ответ')+'</button></div>'+
+ '<div class="flex" style="justify-content:center">'+(x.reading?'<button class="btn alt" id="studySound">▶ Слушать</button>':'')+'<button class="btn" id="studyFlip">'+(state.revealed?'Скрыть ответ':'Показать ответ')+'</button></div>'+
  (state.revealed?'<div class="flex" style="justify-content:center;margin-top:14px"><button class="btn bad" id="studyAgain">Пока трудно</button><button class="btn good" id="studyRemember">Вспомнила</button></div>':'')+
  '<div class="flex" style="justify-content:center"><button class="btn alt" id="studyPrev">← Назад</button><button class="btn alt" id="studyNext">Дальше →</button></div>':
  '<div class="empty">В этом наборе пока нет карточек. Начни изучать графемы в «Курсе» или выбери другой набор.</div>')+
@@ -63,12 +63,12 @@ renderStudy=function(){
  document.getElementById('studyFlip').onclick=()=>{state.revealed=!state.revealed;renderStudy()};
  document.getElementById('studyNext').onclick=next;
  document.getElementById('studyPrev').onclick=()=>{state.current=Math.max(0,state.current-1);state.revealed=false;renderStudy()};
- document.getElementById('studySound').onclick=()=>speak(x.char);
+ if(document.getElementById('studySound'))document.getElementById('studySound').onclick=()=>speak(x.char);
  if(state.revealed){
   const score=correct=>{
    if(!x.family)scoreSkill(x.char,'meaning',correct);
    else{progress[x.key]=correct?2:1;save()}
-   reviewSeen.add(x.key);next();
+   reviewSeen.add(x.key);state.current=0;state.revealed=false;renderStudy();
   };
   document.getElementById('studyAgain').onclick=()=>score(false);
   document.getElementById('studyRemember').onclick=()=>score(true);
