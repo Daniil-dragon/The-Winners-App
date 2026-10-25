@@ -25,6 +25,7 @@ function renderFamilyEdu(){
 }
 const newTabs=[['course','🎓 Курс'],['review','Повторение'],['tones','🎵 Тоны'],['explore','Семейства+'],['skills','Навыки']];
 const nav=document.getElementById('tabs');
+nav.addEventListener('click',event=>{const tab=event.target.closest('[data-tab]');if(tab?.dataset.tab==='course'&&state.tab==='radicals'&&[1,2,3].includes(Number(state.group))){chooseCourseGroup(Number(state.group))}},true);
 for(const [tab,label] of newTabs){const b=document.createElement('button');b.className='tab';b.dataset.tab=tab;b.textContent=label;nav.appendChild(b)}
 const originalRender=render;
 render=function(){
