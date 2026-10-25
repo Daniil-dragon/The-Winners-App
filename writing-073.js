@@ -16,7 +16,7 @@ function writingOverlay(type) {
  return {svg,g,ns};
 }
 function showWritingGuideDots(){
- if(state.writeLevel!==2||!writeData)return;
+ if(state.writeLevel!==2||!writeData||!Array.isArray(writeData.medians))return;
  const o=writingOverlay('guide');if(!o)return;
  for(let i=0;i<writeData.medians.length;i++){
   const xy=writeData.medians[i]?.[0];if(!xy)continue;
