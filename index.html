@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#131c2f"><title>字 Графемы 0.7.5 — подсказка при проверке письма</title><script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script><style>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#131c2f"><title>字 Графемы 0.7.6 — управление порядком черт</title><script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script><style>
 :root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#19243b;background:#f5f7fc;font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}header{background:linear-gradient(115deg,#17243e,#344f84);color:white;padding:26px max(20px,calc((100vw - 1080px)/2)) 23px}h1{margin:0;font-size:27px;letter-spacing:-.5px}header p{margin:7px 0 0;color:#ced8eb;line-height:1.5}.wrap{max-width:1080px;margin:auto;padding:19px 18px 80px}.tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px}.tab{white-space:nowrap;border:0;border-radius:13px;padding:12px 15px;background:#e8edf7;color:#334664;font-weight:700}.tab.on{background:#294976;color:white}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:17px 0}.stat{background:white;border:1px solid #e2e8f3;border-radius:16px;padding:15px}.stat strong{display:block;font-size:23px}.stat span{color:#65748b;font-size:12px}.panel{background:white;border:1px solid #e2e8f2;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 4px 24px #2f40600a}.panel h2{font-size:19px;margin:0 0 11px}.hint{color:#6a7890;line-height:1.5}.filters{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.filters input,.filters select{border:1px solid #cdd6e6;border-radius:11px;padding:12px;background:white;min-width:0}.filters input{flex:1 1 180px}.filters select{flex:1 1 170px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(111px,1fr));gap:10px}.tile{border:1px solid #e1e6ef;background:white;border-radius:15px;min-height:126px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:9px 5px;gap:4px;text-align:center}.tile:hover{border-color:#5c7caf}.tile.known{border:2px solid #21976b;background:#e8f8ef;box-shadow:0 0 0 1px #21976b18}.tile.known .char{color:#14694c}.tile.learning{border:2px solid #d7a047;background:#fff7e8}.tile .tile-state{font-size:11px;font-weight:700;color:#14694c}.tile.learning .tile-state{color:#986414}.char{font-family:'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif;font-size:45px;line-height:1.25;font-weight:500}.muted{color:#6b7d96}.tile .muted{font-size:11px}.tile small{font-size:11px;color:#40546e}.pill{display:inline-block;padding:5px 8px;border-radius:40px;background:#e7edf6;color:#35506f;font-size:11px;font-weight:700}.group1{background:#eaf1ff;color:#385d96}.group2{background:#e8f7ed;color:#286446}.group3{background:#fff2d9;color:#8a5a12}.familygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}.family{border:1px solid #e2e7f0;border-radius:15px;padding:15px}.family h3{margin:0;display:flex;align-items:center;gap:10px}.family .char{font-size:35px}.example{display:inline-flex;flex-direction:column;gap:3px;padding:9px;margin:6px 5px 0 0;background:#f3f6fb;border-radius:10px;min-width:83px}.example b{font-weight:600}.example small{color:#66758a;font-size:11px}.btn{background:#294976;color:white;border:0;border-radius:12px;padding:12px 15px;font-weight:700}.btn.alt{background:#eef2fa;color:#294976}.btn.good{background:#22865d}.btn.bad{background:#d86767}.btn:disabled{opacity:.5}.study{max-width:550px;margin:12px auto;text-align:center}.herochar{font-size:115px;margin:25px 0 13px;font-family:'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif}.quiz-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.quiz-options button{padding:17px 8px;background:#f3f6fc;border:1px solid #dae3f1;border-radius:12px}.quiz-options button.correct{background:#d8f6e6;border-color:#35a473}.quiz-options button.wrong{background:#ffe2df;border-color:#d46a65}.flex{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.space{justify-content:space-between}.notice{border-left:4px solid #85a0cb;background:#eef3fc;border-radius:10px;padding:12px 14px;line-height:1.55}.empty{text-align:center;padding:30px;color:#6980a0}footer{color:#71829a;text-align:center;padding:20px;font-size:12px;line-height:1.6}@media(max-width:600px){header{padding:24px 18px}.wrap{padding:14px 12px 65px}.stat{padding:11px}.stat strong{font-size:20px}.tab{padding:11px}.quiz-options{grid-template-columns:1fr}.panel{padding:14px}}
 
 /* Version 0.5: writing studio */
@@ -3069,17 +3069,17 @@ function renderWriting(){
  $('#app').innerHTML=`<div class="panel study" style="max-width:650px"><h2>✍ Каллиграфия и прописи</h2>${styleControl()}
  <div class="filters"><select id="writeSelect" aria-label="Выбрать графему">${DB.radicals.map(r=>`<option value="${escapeHtml(r.display)}" ${r.display===ch?'selected':''}>№${r.id} · ${escapeHtml(r.display)} — ${escapeHtml(r.meaning)}</option>`).join('')}</select><select id="writeFamily" aria-label="Выбрать фонетик"><option value="">30 фонетиков</option>${DB.families.map(f=>`<option value="${f.root}" ${f.root===ch?'selected':''}>${f.root} · ${f.pinyin}</option>`).join('')}</select></div>
  <div class="writer-side"><span class="brushchar" style="font-size:42px">${escapeHtml(ch)}</span><div style="text-align:left"><b>${escapeHtml(name)}</b><div class="writermeta">${p?'Лучшая попытка: '+p.best+' ошибок · выполнено '+p.count+' раз':'Пока нет завершённых прописей'}</div></div></div>
- <div class="writer-actions"><button id="demoTab" class="btn ${state.writeMode==='demo'?'good':'alt'}">▶ Порядок черт</button></div>
+ ${state.writeMode==='practice'?'<div class="writer-actions"><button id="demoTab" class="btn alt">▶ Порядок черт</button></div>':''}
  ${state.writeMode==='practice'?`<div class="levels"><button data-level="1" class="level ${state.writeLevel===1?'on':''}">1 · Обвести</button><button data-level="2" class="level ${state.writeLevel===2?'on':''}">2 · Опорные точки</button><button data-level="3" class="level ${state.writeLevel===3?'on':''}">3 · По памяти</button></div>`:''}
  ${state.writeMode==='demo'?'<div id="writingActions" class="writer-actions"></div>':''}${state.writeMode==='practice'?'<div class="writer-actions" style="justify-content:center"><button id="writeHint" class="btn alt">✦ Подсказать следующую черту</button></div>':''}<div class="writerbox"><div id="writingCanvas"></div></div><div id="writingStatus" class="writerstatus" role="status">Загружаю проверенные контуры черт…</div>
  ${state.writeMode==='practice'?'<div id="writingActions" class="writer-actions"></div>':''}<div class="writer-actions"><button id="practiceTab" class="btn ${state.writeMode==='practice'?'good':'alt'}">✍ Тренировка</button></div><p class="hint" style="font-size:12px">Для анимации и проверки нужна загрузка данных Hanzi Writer из интернета. Алгоритм оценивает движения, порядок, направление и расположение черт, но не художественное качество каллиграфии. Доступность данных зависит от знака.</p></div>`;
  initStyleControl();$('#writeSelect').onchange=e=>goWrite(e.target.value);$('#writeFamily').onchange=e=>{if(e.target.value)goWrite(e.target.value)};
- $('#demoTab').onclick=()=>{state.writeMode='demo';renderWriting()};$('#practiceTab').onclick=()=>{state.writeMode='practice';renderWriting()};
+ if($('#demoTab'))$('#demoTab').onclick=()=>{state.writeMode='demo';renderWriting()};$('#practiceTab').onclick=()=>{state.writeMode='practice';renderWriting()};
  document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>{state.writeLevel=+b.dataset.level;renderWriting()});
  initializeWriter(ch);
 }
 async function initializeWriter(ch){
- const token=++writingSession;writer=null;writeData=null;writingMistakes=0;writingDone=false;writingNextStroke=0;writingHelpUsed=0;
+ stopStrokePlayer();const token=++writingSession;writer=null;writeData=null;writingMistakes=0;writingDone=false;writingNextStroke=0;writingHelpUsed=0;
  const actions=$('#writingActions');if(actions)actions.innerHTML='';
  try{
   // Allow the deferred library time to load while preserving a visible error for offline usage.
@@ -3096,16 +3096,58 @@ async function initializeWriter(ch){
   if(state.writeMode==='demo')showStrokeOrder();else startWritingQuiz();
  }catch(err){if(token!==writingSession)return;writingMessage(err.message||'Не удалось загрузить данные для этого знака.');}
 }
-function showStrokeOrder(){if(!writer||!writeData)return;
- const count=writeData.strokes.length;
- const action=$('#writingActions');
- action.innerHTML='<button class="btn alt" id="strokePrev">← Черта</button><button class="btn alt" id="strokeNext">Черта →</button><button class="btn" id="strokeAll">▶ Все черты</button><button class="btn alt" id="strokeRestart">↻ Сначала</button>';
- const explain=()=>writingMessage(`Всего ${count} ${strokeWord(count)}. ${state.writeIndex+1}-я черта из ${count}. Нажми «Все черты» или пролистывай по одной.`);
- explain();
- $('#strokePrev').onclick=()=>{state.writeIndex=(state.writeIndex-1+count)%count;writer.highlightStroke(state.writeIndex);explain()};
- $('#strokeNext').onclick=()=>{state.writeIndex=(state.writeIndex+1)%count;writer.animateStroke(state.writeIndex);explain()};
- $('#strokeAll').onclick=()=>{writer.animateCharacter();writingMessage(`Все черты (${count}) воспроизводятся по порядку.`)};
- $('#strokeRestart').onclick=()=>{state.writeIndex=0;writer.animateCharacter();writingMessage('Анимация запущена заново.')};
+let strokePlayerRun=0,strokePlayerPlaying=false,strokePlayerNext=0,strokePlayerStopped=false;
+function stopStrokePlayer(){
+ strokePlayerRun++;strokePlayerPlaying=false;
+ if(writer&&typeof writer.cancelAnimation==='function')writer.cancelAnimation();
+}
+function showStrokeOrder(){
+ if(!writer||!writeData)return;
+ stopStrokePlayer();strokePlayerNext=0;strokePlayerStopped=false;
+ const count=writeData.strokes.length,actions=$('#writingActions');
+ actions.innerHTML='<div class="flex" style="justify-content:center;align-items:center;gap:8px"><button class="btn alt" id="strokePrev">← Предыдущая</button><span id="strokePosition" class="muted" aria-live="polite"></span><button class="btn alt" id="strokeNext">Следующая →</button></div><div class="flex" style="justify-content:center;margin-top:10px"><button class="btn" id="strokePlay">▶ Смотреть все черты</button></div>';
+ const play=$('#strokePlay'),prev=$('#strokePrev'),next=$('#strokeNext'),position=$('#strokePosition');
+ const update=()=>{
+  position.textContent=(Math.min(count,strokePlayerNext+1))+' / '+count;
+  prev.disabled=strokePlayerNext<=0&&!strokePlayerPlaying;
+  next.disabled=strokePlayerNext>=count&&!strokePlayerPlaying;
+  play.textContent=strokePlayerPlaying?'⏸ Остановить':strokePlayerNext>=count?'↻ Повторить все черты':strokePlayerStopped?'▶ Продолжить просмотр':'▶ Смотреть все черты';
+ };
+ const describe=()=>writingMessage('Черта '+Math.min(strokePlayerNext+1,count)+' из '+count+'. «Предыдущая» — вернуться на черту назад, «Следующая» — посмотреть очередную.');
+ const reset=async target=>{
+  const run=++strokePlayerRun;
+  strokePlayerPlaying=false;strokePlayerStopped=true;
+  if(typeof writer.cancelAnimation==='function')writer.cancelAnimation();
+  await writer.hideCharacter({duration:0});
+  if(run!==strokePlayerRun)return;
+  // Reconstruct completed strokes; keep earlier strokes visible when stepping back.
+  for(let k=0;k<target;k++){
+   await writer.animateStroke(k,{speed:5});
+   if(run!==strokePlayerRun)return;
+  }
+  strokePlayerNext=target;update();describe();
+ };
+ async function playSequence(){
+  if(strokePlayerPlaying){stopStrokePlayer();strokePlayerStopped=true;update();return}
+  if(strokePlayerNext>=count){await reset(0);strokePlayerStopped=false}
+  const run=++strokePlayerRun;
+  strokePlayerPlaying=true;update();
+  if(strokePlayerNext===0)await writer.hideCharacter({duration:0});
+  for(let k=strokePlayerNext;k<count;k++){
+   if(run!==strokePlayerRun)break;
+   writingMessage('Выполняется черта '+(k+1)+' из '+count+'. Нажми «Остановить», чтобы рассмотреть написание.');
+   await writer.animateStroke(k);
+   if(run!==strokePlayerRun)break;
+   strokePlayerNext=k+1;update();
+  }
+  if(run!==strokePlayerRun)return;
+  strokePlayerPlaying=false;strokePlayerStopped=strokePlayerNext<count;update();
+  if(strokePlayerNext>=count)writingMessage('Все '+count+' '+strokeWord(count)+' показаны. Можно повторить просмотр или вернуться к нужной черте.');
+ }
+ play.onclick=()=>{playSequence().catch(e=>writingMessage('Не удалось показать черты: '+e.message))};
+ prev.onclick=()=>{const target=Math.max(0,strokePlayerNext-1);reset(target).catch(e=>writingMessage(e.message))};
+ next.onclick=()=>{const target=Math.min(count,strokePlayerNext+1);reset(target).catch(e=>writingMessage(e.message))};
+ update();describe();
 }
 function startWritingQuiz(){if(!writer||!writeData)return;
  const level=state.writeLevel;
