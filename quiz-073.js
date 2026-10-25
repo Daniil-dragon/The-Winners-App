@@ -4,9 +4,9 @@ let quizMode='meaning',quizItem=null,quizAnswered=false,quizWriter=null,quizToke
 const knownPool=()=>DB.radicals.filter(r=>stat('r'+r.id)===2);
 const quizReading=r=>r.pinyin||getReading(r.display)||'';
 function quizOptions(r){
- const distractors=DB.radicals.filter(x=>x.id!==r.id&&x.meaning!==r.meaning);
+ const distractors=knownPool().filter(x=>x.id!==r.id&&x.meaning!==r.meaning);
  const choices=[r];
- for(let i=0;i<3;i++){const n=Math.floor(Math.random()*distractors.length);choices.push(distractors.splice(n,1)[0])}
+ for(let i=0;i<3&&distractors.length;i++){const n=Math.floor(Math.random()*distractors.length);choices.push(distractors.splice(n,1)[0])}
  return choices.sort(()=>Math.random()-0.5);
 }
 function normalizedBase(str){return str.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ü/g,'v').replace(/[^a-zv]/g,'')}
@@ -78,7 +78,7 @@ async function runKnownWritingQuiz(r){
   });
  }catch(e){if(token===quizToken){document.getElementById('quizFeedback').textContent='Не удалось открыть прописи: '+e.message}}
  eduBtn('quizReveal',()=>{
-  if(quizAnswered)return;
+  if(quizAnswered)return;quizToken++;
   quizAnswered=true;quizAttempts073++;if(typeof scoreSkill==='function')scoreSkill(r.display,'writing',false);
   document.getElementById('quizFeedback').textContent='Ответ: '+r.display+' — '+r.meaning+'. Попробуй написать его в прописях.';
   const b=document.getElementById('quizReveal');if(b)b.disabled=true;
