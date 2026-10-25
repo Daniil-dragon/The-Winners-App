@@ -2,7 +2,7 @@
 'use strict';
 let quizMode='meaning',quizItem=null,quizAnswered=false,quizWriter=null,quizToken=0,quizWins073=0,quizAttempts073=0;
 const knownPool=()=>DB.radicals.filter(r=>stat('r'+r.id)===2);
-const quizReading=r=>r.pinyin||getReading(r.display)||'';
+const quizReading=r=>r.id===27?'hǎn':(r.pinyin||getReading(r.display)||'');
 function quizOptions(r){
  const distractors=knownPool().filter(x=>x.id!==r.id&&x.meaning!==r.meaning);
  const choices=[r];
