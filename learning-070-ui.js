@@ -23,16 +23,64 @@ function renderFamilyEdu(){
  document.querySelectorAll('[data-family-hear]').forEach(b=>b.onclick=()=>speak(b.dataset.familyHear,'character'));
  document.querySelectorAll('[data-family-write]').forEach(b=>b.onclick=()=>goWrite(b.dataset.familyWrite));
 }
-const newTabs=[['course','🎓 Курс'],['review','Повторение'],['tones','🎵 Тоны'],['explore','Семейства+'],['skills','Навыки']];
+const newTabs=[['course','🎓 Курс'],['tones','🎵 Тоны'],['explore','Семейства+'],['skills','Навыки']];
 const nav=document.getElementById('tabs');
 nav.addEventListener('click',event=>{const tab=event.target.closest('[data-tab]');if(tab?.dataset.tab==='course'&&state.tab==='radicals'&&[1,2,3].includes(Number(state.group))){chooseCourseGroup(Number(state.group))}},true);
 for(const [tab,label] of newTabs){const b=document.createElement('button');b.className='tab';b.dataset.tab=tab;b.textContent=label;nav.appendChild(b)}
+
+const reviewModeSets=['due','all','1','2','3','families'];
+let reviewSeen=new Set();
+function recallPool(){
+ if(state.studySet==='families')return DB.families.map((f,i)=>({key:'f'+i,char:f.root,meaning:f.meaning,reading:f.pinyin,info:f.examples.map(x=>x.hanzi).join(' · '),family:true}));
+ let candidates=DB.radicals.filter(r=>stat('r'+r.id)>0||edu.skills[r.display+'|meaning']);
+ if(['1','2','3'].includes(state.studySet))candidates=candidates.filter(r=>r.group===Number(state.studySet));
+ if(state.studySet==='due'||state.studySet==='review'||state.studySet==='all'){
+  candidates=candidates.filter(r=>{const e=edu.skills[r.display+'|meaning'];return state.studySet==='all'||!e||e.due<=Date.now()});
+ }
+ return candidates.filter(r=>!reviewSeen.has('r'+r.id)).map(r=>({key:'r'+r.id,char:r.display,meaning:r.meaning,reading:r.group!==1?(r.pinyin||getReading(r.display)||''):'',info:'Ключ № '+r.id+' · '+G[r.group],family:false}));
+}
+renderStudy=function(){
+ const pool=recallPool();
+ if(state.current>=pool.length)state.current=0;
+ const x=pool[state.current];
+ const options=[['due','Пора повторить'],['all','Все начатые'],['1','Группа 1'],['2','Группа 2'],['3','Группа 3'],['families','Фонетические семейства']];
+ $('#app').innerHTML='<div class="panel study"><h2>Карточки и повторение</h2>'+styleControl()+
+ '<p class="hint">Здесь вспоминаем ранее изученные графемы. Карточка не является экзаменом: оценка «Вспомнила» или «Пока трудно» планирует следующее повторение. Для проверки без подсказок используй раздел «Проверка».</p>'+
+ '<div class="filters"><select id="studyset">'+options.map(([v,t])=>'<option value="'+v+'" '+(state.studySet===v?'selected':'')+'>'+t+'</option>').join('')+'</select></div>'+
+ '<p class="muted">Карточек в наборе: '+pool.length+'</p>'+
+ (x?'<p class="muted">Карточка '+(state.current+1)+' из '+pool.length+'</p><div class="herochar">'+x.char+'</div>'+
+ (state.revealed?'<h2>'+escapeHtml(x.meaning)+'</h2><p class="hint">'+escapeHtml(x.info)+(x.reading?' · '+escapeHtml(x.reading):'')+'</p>':'<p class="hint">Вспомни значение. Ответ скрыт до твоего решения.</p>')+
+ '<div class="flex" style="justify-content:center">'+(x.reading?'<button class="btn alt" id="studySound">▶ Слушать</button>':'')+'<button class="btn" id="studyFlip">'+(state.revealed?'Скрыть ответ':'Показать ответ')+'</button></div>'+
+ (state.revealed?'<div class="flex" style="justify-content:center;margin-top:14px"><button class="btn bad" id="studyAgain">Пока трудно</button><button class="btn good" id="studyRemember">Вспомнила</button></div>':'')+
+ '<div class="flex" style="justify-content:center"><button class="btn alt" id="studyPrev">← Назад</button><button class="btn alt" id="studyNext">Дальше →</button></div>':
+ '<div class="empty">В этом наборе пока нет карточек. Начни изучать графемы в «Курсе» или выбери другой набор.</div>')+
+ '<button class="btn alt" id="studyGoCourse">🎓 К изучению новых графем</button></div>';
+ initStyleControl();
+ document.getElementById('studyset').onchange=e=>{state.studySet=e.target.value;state.current=0;state.revealed=false;reviewSeen.clear();renderStudy()};
+ document.getElementById('studyGoCourse').onclick=()=>{state.tab='course';render()};
+ if(!x)return;
+ const next=()=>{state.current++;state.revealed=false;renderStudy()};
+ document.getElementById('studyFlip').onclick=()=>{state.revealed=!state.revealed;renderStudy()};
+ document.getElementById('studyNext').onclick=next;
+ document.getElementById('studyPrev').onclick=()=>{state.current=Math.max(0,state.current-1);state.revealed=false;renderStudy()};
+ if(document.getElementById('studySound'))document.getElementById('studySound').onclick=()=>speak(x.char);
+ if(state.revealed){
+  const score=correct=>{
+   if(!x.family)scoreSkill(x.char,'meaning',correct);
+   else{progress[x.key]=correct?2:1;save()}
+   reviewSeen.add(x.key);state.current=0;state.revealed=false;renderStudy();
+  };
+  document.getElementById('studyAgain').onclick=()=>score(false);
+  document.getElementById('studyRemember').onclick=()=>score(true);
+ }
+};
+
 const originalRender=render;
 render=function(){
- if(['course','review','tones','explore','skills'].includes(state.tab)){
+ if(state.tab==='review')state.tab='study';
+ if(['course','tones','explore','skills'].includes(state.tab)){
   document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('on',x.dataset.tab===state.tab));stats();
   if(state.tab==='course')renderLesson();
-  if(state.tab==='review')renderReviewEdu();
   if(state.tab==='tones')renderToneEdu();
   if(state.tab==='explore')renderFamilyEdu();
   if(state.tab==='skills')renderEduStats();
