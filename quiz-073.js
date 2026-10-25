@@ -31,7 +31,7 @@ function renderKnownQuiz(){
  (!r?'<p class="hint">Нет подходящих изученных графем для этого режима. Отметь ключи «Знаю» в словаре или выбери другой режим.</p>':
  quizMode==='meaning'?'<div class="herochar">'+r.display+'</div><p>Какое значение у этой графемы?</p><div class="quiz-options" id="knownChoices"></div><div id="quizFeedback"></div>':
  quizMode==='writing'?'<p>Напиши знак по памяти: <b>'+escapeHtml(r.meaning)+'</b>'+(quizReading(r)?' · '+escapeHtml(quizReading(r)):'')+'</p><div class="writerbox" style="margin:0 auto;max-width:330px"><div id="knownWritingCanvas"></div></div><p id="quizFeedback" class="hint">Напиши пальцем; образец намеренно скрыт.</p><button class="btn alt" id="quizReveal">Показать ответ</button>':
- '<div class="herochar">'+r.display+'</div><p>Введи пиньинь латинскими буквами без тона, затем выбери тон.</p><input id="quizPinyin" type="text" placeholder="Например, ren" autocapitalize="none" autocomplete="off" spellcheck="false" style="max-width:260px;width:100%;padding:12px"><div class="flex" style="justify-content:center;margin:12px 0">'+[1,2,3,4,5].map(n=>'<button class="btn alt" data-quiz-tone="'+n+'">'+(n===5?'0':n)+'</button>').join('')+'</div><div id="quizFeedback"></div>')+
+ '<div class="herochar">'+r.display+'</div><p>Введи чтение ключа в значении «'+escapeHtml(r.meaning)+'» латинскими буквами без тона, затем выбери тон.</p><input id="quizPinyin" type="text" placeholder="Например, ren" autocapitalize="none" autocomplete="off" spellcheck="false" style="max-width:260px;width:100%;padding:12px"><div class="flex" style="justify-content:center;margin:12px 0">'+[1,2,3,4,5].map(n=>'<button class="btn alt" data-quiz-tone="'+n+'">'+(n===5?'0':n)+'</button>').join('')+'</div><div id="quizFeedback"></div>')+
  '<div class="flex" style="justify-content:center;margin:16px 0"><button class="btn alt" id="quizNext073">Следующий вопрос →</button></div></div>';
  document.querySelectorAll('[data-quiz-mode]').forEach(b=>b.onclick=()=>{quizMode=b.dataset.quizMode;quizItem=null;knownQuizNext()});
  eduBtn('quizNext073',knownQuizNext);
@@ -47,7 +47,7 @@ function renderKnownQuiz(){
    const typed=normalizedBase(document.getElementById('quizPinyin').value);
    if(!typed){document.getElementById('quizFeedback').textContent='Сначала введи слог латинскими буквами.';return}
    const ok=typed===base&&Number(b.dataset.quizTone)===tone;quizGrade(ok,'tone');
-   document.getElementById('quizFeedback').textContent=(ok?'✓ Верно! ':'Пока неверно. ')+'Правильное произношение: '+answer;
+   document.getElementById('quizFeedback').textContent=(ok?'✓ Верно! ':'Пока неверно. ')+'Чтение ключа: '+answer+(r.id===27?' (обрыв, скала). В современном значении «завод, фабрика» знак читается chǎng.':'');
    document.querySelectorAll('[data-quiz-tone]').forEach(x=>x.disabled=true);
    document.getElementById('quizPinyin').disabled=true;
   });
