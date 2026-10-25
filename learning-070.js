@@ -16,18 +16,66 @@ function scoreSkill(c,k,ok){
 const skillTitle={meaning:'Значение',writing:'Написание',tone:'Произношение'};
 const eduPart=()=>document.getElementById('app');
 const eduBtn=(id,fn)=>{const b=document.getElementById(id);if(b)b.onclick=fn};
-const nextLesson=()=>{edu.lesson.step++;const r=DB.radicals[edu.lesson.index];if(edu.lesson.step===3&&r.group===1)edu.lesson.step++;if(edu.lesson.step>=6){edu.lesson.step=0;edu.lesson.index=(edu.lesson.index+1)%214}eduSave();renderLesson()};
-function renderLesson(){
- const l=edu.lesson,r=DB.radicals[l.index],st=['Форма','Значение','Написание','Произношение','Проверка','Закрепление'];
- if(l.step===3&&r.group===1)l.step=4;
- const showAnswer=l.step===1||l.step===4;
- eduPart().innerHTML='<div class="panel study"><h2>Последовательный курс</h2><p class="muted">Ключ '+(l.index+1)+' из 214 · этап '+(l.step+1)+' из 6</p><h3>'+st[l.step]+'</h3><div class="herochar">'+r.display+'</div><p class="hint">'+(showAnswer?'Вспомни значение до открытия ответа.':l.step===2?'Напиши знак пальцем, следуя порядку черт.':l.step===3?'Слушай запись и обращай внимание на тон.':l.step===5?'Закрепи результат и переходи к следующему знаку.':'Рассмотри форму знака.')+'</p><p id="eduAnswer" hidden>'+escapeHtml(r.meaning)+'</p><div class="flex" style="justify-content:center"><button class="btn alt" id="eduAction">'+(l.step===2?'✍ Прописи':l.step===3?'▶ Слушать':'Показать значение')+'</button><button class="btn alt" id="eduBack">← Назад</button><button class="btn good" id="eduForward">Дальше →</button></div><div class="flex" style="justify-content:center"><button class="btn bad" id="eduHard">Нужно повторить</button><button class="btn good" id="eduGood">Запомнила</button></div><p class="hint">Прогресс сохраняется автоматически на этом iPhone.</p></div>';
- eduBtn('eduAction',()=>{if(l.step===2)goWrite(r.display);else if(l.step===3)speak(r.display,'syllable');else document.getElementById('eduAnswer').hidden=false});
- eduBtn('eduBack',()=>{l.step=Math.max(0,l.step-1);eduSave();renderLesson()});
- eduBtn('eduForward',nextLesson);
- eduBtn('eduHard',()=>{scoreSkill(r.display,l.step===2?'writing':l.step===3?'tone':'meaning',false);nextLesson()});
- eduBtn('eduGood',()=>{scoreSkill(r.display,l.step===2?'writing':l.step===3?'tone':'meaning',true);nextLesson()});
+
+function groupRadicals(g){return DB.radicals.filter(r=>r.group===Number(g))}
+function initCourseGroups(){
+ const l=edu.lesson;
+ if(!l.positions||typeof l.positions!=='object')l.positions={};
+ if(![1,2,3].includes(Number(l.group))){
+   l.group=DB.radicals[l.index]?.group||1;
+ }
+ if(!l.positions[l.group])l.positions[l.group]={index:l.index||0,step:l.step||0,completed:false};
+ for(const g of [1,2,3]){
+   const pool=groupRadicals(g);
+   const pos=l.positions[g];
+   if(!pos||!pool.some(r=>r.id-1===pos.index))l.positions[g]={index:pool[0].id-1,step:0,completed:false};
+ }
+ let p=l.positions[l.group];
+ l.index=p.index;l.step=p.step;
 }
+function saveGroupCourse(){
+ const l=edu.lesson;
+ l.positions[l.group]={index:l.index,step:l.step,completed:!!l.completed};
+ eduSave();
+}
+function chooseCourseGroup(g){
+ g=Number(g);if(![1,2,3].includes(g))return;
+ saveGroupCourse();
+ const l=edu.lesson;l.group=g;
+ const p=l.positions[g]||{index:groupRadicals(g)[0].id-1,step:0,completed:false};
+ l.index=p.index;l.step=p.step;l.completed=!!p.completed;
+ saveGroupCourse();renderLesson();
+}
+function nextLesson(){
+ const l=edu.lesson,r=DB.radicals[l.index],pool=groupRadicals(l.group);
+ l.step++;
+ if(l.step===3&&r.group===1)l.step++;
+ if(l.step>=6){
+  const idx=pool.findIndex(x=>x.id-1===l.index);
+  if(idx>=pool.length-1){l.step=5;l.completed=true}
+  else {l.step=0;l.index=pool[idx+1].id-1;l.completed=false}
+ }
+ saveGroupCourse();renderLesson();
+}
+function renderLesson(){
+ initCourseGroups();
+ const l=edu.lesson,pool=groupRadicals(l.group),r=DB.radicals[l.index],position=pool.findIndex(x=>x.id===r.id)+1;
+ const stages=['Форма','Значение','Написание','Произношение','Проверка','Закрепление'];
+ const selection='<div class="filters"><label for="courseGroup">Учебная группа</label><select id="courseGroup">'+[1,2,3].map(g=>'<option value="'+g+'" '+(l.group===g?'selected':'')+'>'+G[g]+' · '+groupRadicals(g).length+' ключей</option>').join('')+'</select></div>';
+ if(l.completed){
+  eduPart().innerHTML='<div class="panel study"><h2>Последовательный курс</h2>'+selection+'<h3>Группа '+l.group+' пройдена!</h3><p class="hint">Ты дошла до последнего ключа этой группы. Можешь перейти к другой группе или повторить эту с начала.</p><button class="btn alt" id="courseRestartGroup">↻ Начать группу заново</button></div>';
+  eduBtn('courseRestartGroup',()=>{l.index=pool[0].id-1;l.step=0;l.completed=false;saveGroupCourse();renderLesson()});
+ }else{
+  eduPart().innerHTML='<div class="panel study"><h2>Последовательный курс</h2>'+selection+'<p class="muted">Группа '+l.group+' · ключ '+position+' из '+pool.length+' (Канси № '+r.id+') · этап '+(l.step+1)+' из 6</p><h3>'+stages[l.step]+'</h3><div class="herochar">'+r.display+'</div><p class="hint">'+(l.step===1||l.step===4?'Вспомни значение до открытия ответа.':l.step===2?'Напиши знак пальцем, следуя порядку черт.':l.step===3?'Слушай запись и обращай внимание на тон.':l.step===5?'Закрепи результат и переходи к следующему знаку.':'Рассмотри форму знака.')+'</p><p id="eduAnswer" hidden>'+escapeHtml(r.meaning)+'</p><div class="flex" style="justify-content:center"><button class="btn alt" id="eduAction">'+(l.step===2?'✍ Прописи':l.step===3?'▶ Слушать':'Показать значение')+'</button><button class="btn alt" id="eduBack">← Назад</button><button class="btn good" id="eduForward">Дальше →</button></div><div class="flex" style="justify-content:center"><button class="btn bad" id="eduHard">Нужно повторить</button><button class="btn good" id="eduGood">Запомнила</button></div><p class="hint">Каждая группа запоминает собственное место остановки. Можно свободно переключаться.</p></div>';
+  eduBtn('eduAction',()=>{if(l.step===2)goWrite(r.display);else if(l.step===3)speak(r.display,'syllable');else document.getElementById('eduAnswer').hidden=false});
+  eduBtn('eduBack',()=>{l.step=Math.max(0,l.step-1);saveGroupCourse();renderLesson()});
+  eduBtn('eduForward',nextLesson);
+  eduBtn('eduHard',()=>{scoreSkill(r.display,l.step===2?'writing':l.step===3?'tone':'meaning',false);nextLesson()});
+  eduBtn('eduGood',()=>{scoreSkill(r.display,l.step===2?'writing':l.step===3?'tone':'meaning',true);nextLesson()});
+ }
+ document.getElementById('courseGroup').onchange=e=>chooseCourseGroup(e.target.value);
+}
+initCourseGroups();
 function dueQueue(){return DB.radicals.flatMap(r=>['meaning','writing','tone'].filter(k=>k!=='tone'||r.group!==1).filter(k=>edu.skills[r.display+'|'+k]&&edu.skills[r.display+'|'+k].due<=Date.now()&&!sessionSkipped.has(r.display+'|'+k)).map(k=>({r,k})))}
 function renderReviewEdu(){
  const q=dueQueue(),v=q[0];
