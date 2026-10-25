@@ -3108,12 +3108,12 @@ function showStrokeOrder(){
  actions.innerHTML='<div class="flex" style="justify-content:center;align-items:center;gap:8px"><button class="btn alt" id="strokePrev">← Предыдущая</button><span id="strokePosition" class="muted" aria-live="polite"></span><button class="btn alt" id="strokeNext">Следующая →</button></div><div class="flex" style="justify-content:center;margin-top:10px"><button class="btn" id="strokePlay">▶ Смотреть все черты</button></div>';
  const play=$('#strokePlay'),prev=$('#strokePrev'),next=$('#strokeNext'),position=$('#strokePosition');
  const update=()=>{
-  position.textContent=(Math.min(count,strokePlayerNext+1))+' / '+count;
+  position.textContent=strokePlayerNext+' / '+count;
   prev.disabled=strokePlayerNext<=0&&!strokePlayerPlaying;
   next.disabled=strokePlayerNext>=count&&!strokePlayerPlaying;
   play.textContent=strokePlayerPlaying?'⏸ Остановить':strokePlayerNext>=count?'↻ Повторить все черты':strokePlayerStopped?'▶ Продолжить просмотр':'▶ Смотреть все черты';
  };
- const describe=()=>writingMessage('Черта '+Math.min(strokePlayerNext+1,count)+' из '+count+'. «Предыдущая» — вернуться на черту назад, «Следующая» — посмотреть очередную.');
+ const describe=()=>writingMessage('Показано черт: '+strokePlayerNext+' из '+count+'. «Предыдущая» — шаг назад, «Следующая» — шаг вперёд.');
  const reset=async target=>{
   const run=++strokePlayerRun;
   strokePlayerPlaying=false;strokePlayerStopped=true;
