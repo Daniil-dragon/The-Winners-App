@@ -9,8 +9,8 @@ function originLamp(ch){
  const app=document.getElementById('app');if(!app||document.getElementById('originLamp'))return;
  const anchor=state.tab==='writing'?app.querySelector('.writer-side'):app.querySelector('.herochar');
  if(!anchor)return;
- const b=document.createElement('button');b.id='originLamp';b.type='button';b.className='btn alt';b.style.margin='8px auto 14px';b.style.display='block';
- b.textContent='💡 Происхождение формы';b.setAttribute('aria-label','Открыть словарь происхождения формы для '+ch);
+ const b=document.createElement('button');b.id='originLamp';b.type='button';b.className='btn alt';b.style.margin='8px auto 14px';b.style.display='block';b.style.borderRadius='50%';b.style.width='46px';b.style.height='46px';b.style.fontSize='22px';b.style.padding='0';
+ b.textContent='💡';b.title='Происхождение формы';b.setAttribute('aria-label','Открыть словарь происхождения формы для '+ch);
  anchor.insertAdjacentElement('afterend',b);
  b.onclick=()=>openOrigins(ch);
 }
@@ -30,14 +30,16 @@ function queueOriginLamp(){
 }
 function openOrigins(ch){
  if(state.tab!=='origins'){
-  originReturn={tab:state.tab,radicalId:state.tab==='radicals'?originOpenedRadical:null,scroll:window.scrollY};
+  const saved=document.createDocumentFragment(),app=document.getElementById('app');while(app.firstChild)saved.appendChild(app.firstChild);
+  originReturn={tab:state.tab,radicalId:state.tab==='radicals'?originOpenedRadical:null,scroll:window.scrollY,saved};
  }
  originSelected=ch||originSelected;originFilter='';state.tab='origins';renderOrigins();window.scrollTo(0,0);
 }
 function returnFromOrigins(){
  const ret=originReturn||{tab:'radicals',radicalId:null,scroll:0};
- state.tab=ret.tab;originReturn=null;render();
- if(ret.tab==='radicals'&&ret.radicalId)openRadical(ret.radicalId);
+ state.tab=ret.tab;originReturn=null;
+ if(ret.saved){document.getElementById('app').replaceChildren(ret.saved);document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('on',x.dataset.tab===state.tab));stats()}
+ else{render();if(ret.tab==='radicals'&&ret.radicalId)openRadical(ret.radicalId)}
  requestAnimationFrame(()=>window.scrollTo(0,ret.scroll||0));
 }
 function originIllustration(ch){
