@@ -2928,7 +2928,21 @@ new MutationObserver(()=>scheduleKaiScan()).observe(kaiApp,{childList:true,subtr
 applyStyle();
 function styleControl(){return `<div class="stylebar"><span><b>Вид знаков</b> · Кайшу / стандартный</span><select id="styleSelect" aria-label="Вид знаков"><option value="kai" ${visualStyle==='kai'?'selected':''}>Кистевой · кайшу</option><option value="standard" ${visualStyle==='standard'?'selected':''}>Стандартный</option></select></div>`}
 function initStyleControl(){const e=$('#styleSelect');if(e)e.onchange=ev=>{visualStyle=ev.target.value;localStorage.setItem(STYLE_KEY,visualStyle);applyStyle()}}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(progress))}catch(e){alert('Браузер не разрешил сохранение. Для надёжного прогресса открой приложение по HTTPS.')}}function stat(id){return progress[id]||0}function setstat(id,n){progress[id]=n;save();render()}function known(){return DB.radicals.filter(x=>stat('r'+x.id)===2).length}function learned(){return DB.radicals.filter(x=>stat('r'+x.id)>0).length}
+const QUIZ_KNOWN_TIMES_KEY='hanzi_radicals_known_since_085';
+let quizKnownTimes={};try{quizKnownTimes=JSON.parse(localStorage.getItem(QUIZ_KNOWN_TIMES_KEY)||'{}')||{}}catch(e){}
+const knownSnapshot={...progress};
+function save(){
+ try{
+  const now=Date.now();
+  for(const r of DB.radicals){
+   const k='r'+r.id;
+   if(progress[k]===2&&knownSnapshot[k]!==2)quizKnownTimes[r.id]=now;
+   knownSnapshot[k]=progress[k]||0;
+  }
+  localStorage.setItem(QUIZ_KNOWN_TIMES_KEY,JSON.stringify(quizKnownTimes));
+  localStorage.setItem(KEY,JSON.stringify(progress));
+ }catch(e){alert('Браузер не разрешил сохранение. Для надёжного прогресса открой приложение по HTTPS.')}
+}function stat(id){return progress[id]||0}function setstat(id,n){progress[id]=n;save();render()}function known(){return DB.radicals.filter(x=>stat('r'+x.id)===2).length}function learned(){return DB.radicals.filter(x=>stat('r'+x.id)>0).length}
 // Audio 0.2: recordings only; never silently substitute TTS for a different reading.
 const AUDIO_COMMONS={'五|wǔ':'https://commons.wikimedia.org/wiki/Special:Redirect/file/Zh-wǔ.ogg'};
 let currentRecording=null;
