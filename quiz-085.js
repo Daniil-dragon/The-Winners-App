@@ -13,12 +13,13 @@ const quizShuffle085=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Ma
 function quizBegin085(){
  const pool=quizCandidates085(),stats=quizMemory085[quizMode]||{};
  const fresh=quizShuffle085(pool.filter(r=>!(stats[r.id]?.attempts)));
- const older=quizShuffle085(pool.filter(r=>stats[r.id]?.attempts));
- // Newly marked "Знаю" keys are prioritized once their timestamps are available.
+ const difficult=pool.filter(r=>stats[r.id]?.errors>0).sort((a,b)=>(stats[b.id].errors*2-stats[b.id].streak)-(stats[a.id].errors*2-stats[a.id].streak));
+ const older=quizShuffle085(pool.filter(r=>stats[r.id]?.attempts&&!difficult.some(x=>x.id===r.id)));
+ // Newly learned and previously missed signs gain extra practice AFTER a complete first pass.
  const dated=pool.filter(r=>quizKnownTimes?.[r.id]).sort((a,b)=>quizKnownTimes[b.id]-quizKnownTimes[a.id]);
- const recent=[...dated,...fresh,...older].filter((r,i,list)=>list.findIndex(x=>x.id===r.id)===i).slice(0,Math.min(5,pool.length));
+ const recent=[...dated.slice(0,3),...difficult.slice(0,3),...fresh,...older].filter((r,i,list)=>list.findIndex(x=>x.id===r.id)===i).slice(0,Math.min(6,pool.length));
  quizSession085={mode:quizMode,ids:pool.map(r=>r.id).sort((a,b)=>a-b).join(','),
-  unseen:[...fresh,...older].map(r=>r.id),retry:{},reinforce:recent.map(r=>r.id),
+  unseen:[...fresh,...difficult.filter(r=>!fresh.some(x=>x.id===r.id)),...older].map(r=>r.id),retry:{},reinforce:recent.map(r=>r.id),
   initial:pool.length,extra:recent.length,asked:0,complete:pool.length===0,last:null};
 }
 function quizSessionGet085(){const ids=quizCandidates085().map(r=>r.id).sort((a,b)=>a-b).join(',');if(!quizSession085||quizSession085.mode!==quizMode||quizSession085.ids!==ids)quizBegin085();return quizSession085}
@@ -92,7 +93,7 @@ function renderKnownQuiz(){
  '<div style="margin:12px 0"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><b>До завершения: '+meter.unresolved+' '+(meter.unresolved===1?'задание':'заданий')+'</b><span class="muted">Ещё не встретились: '+meter.first+' из '+meter.initial+'</span></div><div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+meter.pct+'" aria-label="Прогресс тренировки" style="height:13px;margin-top:8px;background:#e5eaf5;border-radius:10px;overflow:hidden"><div style="height:100%;width:'+meter.pct+'%;background:#248861;transition:width .2s"></div></div><p class="hint" style="margin:7px 0 2px">Сначала все графемы по одному разу. Затем — ошибки и недавно добавленные. Ошибку нужно исправить дважды.</p></div>'+
  (!r?(session.complete&&pool.length?'<p style="font-weight:700">✓ Тренировка завершена! Все графемы пройдены, ошибки отработаны.</p><button class="btn good" id="quizRepeat085">↻ Новая тренировка</button>':'<p class="hint">Нет подходящих изученных графем для этого режима. Отметь ключи «Знаю» в словаре или выбери другой режим.</p>') :
  quizMode==='meaning'?'<div class="herochar">'+r.display+'</div><p>Какое значение у этой графемы?</p><div class="quiz-options" id="knownChoices"></div><div id="quizFeedback"></div>':
- quizMode==='writing'?'<p>Напиши знак по памяти: <b>'+escapeHtml(quizStudyText085(r))+'</b>'+(quizReading(r)&&r.group!==1?' · '+escapeHtml(quizReading(r)):'')+'</p><div class="writerbox" style="margin:0 auto;max-width:330px"><div id="knownWritingCanvas"></div></div><div class="flex" style="justify-content:center;margin-top:12px"><button class="btn alt" id="quizStrokeHint" disabled>✦ Подсказать следующую черту</button></div><p id="quizFeedback" class="hint">Напиши пальцем; образец намеренно скрыт.</p><button class="btn alt" id="quizReveal">Показать ответ</button>':
+ quizMode==='writing'?'<p>Напиши знак по памяти: <b>'+escapeHtml(quizStudyText085(r))+'</b></p><div class="writerbox" style="margin:0 auto;max-width:330px"><div id="knownWritingCanvas"></div></div><div class="flex" style="justify-content:center;margin-top:12px"><button class="btn alt" id="quizStrokeHint" disabled>✦ Подсказать следующую черту</button></div><p id="quizFeedback" class="hint">Напиши пальцем; образец намеренно скрыт.</p><button class="btn alt" id="quizReveal">Показать ответ</button>':
  '<div class="herochar">'+r.display+'</div><p>Введи чтение ключа в значении «'+escapeHtml(r.meaning)+'» латинскими буквами без тона, затем выбери тон.</p><input id="quizPinyin" type="text" placeholder="Например, ren" autocapitalize="none" autocomplete="off" spellcheck="false" style="max-width:260px;width:100%;padding:12px"><div class="flex" style="justify-content:center;margin:12px 0">'+[1,2,3,4,5].map(n=>'<button class="btn alt" data-quiz-tone="'+n+'">'+(n===5?'0':n)+'</button>').join('')+'</div><div id="quizFeedback"></div>')+
  '<div class="flex" style="justify-content:center;margin:16px 0"><button class="btn alt" id="quizNext073" '+(!quizAnswered?'disabled':'')+'>Следующий вопрос →</button></div></div>';
  document.querySelectorAll('[data-quiz-mode]').forEach(b=>b.onclick=()=>{quizMode=b.dataset.quizMode;quizItem=null;knownQuizNext()});
