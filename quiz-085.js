@@ -14,9 +14,12 @@ function quizBegin085(){
  const pool=quizCandidates085(),stats=quizMemory085[quizMode]||{};
  const fresh=quizShuffle085(pool.filter(r=>!(stats[r.id]?.attempts)));
  const older=quizShuffle085(pool.filter(r=>stats[r.id]?.attempts));
+ // Newly marked "Знаю" keys are prioritized once their timestamps are available.
+ const dated=pool.filter(r=>quizKnownTimes?.[r.id]).sort((a,b)=>quizKnownTimes[b.id]-quizKnownTimes[a.id]);
+ const recent=[...dated,...fresh,...older].filter((r,i,list)=>list.findIndex(x=>x.id===r.id)===i).slice(0,Math.min(5,pool.length));
  quizSession085={mode:quizMode,ids:pool.map(r=>r.id).sort((a,b)=>a-b).join(','),
-  unseen:[...fresh,...older].map(r=>r.id),retry:{},reinforce:fresh.slice(0,Math.min(5,fresh.length)).map(r=>r.id),
-  initial:pool.length,extra:fresh.slice(0,Math.min(5,fresh.length)).length,asked:0,complete:pool.length===0,last:null};
+  unseen:[...fresh,...older].map(r=>r.id),retry:{},reinforce:recent.map(r=>r.id),
+  initial:pool.length,extra:recent.length,asked:0,complete:pool.length===0,last:null};
 }
 function quizSessionGet085(){const ids=quizCandidates085().map(r=>r.id).sort((a,b)=>a-b).join(',');if(!quizSession085||quizSession085.mode!==quizMode||quizSession085.ids!==ids)quizBegin085();return quizSession085}
 const quizRemaining085=()=>{const q=quizSessionGet085();return q.unseen.length+q.reinforce.length+Object.values(q.retry).reduce((s,n)=>s+n,0)};
